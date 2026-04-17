@@ -38,7 +38,7 @@
       position: sticky; top: 0; z-index: 300;
       background: var(--white); border-bottom: 1px solid var(--border);
       height: var(--header-h);
-      display: flex; align-items: center;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0 3%; gap: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
@@ -46,7 +46,7 @@
     .logo span { color: var(--primary); }
 
     /* NAVBAR */
-    .nav-center { display: flex; align-items: center; gap: 0.3rem; flex: 1; flex-wrap: wrap; }
+    .nav-center { display: flex; align-items: center; gap: 0.3rem; flex-shrink: 0; }
 
     /* Category dropdown */
     .nav-dropdown { position: relative; }
@@ -91,7 +91,7 @@
 
     /* Search */
     .search-wrap {
-      flex: 1; max-width: 360px; min-width: 120px;
+      flex: 1; max-width: 340px; min-width: 120px;
       display: flex; align-items: center;
       background: #F3F4F6; border-radius: 8px;
       padding: 0 0.8rem; height: 38px;
@@ -102,7 +102,7 @@
     .search-wrap input::placeholder { color: var(--muted); }
 
     /* Header right */
-    .header-right { display: flex; gap: 0.6rem; align-items: center; flex-shrink: 0; margin-left: auto; }
+    .header-right { display: flex; gap: 0.6rem; align-items: center; flex-shrink: 0; }
     .wa-btn {
       display: flex; align-items: center; gap: 0.35rem;
       background: #25D366; color: #fff; border: none; border-radius: 8px;
