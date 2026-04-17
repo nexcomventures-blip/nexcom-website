@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>HP Laptops | Nexcom Limited Nairobi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #E4002B; --primary-dark: #B5001F;
+      --bg: #F5F5F5; --white: #FFFFFF;
+      --text: #1A1A1A; --muted: #6B7280; --border: #E5E7EB;
+      --header-h: 60px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* TOP BAR */
+    .topbar {
+      background: var(--primary); color: #fff;
+      font-size: 0.78rem; font-weight: 500;
+      text-align: center; padding: 6px 1rem;
+    }
+    .topbar a { color: #FFD700; text-decoration: none; font-weight: 700; }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 300;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      height: var(--header-h);
+      display: flex; align-items: center;
+      padding: 0 3%; gap: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; flex-shrink: 0; }
+    .logo span { color: var(--primary); }
+
+    /* NAVBAR */
+    .nav-center { display: flex; align-items: center; gap: 0.3rem; flex: 1; flex-wrap: wrap; }
+
+    /* Category dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn {
+      display: flex; align-items: center; gap: 0.35rem;
+      padding: 8px 14px; border-radius: 8px; border: none;
+      background: none; font-size: 0.88rem; font-weight: 600;
+      color: var(--text); cursor: pointer; transition: background .15s;
+      white-space: nowrap;
+    }
+    .nav-dropdown-btn:hover, .nav-dropdown-btn.active {
+      background: #FFF0F0; color: var(--primary);
+    }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform .2s; }
+    .nav-dropdown-btn.open .arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; min-width: 220px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 999;
+      overflow: hidden; padding: 6px 0;
+    }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 10px 18px; font-size: 0.88rem; font-weight: 500;
+      color: var(--text); text-decoration: none; transition: background .15s;
+    }
+    .dropdown-menu a:hover { background: #FFF0F0; color: var(--primary); }
+    .dropdown-menu a.current { background: #FFF0F0; color: var(--primary); font-weight: 700; }
+    .dropdown-menu .sep { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
+
+    /* Home nav link */
+    .nav-link {
+      padding: 8px 14px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--text); text-decoration: none; transition: background .15s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { background: #F3F4F6; }
+    .nav-link.active { background: #FFF0F0; color: var(--primary); }
+
+    /* Search */
+    .search-wrap {
+      flex: 1; max-width: 360px; min-width: 120px;
+      display: flex; align-items: center;
+      background: #F3F4F6; border-radius: 8px;
+      padding: 0 0.8rem; height: 38px;
+      border: 1.5px solid transparent; transition: border .2s;
+    }
+    .search-wrap:focus-within { border-color: var(--primary); background: #fff; }
+    .search-wrap input { flex: 1; border: none; background: transparent; outline: none; font-size: 0.88rem; }
+    .search-wrap input::placeholder { color: var(--muted); }
+
+    /* Header right */
+    .header-right { display: flex; gap: 0.6rem; align-items: center; flex-shrink: 0; margin-left: auto; }
+    .wa-btn {
+      display: flex; align-items: center; gap: 0.35rem;
+      background: #25D366; color: #fff; border: none; border-radius: 8px;
+      padding: 7px 12px; font-size: 0.82rem; font-weight: 700;
+      cursor: pointer; text-decoration: none; transition: opacity .2s;
+    }
+    .wa-btn:hover { opacity: .88; }
+
+    /* HERO */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 220px; display: flex; align-items: center;
+      padding: 2.5rem 4%;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      filter: brightness(0.35);
+    }
+    .hero-content { position: relative; z-index: 1; color: #fff; max-width: 600px; }
+    .hero-badge {
+      display: inline-block; background: var(--primary);
+      color: #fff; font-size: 0.72rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 50px; margin-bottom: 0.8rem;
+      letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .hero-content h1 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem; }
+    .hero-content p { font-size: 0.95rem; color: #CBD5E1; line-height: 1.6; }
+
+    /* SUBCATEGORY TABS */
+    .subcat-bar {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 10px 4%; display: flex; gap: 0.5rem; overflow-x: auto;
+    }
+    .subcat-bar::-webkit-scrollbar { height: 0; }
+    .subcat-pill {
+      white-space: nowrap; padding: 7px 18px; border-radius: 50px;
+      border: 1.5px solid var(--border); background: #fff;
+      font-size: 0.82rem; font-weight: 600; cursor: pointer;
+      color: var(--muted); transition: all .2s; flex-shrink: 0;
+    }
+    .subcat-pill.active, .subcat-pill:hover {
+      background: var(--primary); color: #fff; border-color: var(--primary);
+    }
+
+    /* TOOLBAR */
+    .toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 4% 0.5rem; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .results-count { font-size: 0.85rem; color: var(--muted); }
+    .results-count strong { color: var(--text); }
+    .sort-select {
+      border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 7px 12px; font-size: 0.85rem; color: var(--text);
+      background: var(--white); cursor: pointer; outline: none;
+    }
+
+    /* PRODUCT GRID */
+    .pgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1rem; padding: 1rem 4% 3rem;
+    }
+    .pcard {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+      position: relative; display: flex; flex-direction: column;
+    }
+    .pcard:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .badge-new {
+      position: absolute; top: 10px; left: 10px; z-index: 2;
+      background: #F59E0B; color: #fff; font-size: 0.65rem;
+      font-weight: 800; padding: 3px 8px; border-radius: 50px;
+    }
+    .pcard-img { position: relative; height: 165px; overflow: hidden; background: #F9FAFB; }
+    .pcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .pcard:hover .pcard-img img { transform: scale(1.04); }
+    .pcard-brand {
+      position: absolute; bottom: 8px; right: 8px;
+      color: #fff; font-size: 0.65rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 50px; text-transform: uppercase;
+    }
+    .pcard-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+    .pcard-name { font-size: 0.875rem; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .pcard-spec { font-size: 0.75rem; color: var(--muted); line-height: 1.4; flex: 1; margin-bottom: 10px; }
+    .pcard-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .pcard-price { font-size: 0.95rem; font-weight: 800; color: var(--primary); white-space: nowrap; }
+    .pcard-btn {
+      background: var(--primary); color: #fff; border: none;
+      border-radius: 6px; padding: 7px 12px; font-size: 0.75rem; font-weight: 700;
+      cursor: pointer; transition: background .2s; white-space: nowrap;
+    }
+    .pcard-btn:hover { background: var(--primary-dark); }
+
+    /* NO RESULTS */
+    .no-results {
+      text-align: center; padding: 4rem 2rem; color: var(--muted);
+      font-size: 0.95rem; display: none; grid-column: 1/-1;
+    }
+    .no-results .emoji { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      background: var(--white); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 4%; display: flex; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; }
+
+    /* ORDER MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.55); align-items: center; justify-content: center; padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px;
+      width: 100%; max-width: 460px; max-height: 90vh;
+      overflow-y: auto; padding: 2rem; position: relative;
+    }
+    .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); }
+    .modal h2 { font-size: 1.15rem; font-weight: 800; margin-bottom: 1.2rem; }
+    .modal-product-box {
+      background: #FFF0F0; border: 1px solid #FECACA;
+      border-radius: 10px; padding: 12px 14px; margin-bottom: 1.5rem;
+    }
+    .modal-product-box strong { display: block; font-size: 0.9rem; font-weight: 700; }
+    .modal-product-box span { font-size: 0.78rem; color: var(--muted); }
+    .modal-product-box .mprice { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-top: 4px; }
+    .form-row { margin-bottom: 1rem; }
+    .form-row label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+    .form-row input {
+      width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 10px 12px; font-size: 0.9rem; color: var(--text); outline: none; transition: border .2s;
+    }
+    .form-row input:focus { border-color: var(--primary); }
+    .submit-btn {
+      width: 100%; background: var(--primary); color: #fff; border: none;
+      border-radius: 10px; padding: 13px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: background .2s;
+    }
+    .submit-btn:hover { background: var(--primary-dark); }
+    #orderResult { margin-top: 0.8rem; font-size: 0.9rem; text-align: center; }
+
+    /* FOOTER */
+    footer { background: #1A1A2E; color: #CBD5E1; padding: 2.5rem 4% 1.5rem; margin-top: 1rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; }
+    .footer-col p, .footer-col a { font-size: 0.82rem; color: #94A3B8; line-height: 2; text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; text-align: center; font-size: 0.78rem; color: #64748B; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-center { gap: 0; }
+      .nav-dropdown-btn { padding: 6px 10px; font-size: 0.82rem; }
+      .nav-link { padding: 6px 8px; font-size: 0.82rem; }
+      .pgrid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.7rem; padding: 0.75rem 3% 2rem; }
+      .pcard-img { height: 130px; }
+      .hero { min-height: 160px; padding: 1.8rem 4%; }
+      .wa-btn span { display: none; }
+      .trust-strip { gap: 1.2rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  🚚 Free delivery within Nairobi CBD &nbsp;|&nbsp; Call/WhatsApp: <a href="tel:+254722816001">+254 722 816 001</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="index.html">Nex<span>com</span></a>
+
+  <nav class="nav-center">
+    <a class="nav-link" href="index.html">🏠 Home</a>
+
+    <!-- Products dropdown -->
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-btn active">
+        🛍️ HP Laptops <span class="arrow">▼</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="hp.html" class="current">💻 HP Laptops</a>
+<a href="dell.html">💻 Dell Laptops</a>
+<a href="lenovo.html">💻 Lenovo Laptops</a>
+<a href="macbook.html">🍎 MacBooks</a>
+<a href="servers.html">🖥️ Servers & Networking</a>
+<a href="accessories.html">🖱️ Accessories</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Search..." oninput="doSearch(this.value)"/>
+  </div>
+
+  <div class="header-right">
+    <a class="wa-btn" href="https://wa.me/254722816001" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=1200&auto=format')"></div>
+  <div class="hero-content">
+    <span class="hero-badge">💻 HP Laptops</span>
+    <h1>HP Laptops</h1>
+    <p>ProBook, EliteBook, ZBook & more — certified refurbished & brand new</p>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">✅ Every device tested</div>
+  <div class="trust-item">🚚 Same-day delivery Nairobi</div>
+  <div class="trust-item">💳 M-Pesa accepted</div>
+  <div class="trust-item">🔄 Buy your old device</div>
+</div>
+
+
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="results-count">Showing <strong id="resultCount">95</strong> products</div>
+  <select class="sort-select" onchange="sortProducts(this.value)">
+    <option value="default">Sort: Default</option>
+    <option value="price-asc">Price: Low → High</option>
+    <option value="price-desc">Price: High → Low</option>
+    <option value="name-asc">Name: A–Z</option>
+  </select>
+</div>
+
+<!-- GRID -->
+<div class="pgrid" id="productGrid">
+  
+    <div class="pcard" data-sub="" data-name="hp spectre x360 15-df1xxx i7 10th gen, 16gb, 1tb ssd, 2gb graphics, convertible">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Spectre x360 15-df1xxx" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Spectre x360 15-df1xxx</h3>
+        <p class="pcard-spec">i7 10th Gen, 16GB, 1TB SSD, 2GB Graphics, Convertible</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 98,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Spectre x360 15-df1xxx','i7 10th Gen, 16GB, 1TB SSD, 2GB Graphics, Convertible','KES 98,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp spectre x360 15t-eb000 i7 10th gen, 16gb, 512gb, 4gb graphics, convertible">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Spectre x360 15t-eb000" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Spectre x360 15t-eb000</h3>
+        <p class="pcard-spec">i7 10th Gen, 16GB, 512GB, 4GB Graphics, Convertible</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 98,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Spectre x360 15t-eb000','i7 10th Gen, 16GB, 512GB, 4GB Graphics, Convertible','KES 98,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp spectre x360 15t-df100 i7 10th gen, 2gb graphics, convertible">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Spectre x360 15t-df100" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Spectre x360 15t-df100</h3>
+        <p class="pcard-spec">i7 10th Gen, 2GB Graphics, Convertible</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 93,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Spectre x360 15t-df100','i7 10th Gen, 2GB Graphics, Convertible','KES 93,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp spectre x360 15-df0xxx i7 8th gen, 16gb, 512gb, 2gb graphics, convertible">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Spectre x360 15-df0xxx" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Spectre x360 15-df0xxx</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, 2GB Graphics, Convertible</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 68,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Spectre x360 15-df0xxx','i7 8th Gen, 16GB, 512GB, 2GB Graphics, Convertible','KES 68,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp spectre x360 15-bl0xx i7 7th gen, 16gb, 512gb, 2gb graphics, convertible">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Spectre x360 15-bl0xx" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Spectre x360 15-bl0xx</h3>
+        <p class="pcard-spec">i7 7th Gen, 16GB, 512GB, 2GB Graphics, Convertible</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 63,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Spectre x360 15-bl0xx','i7 7th Gen, 16GB, 512GB, 2GB Graphics, Convertible','KES 63,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp pavilion 15-cs1xxx i7 8th gen, 16gb, 512gb, 4gb graphics">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Pavilion 15-cs1xxx" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Pavilion 15-cs1xxx</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, 4GB Graphics</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 58,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Pavilion 15-cs1xxx','i7 8th Gen, 16GB, 512GB, 4GB Graphics','KES 58,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp envy x360 15m i7 8th gen, 16gb, 512gb, convertible">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Envy x360 15m" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Envy x360 15m</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, Convertible</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 58,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Envy x360 15m','i7 8th Gen, 16GB, 512GB, Convertible','KES 58,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 15 fury g7 i7 10th gen, 16gb, 512gb, 4gb nvidia quadro t2000 max-q">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 15 Fury G7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 15 Fury G7</h3>
+        <p class="pcard-spec">i7 10th Gen, 16GB, 512GB, 4GB Nvidia Quadro T2000 Max-Q</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 78,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 15 Fury G7','i7 10th Gen, 16GB, 512GB, 4GB Nvidia Quadro T2000 Max-Q','KES 78,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 15 studio g7 i7 10th gen, 16gb, 512gb, 4gb nvidia quadro t1000 max-q">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 15 Studio G7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 15 Studio G7</h3>
+        <p class="pcard-spec">i7 10th Gen, 16GB, 512GB, 4GB Nvidia Quadro T1000 Max-Q</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 78,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 15 Studio G7','i7 10th Gen, 16GB, 512GB, 4GB Nvidia Quadro T1000 Max-Q','KES 78,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 15 studio g5 (9th) i7 9th gen, 16gb, 512gb, 4gb nvidia quadro p1000">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 15 Studio G5 (9th)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 15 Studio G5 (9th)</h3>
+        <p class="pcard-spec">i7 9th Gen, 16GB, 512GB, 4GB Nvidia Quadro P1000</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 68,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 15 Studio G5 (9th)','i7 9th Gen, 16GB, 512GB, 4GB Nvidia Quadro P1000','KES 68,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 15 studio (8th) i7 8th gen, 16gb, 512gb, 4gb nvidia quadro p1000">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 15 Studio (8th)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 15 Studio (8th)</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, 4GB Nvidia Quadro P1000</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 63,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 15 Studio (8th)','i7 8th Gen, 16GB, 512GB, 4GB Nvidia Quadro P1000','KES 63,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 15 g5 i7 8th gen, 16gb, 512gb, 4gb nvidia quadro p1000">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 15 G5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 15 G5</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, 4GB Nvidia Quadro P1000</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 63,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 15 G5','i7 8th Gen, 16GB, 512GB, 4GB Nvidia Quadro P1000','KES 63,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 15u g6 i7 8th gen, 16gb, 512gb, 4gb amd radeon pro wx3200">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 15u G6" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 15u G6</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, 4GB AMD Radeon Pro WX3200</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 58,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 15u G6','i7 8th Gen, 16GB, 512GB, 4GB AMD Radeon Pro WX3200','KES 58,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 14u g6 i7 8th gen, 16gb, 512gb, 4gb amd radeon pro wx3200">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 14u G6" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 14u G6</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, 4GB AMD Radeon Pro WX3200</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 53,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 14u G6','i7 8th Gen, 16GB, 512GB, 4GB AMD Radeon Pro WX3200','KES 53,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook 14u g5 i7 8th gen, 16gb, 512gb, 2gb amd radeon pro wx3100">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook 14u G5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook 14u G5</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB, 2GB AMD Radeon Pro WX3100</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 48,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook 14u G5','i7 8th Gen, 16GB, 512GB, 2GB AMD Radeon Pro WX3100','KES 48,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook g4 i7 7th gen, 16gb, 512gb, 4gb nvidia quadro m1200">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook G4" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook G4</h3>
+        <p class="pcard-spec">i7 7th Gen, 16GB, 512GB, 4GB Nvidia Quadro M1200</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 48,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook G4','i7 7th Gen, 16GB, 512GB, 4GB Nvidia Quadro M1200','KES 48,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp zbook g3 i7 6th gen, 16gb, 512gb, 4gb nvidia quadro m1200">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ZBook G3" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ZBook G3</h3>
+        <p class="pcard-spec">i7 6th Gen, 16GB, 512GB, 4GB Nvidia Quadro M1200</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 43,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ZBook G3','i7 6th Gen, 16GB, 512GB, 4GB Nvidia Quadro M1200','KES 43,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1040 g8 i7 11th gen, 16gb, 512gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1040 G8" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1040 G8</h3>
+        <p class="pcard-spec">i7 11th Gen, 16GB, 512GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 68,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1040 G8','i7 11th Gen, 16GB, 512GB SSD','KES 68,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1040 g5 (i5/16gb) i5 8th gen, 16gb, 512gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1040 G5 (i5/16GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1040 G5 (i5/16GB)</h3>
+        <p class="pcard-spec">i5 8th Gen, 16GB, 512GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 44,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1040 G5 (i5/16GB)','i5 8th Gen, 16GB, 512GB SSD','KES 44,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1040 g5 (i5/8gb) i5 8th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1040 G5 (i5/8GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1040 G5 (i5/8GB)</h3>
+        <p class="pcard-spec">i5 8th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 41,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1040 G5 (i5/8GB)','i5 8th Gen, 8GB, 256GB SSD','KES 41,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1040 g4 i7 touch i7 7th gen, 16gb, 512gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1040 G4 i7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1040 G4 i7 Touch</h3>
+        <p class="pcard-spec">i7 7th Gen, 16GB, 512GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1040 G4 i7 Touch','i7 7th Gen, 16GB, 512GB, Touchscreen','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1040 g4 i5 touch i5 7th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1040 G4 i5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1040 G4 i5 Touch</h3>
+        <p class="pcard-spec">i5 7th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 36,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1040 G4 i5 Touch','i5 7th Gen, 8GB, 256GB, Touchscreen','KES 36,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1040 g3 i7 6th gen, 16gb, 512gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1040 G3" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1040 G3</h3>
+        <p class="pcard-spec">i7 6th Gen, 16GB, 512GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 33,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1040 G3','i7 6th Gen, 16GB, 512GB SSD','KES 33,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1030 g3 i7/16/512 i7 8th gen, 16gb, 512gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1030 G3 i7/16/512" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1030 G3 i7/16/512</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 51,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1030 G3 i7/16/512','i7 8th Gen, 16GB, 512GB SSD','KES 51,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1030 g3 i7/16/256 i7 8th gen, 16gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1030 G3 i7/16/256" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1030 G3 i7/16/256</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 48,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1030 G3 i7/16/256','i7 8th Gen, 16GB, 256GB SSD','KES 48,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1030 g3 i5/16 i5 8th gen, 16gb, 512gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1030 G3 i5/16" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1030 G3 i5/16</h3>
+        <p class="pcard-spec">i5 8th Gen, 16GB, 512GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 44,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1030 G3 i5/16','i5 8th Gen, 16GB, 512GB SSD','KES 44,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1030 g2 i7 i7 7th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1030 G2 i7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1030 G2 i7</h3>
+        <p class="pcard-spec">i7 7th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 42,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1030 G2 i7','i7 7th Gen, 8GB, 256GB SSD','KES 42,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 1030 g2 i5 i5 7th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 1030 G2 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 1030 G2 i5</h3>
+        <p class="pcard-spec">i5 7th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 1030 G2 i5','i5 7th Gen, 8GB, 256GB SSD','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elite x2 g4 touch i7 8th gen, touchscreen, detachable 2-in-1">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Elite x2 G4 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Elite x2 G4 Touch</h3>
+        <p class="pcard-spec">i7 8th Gen, Touchscreen, Detachable 2-in-1</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 48,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Elite x2 G4 Touch','i7 8th Gen, Touchscreen, Detachable 2-in-1','KES 48,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elite x2 g2 i5 7th gen, 16gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Elite x2 G2" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Elite x2 G2</h3>
+        <p class="pcard-spec">i5 7th Gen, 16GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Elite x2 G2','i5 7th Gen, 16GB, 256GB SSD','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g10 i7 13th gen, 16gb, 512gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G10" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G10</h3>
+        <p class="pcard-spec">i7 13th Gen, 16GB, 512GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 68,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G10','i7 13th Gen, 16GB, 512GB SSD','KES 68,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g9 i7 12th gen, 16gb, 512gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G9" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G9</h3>
+        <p class="pcard-spec">i7 12th Gen, 16GB, 512GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 63,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G9','i7 12th Gen, 16GB, 512GB SSD','KES 63,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g8 i5 touch i5 11th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G8 i5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G8 i5 Touch</h3>
+        <p class="pcard-spec">i5 11th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 44,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G8 i5 Touch','i5 11th Gen, 8GB, 256GB, Touchscreen','KES 44,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g8 i5 i5 11th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G8 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G8 i5</h3>
+        <p class="pcard-spec">i5 11th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 42,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G8 i5','i5 11th Gen, 8GB, 256GB SSD','KES 42,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g7 i5 touch i5 10th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G7 i5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G7 i5 Touch</h3>
+        <p class="pcard-spec">i5 10th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 42,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G7 i5 Touch','i5 10th Gen, 8GB, 256GB, Touchscreen','KES 42,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g7 i5 i5 10th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G7 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G7 i5</h3>
+        <p class="pcard-spec">i5 10th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G7 i5','i5 10th Gen, 8GB, 256GB SSD','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g5 i7 touch i7 8th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G5 i7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G5 i7 Touch</h3>
+        <p class="pcard-spec">i7 8th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G5 i7 Touch','i7 8th Gen, 8GB, 256GB, Touchscreen','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g5 i7 i7 8th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G5 i7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G5 i7</h3>
+        <p class="pcard-spec">i7 8th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 38,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G5 i7','i7 8th Gen, 8GB, 256GB SSD','KES 38,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g5 i5 (8th) touch i5 8th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G5 i5 (8th) Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G5 i5 (8th) Touch</h3>
+        <p class="pcard-spec">i5 8th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 36,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G5 i5 (8th) Touch','i5 8th Gen, 8GB, 256GB, Touchscreen','KES 36,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g5 i5 (8th) i5 8th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G5 i5 (8th)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G5 i5 (8th)</h3>
+        <p class="pcard-spec">i5 8th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 34,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G5 i5 (8th)','i5 8th Gen, 8GB, 256GB SSD','KES 34,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g5 i5 (7th) i5 7th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G5 i5 (7th)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G5 i5 (7th)</h3>
+        <p class="pcard-spec">i5 7th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 33,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G5 i5 (7th)','i5 7th Gen, 8GB, 256GB SSD','KES 33,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g4 i5 7th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G4" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G4</h3>
+        <p class="pcard-spec">i5 7th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 30,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G4','i5 7th Gen, 8GB, 256GB SSD','KES 30,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g1 i7 i7, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G1 i7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G1 i7</h3>
+        <p class="pcard-spec">i7, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 25,000</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G1 i7','i7, 8GB, 256GB SSD','KES 25,000')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g1 i5 touch i5, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G1 i5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G1 i5 Touch</h3>
+        <p class="pcard-spec">i5, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 20,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G1 i5 Touch','i5, 8GB, 256GB, Touchscreen','KES 20,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 840 g1 i5 i5, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 840 G1 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 840 G1 i5</h3>
+        <p class="pcard-spec">i5, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 19,000</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 840 G1 i5','i5, 8GB, 256GB SSD','KES 19,000')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g8 i5/16 x360 i5 11th gen, 16gb, 256gb, x360 touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G8 i5/16 x360" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G8 i5/16 x360</h3>
+        <p class="pcard-spec">i5 11th Gen, 16GB, 256GB, x360 Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 48,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G8 i5/16 x360','i5 11th Gen, 16GB, 256GB, x360 Touchscreen','KES 48,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g8 i7 touch i7 11th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G8 i7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G8 i7 Touch</h3>
+        <p class="pcard-spec">i7 11th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 48,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G8 i7 Touch','i7 11th Gen, 8GB, 256GB, Touchscreen','KES 48,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g8 i5 touch i5 11th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G8 i5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G8 i5 Touch</h3>
+        <p class="pcard-spec">i5 11th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 44,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G8 i5 Touch','i5 11th Gen, 8GB, 256GB, Touchscreen','KES 44,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g8 i5 i5 11th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G8 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G8 i5</h3>
+        <p class="pcard-spec">i5 11th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 42,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G8 i5','i5 11th Gen, 8GB, 256GB SSD','KES 42,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g7 i7 touch i7 10th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G7 i7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G7 i7 Touch</h3>
+        <p class="pcard-spec">i7 10th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 46,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G7 i7 Touch','i7 10th Gen, 8GB, 256GB, Touchscreen','KES 46,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g7 i7 i7 10th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G7 i7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G7 i7</h3>
+        <p class="pcard-spec">i7 10th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 43,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G7 i7','i7 10th Gen, 8GB, 256GB SSD','KES 43,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g7 i5 touch i5 10th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G7 i5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G7 i5 Touch</h3>
+        <p class="pcard-spec">i5 10th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 43,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G7 i5 Touch','i5 10th Gen, 8GB, 256GB, Touchscreen','KES 43,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g7 i5 i5, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G7 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G7 i5</h3>
+        <p class="pcard-spec">i5, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G7 i5','i5, 8GB, 256GB SSD','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g6 i5/16 x360 i5 8th gen, 16gb, 512gb, x360 touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G6 i5/16 x360" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G6 i5/16 x360</h3>
+        <p class="pcard-spec">i5 8th Gen, 16GB, 512GB, x360 Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 44,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G6 i5/16 x360','i5 8th Gen, 16GB, 512GB, x360 Touchscreen','KES 44,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g6 i5 x360 i5 8th gen, 8gb, 256gb, x360 touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G6 i5 x360" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G6 i5 x360</h3>
+        <p class="pcard-spec">i5 8th Gen, 8GB, 256GB, x360 Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G6 i5 x360','i5 8th Gen, 8GB, 256GB, x360 Touchscreen','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g5 i7 touch i7 8th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G5 i7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G5 i7 Touch</h3>
+        <p class="pcard-spec">i7 8th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G5 i7 Touch','i7 8th Gen, 8GB, 256GB, Touchscreen','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g5 i7 i7 8th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G5 i7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G5 i7</h3>
+        <p class="pcard-spec">i7 8th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 38,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G5 i7','i7 8th Gen, 8GB, 256GB SSD','KES 38,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 830 g5 i5 i5 8th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 830 G5 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 830 G5 i5</h3>
+        <p class="pcard-spec">i5 8th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 33,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 830 G5 i5','i5 8th Gen, 8GB, 256GB SSD','KES 33,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 450 g8 i5 11th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 450 G8" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 450 G8</h3>
+        <p class="pcard-spec">i5 11th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 43,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 450 G8','i5 11th Gen, 8GB, 256GB SSD','KES 43,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 850 g8 i5 touch i5 11th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 850 G8 i5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 850 G8 i5 Touch</h3>
+        <p class="pcard-spec">i5 11th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 50,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 850 G8 i5 Touch','i5 11th Gen, 8GB, 256GB, Touchscreen','KES 50,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 850 g8 i5 i5 11th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 850 G8 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 850 G8 i5</h3>
+        <p class="pcard-spec">i5 11th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 48,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 850 G8 i5','i5 11th Gen, 8GB, 256GB SSD','KES 48,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 850 g7 i5 10th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 850 G7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 850 G7</h3>
+        <p class="pcard-spec">i5 10th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 43,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 850 G7','i5 10th Gen, 8GB, 256GB SSD','KES 43,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 850 g6 i7 touch i7 8th gen, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 850 G6 i7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 850 G6 i7 Touch</h3>
+        <p class="pcard-spec">i7 8th Gen, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 41,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 850 G6 i7 Touch','i7 8th Gen, 8GB, 256GB, Touchscreen','KES 41,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 850 g5 i5 i5 8th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 850 G5 i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 850 G5 i5</h3>
+        <p class="pcard-spec">i5 8th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 38,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 850 G5 i5','i5 8th Gen, 8GB, 256GB SSD','KES 38,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook dragonfly i7 i7 8th gen, 16gb, 512gb ssd, ultra-light">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook Dragonfly i7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook Dragonfly i7</h3>
+        <p class="pcard-spec">i7 8th Gen, 16GB, 512GB SSD, Ultra-light</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 58,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook Dragonfly i7','i7 8th Gen, 16GB, 512GB SSD, Ultra-light','KES 58,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook dragonfly i5 i5 8th gen, 16gb, 512gb ssd, ultra-light">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook Dragonfly i5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook Dragonfly i5</h3>
+        <p class="pcard-spec">i5 8th Gen, 16GB, 512GB SSD, Ultra-light</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 53,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook Dragonfly i5','i5 8th Gen, 16GB, 512GB SSD, Ultra-light','KES 53,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 845 g8 ryzen 7 touch amd ryzen 7, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 845 G8 Ryzen 7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 845 G8 Ryzen 7 Touch</h3>
+        <p class="pcard-spec">AMD Ryzen 7, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 43,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 845 G8 Ryzen 7 Touch','AMD Ryzen 7, 8GB, 256GB, Touchscreen','KES 43,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 845 g8 ryzen 7 amd ryzen 7, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 845 G8 Ryzen 7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 845 G8 Ryzen 7</h3>
+        <p class="pcard-spec">AMD Ryzen 7, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 41,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 845 G8 Ryzen 7','AMD Ryzen 7, 8GB, 256GB SSD','KES 41,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 845 g7 ryzen 7 touch amd ryzen 7, 8gb, 256gb, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 845 G7 Ryzen 7 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 845 G7 Ryzen 7 Touch</h3>
+        <p class="pcard-spec">AMD Ryzen 7, 8GB, 256GB, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 40,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 845 G7 Ryzen 7 Touch','AMD Ryzen 7, 8GB, 256GB, Touchscreen','KES 40,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 845 g7 ryzen 7 amd ryzen 7, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 845 G7 Ryzen 7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 845 G7 Ryzen 7</h3>
+        <p class="pcard-spec">AMD Ryzen 7, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 38,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 845 G7 Ryzen 7','AMD Ryzen 7, 8GB, 256GB SSD','KES 38,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 745 g6 ryzen 7 amd ryzen 7, 8gb, 256gb, 2gb graphics">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 745 G6 Ryzen 7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 745 G6 Ryzen 7</h3>
+        <p class="pcard-spec">AMD Ryzen 7, 8GB, 256GB, 2GB Graphics</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 36,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 745 G6 Ryzen 7','AMD Ryzen 7, 8GB, 256GB, 2GB Graphics','KES 36,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 745 ryzen 5 touch amd ryzen 5, 8gb, 256gb, 2gb graphics, touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 745 Ryzen 5 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 745 Ryzen 5 Touch</h3>
+        <p class="pcard-spec">AMD Ryzen 5, 8GB, 256GB, 2GB Graphics, Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 35,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 745 Ryzen 5 Touch','AMD Ryzen 5, 8GB, 256GB, 2GB Graphics, Touchscreen','KES 35,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 745 g6 ryzen 5 amd ryzen 5, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 745 G6 Ryzen 5" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 745 G6 Ryzen 5</h3>
+        <p class="pcard-spec">AMD Ryzen 5, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 33,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 745 G6 Ryzen 5','AMD Ryzen 5, 8GB, 256GB SSD','KES 33,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 735 g6 ryzen 7 amd ryzen 7, 8gb, 256gb, 2gb graphics">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 735 G6 Ryzen 7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 735 G6 Ryzen 7</h3>
+        <p class="pcard-spec">AMD Ryzen 7, 8GB, 256GB, 2GB Graphics</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 36,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 735 G6 Ryzen 7','AMD Ryzen 7, 8GB, 256GB, 2GB Graphics','KES 36,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp elitebook 640 g9 i5 12th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP EliteBook 640 G9" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP EliteBook 640 G9</h3>
+        <p class="pcard-spec">i5 12th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 53,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP EliteBook 640 G9','i5 12th Gen, 8GB, 256GB SSD','KES 53,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 430 g7 i5 10th gen, 8gb, 256gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 430 G7" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 430 G7</h3>
+        <p class="pcard-spec">i5 10th Gen, 8GB, 256GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 38,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 430 G7','i5 10th Gen, 8GB, 256GB SSD','KES 38,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook g2 x360 touch i5 7th gen, 8gb, 256gb, x360 touchscreen">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook G2 x360 Touch" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook G2 x360 Touch</h3>
+        <p class="pcard-spec">i5 7th Gen, 8GB, 256GB, x360 Touchscreen</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 24,000</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook G2 x360 Touch','i5 7th Gen, 8GB, 256GB, x360 Touchscreen','KES 24,000')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp folio 9470 i7 4th gen, 8gb, 500gb hdd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Folio 9470" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Folio 9470</h3>
+        <p class="pcard-spec">i7 4th Gen, 8GB, 500GB HDD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 25,000</span>
+          <button class="pcard-btn" onclick="openOrder('HP Folio 9470','i7 4th Gen, 8GB, 500GB HDD','KES 25,000')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp folio 9480 i5 5th gen, 8gb, 500gb hdd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Folio 9480" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Folio 9480</h3>
+        <p class="pcard-spec">i5 5th Gen, 8GB, 500GB HDD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 21,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Folio 9480','i5 5th Gen, 8GB, 500GB HDD','KES 21,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp stream celeron 4gb celeron, 4gb, 32gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Stream Celeron 4GB" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Stream Celeron 4GB</h3>
+        <p class="pcard-spec">Celeron, 4GB, 32GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 13,500</span>
+          <button class="pcard-btn" onclick="openOrder('HP Stream Celeron 4GB','Celeron, 4GB, 32GB SSD','KES 13,500')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp stream celeron 2gb celeron, 2gb, 32gb ssd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Stream Celeron 2GB" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Stream Celeron 2GB</h3>
+        <p class="pcard-spec">Celeron, 2GB, 32GB SSD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 13,000</span>
+          <button class="pcard-btn" onclick="openOrder('HP Stream Celeron 2GB','Celeron, 2GB, 32GB SSD','KES 13,000')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp pavilion x360 14-ek1006nia i5-1335u, 8gb, 512gb, 14" fhd touch, win11h, silver">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Pavilion x360 14-ek1006nia" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Pavilion x360 14-ek1006nia</h3>
+        <p class="pcard-spec">i5-1335U, 8GB, 512GB, 14" FHD Touch, Win11H, Silver</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 127,819</span>
+          <button class="pcard-btn" onclick="openOrder('HP Pavilion x360 14-ek1006nia','i5-1335U, 8GB, 512GB, 14" FHD Touch, Win11H, Silver','KES 127,819')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 440 g11 (u5/16gb) core u5-125u, 16gb, 512gb, 14" wuxga, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 440 G11 (U5/16GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 440 G11 (U5/16GB)</h3>
+        <p class="pcard-spec">Core U5-125U, 16GB, 512GB, 14" WUXGA, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 135,268</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 440 G11 (U5/16GB)','Core U5-125U, 16GB, 512GB, 14" WUXGA, DOS','KES 135,268')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 440 g11 (u5/8gb wuxga) core u5-125u, 8gb, 512gb, 14" wuxga, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 440 G11 (U5/8GB WUXGA)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 440 G11 (U5/8GB WUXGA)</h3>
+        <p class="pcard-spec">Core U5-125U, 8GB, 512GB, 14" WUXGA, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 129,386</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 440 G11 (U5/8GB WUXGA)','Core U5-125U, 8GB, 512GB, 14" WUXGA, DOS','KES 129,386')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 440 g11 (u5/8gb fhd) core u5-125u, 8gb, 512gb, 14" fhd, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 440 G11 (U5/8GB FHD)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 440 G11 (U5/8GB FHD)</h3>
+        <p class="pcard-spec">Core U5-125U, 8GB, 512GB, 14" FHD, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 126,446</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 440 G11 (U5/8GB FHD)','Core U5-125U, 8GB, 512GB, 14" FHD, DOS','KES 126,446')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 440 g11 (u7/8gb) core u7-155u, 8gb, 512gb, 14" wuxga, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 440 G11 (U7/8GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 440 G11 (U7/8GB)</h3>
+        <p class="pcard-spec">Core U7-155U, 8GB, 512GB, 14" WUXGA, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 154,479</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 440 G11 (U7/8GB)','Core U7-155U, 8GB, 512GB, 14" WUXGA, DOS','KES 154,479')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 4 g1i 16" (u5/16gb) core ultra 5 225u, 16gb, 512gb, 16" wuxga">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 4 G1i 16" (U5/16GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 4 G1i 16" (U5/16GB)</h3>
+        <p class="pcard-spec">Core Ultra 5 225U, 16GB, 512GB, 16" WUXGA</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 143,893</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 4 G1i 16" (U5/16GB)','Core Ultra 5 225U, 16GB, 512GB, 16" WUXGA','KES 143,893')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 4 g1i 14" (u5/16gb) core ultra 5 225u, 16gb, 512gb, 14" wuxga">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 4 G1i 14" (U5/16GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 4 G1i 14" (U5/16GB)</h3>
+        <p class="pcard-spec">Core Ultra 5 225U, 16GB, 512GB, 14" WUXGA</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 143,893</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 4 G1i 14" (U5/16GB)','Core Ultra 5 225U, 16GB, 512GB, 14" WUXGA','KES 143,893')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 4 g1i 16" (u7/16gb) core ultra 7 255u, 16gb, 512gb, 16" wuxga">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 4 G1i 16" (U7/16GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 4 G1i 16" (U7/16GB)</h3>
+        <p class="pcard-spec">Core Ultra 7 255U, 16GB, 512GB, 16" WUXGA</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 169,771</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 4 G1i 16" (U7/16GB)','Core Ultra 7 255U, 16GB, 512GB, 16" WUXGA','KES 169,771')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 460 g11 (u5/16gb) core u5-125u, 16gb, 512gb, 16" wuxga, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 460 G11 (U5/16GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 460 G11 (U5/16GB)</h3>
+        <p class="pcard-spec">Core U5-125U, 16GB, 512GB, 16" WUXGA, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 135,268</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 460 G11 (U5/16GB)','Core U5-125U, 16GB, 512GB, 16" WUXGA, DOS','KES 135,268')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 460 g11 (u5/8gb) core u5-125u, 8gb, 512gb, 16" wuxga, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 460 G11 (U5/8GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 460 G11 (U5/8GB)</h3>
+        <p class="pcard-spec">Core U5-125U, 8GB, 512GB, 16" WUXGA, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 128,406</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 460 G11 (U5/8GB)','Core U5-125U, 8GB, 512GB, 16" WUXGA, DOS','KES 128,406')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 460 g11 (u7/16gb) core u7-155u, 16gb, 512gb, 16" wuxga, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 460 G11 (U7/16GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 460 G11 (U7/16GB)</h3>
+        <p class="pcard-spec">Core U7-155U, 16GB, 512GB, 16" WUXGA, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 159,773</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 460 G11 (U7/16GB)','Core U7-155U, 16GB, 512GB, 16" WUXGA, DOS','KES 159,773')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp probook 460 g11 (u7/8gb) core u7-155u, 8gb, 512gb, 16" wuxga, dos">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP ProBook 460 G11 (U7/8GB)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP ProBook 460 G11 (U7/8GB)</h3>
+        <p class="pcard-spec">Core U7-155U, 8GB, 512GB, 16" WUXGA, DOS</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 153,695</span>
+          <button class="pcard-btn" onclick="openOrder('HP ProBook 460 G11 (U7/8GB)','Core U7-155U, 8GB, 512GB, 16" WUXGA, DOS','KES 153,695')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp pro tower 290 g9 + monitor i3-14100, 8gb, 512gb, 21.45" fhd desktop bundle">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Pro Tower 290 G9 + Monitor" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Pro Tower 290 G9 + Monitor</h3>
+        <p class="pcard-spec">i3-14100, 8GB, 512GB, 21.45" FHD Desktop Bundle</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 99,980</span>
+          <button class="pcard-btn" onclick="openOrder('HP Pro Tower 290 G9 + Monitor','i3-14100, 8GB, 512GB, 21.45" FHD Desktop Bundle','KES 99,980')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="" data-name="hp pro mini 400 g9 (i5) i5-14500t, 16gb, 512gb, dos mini pc">
+      <span class="badge-new">NEW</span>
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&auto=format" alt="HP Pro Mini 400 G9 (i5)" loading="lazy">
+        <span class="pcard-brand" style="background:#0096D6">HP</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HP Pro Mini 400 G9 (i5)</h3>
+        <p class="pcard-spec">i5-14500T, 16GB, 512GB, DOS Mini PC</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 115,664</span>
+          <button class="pcard-btn" onclick="openOrder('HP Pro Mini 400 G9 (i5)','i5-14500T, 16GB, 512GB, DOS Mini PC','KES 115,664')">Order</button>
+        </div>
+      </div>
+    </div>
+  <div class="no-results" id="noResults">
+    <span class="emoji">🔍</span>
+    Nothing found. <a href="https://wa.me/254722816001" target="_blank" style="color:var(--primary);font-weight:700">Ask us on WhatsApp</a>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOrder()">×</button>
+    <h2>Place Your Order</h2>
+    <div class="modal-product-box">
+      <strong id="modalProductName"></strong>
+      <span id="modalProductSpec"></span>
+      <div class="mprice" id="modalProductPrice"></div>
+    </div>
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-row">
+        <label>Full Name *</label>
+        <input id="custName" type="text" required placeholder="e.g. John Kamau"/>
+      </div>
+      <div class="form-row">
+        <label>Phone Number *</label>
+        <input id="custPhone" type="tel" required placeholder="e.g. 0722 816 001"/>
+      </div>
+      <div class="form-row">
+        <label>Location / Area</label>
+        <input id="custLocation" type="text" placeholder="e.g. Westlands, Nairobi"/>
+      </div>
+      <div id="orderResult"></div>
+      <button class="submit-btn" type="submit" id="submitBtn">Place Order 🛒</button>
+      <p style="text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.7rem">We'll call within 30 minutes to confirm 📞</p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Nexcom Limited</h4>
+      <p>Nairobi's premier tech store. Laptops, servers, accessories and professional repair services.</p>
+      <p style="margin-top:0.8rem;color:#fff;font-weight:600">📍 Nairobi CBD, Kenya</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="hp.html">💻 HP Laptops</a><a href="dell.html">💻 Dell Laptops</a><a href="lenovo.html">💻 Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Laptop Repair</a>
+      <a href="#">Screen Replacement</a>
+      <a href="#">Buy My Old Laptop</a>
+      <a href="#">Enterprise Quotes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+254722816001">📞 +254 722 816 001</a>
+      <a href="https://wa.me/254722816001" target="_blank">💬 WhatsApp Us</a>
+      <a href="mailto:nexcomventures@gmail.com">✉️ Email Us</a>
+      <p>Mon–Sat · 9AM–7PM EAT</p>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Nexcom Limited. All rights reserved. · Built with ❤️ in Nairobi</div>
+</footer>
+
+<script>
+  let currentSubcat = '';
+  let currentSearch = '';
+
+  // Dropdown toggle
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const btn = dd.querySelector('.nav-dropdown-btn');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      document.querySelectorAll('.nav-dropdown').forEach(x => { if(x!==dd){ x.classList.remove('open'); x.querySelector('.nav-dropdown-btn').classList.remove('open'); }});
+      dd.classList.toggle('open');
+      btn.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown').forEach(dd => { dd.classList.remove('open'); dd.querySelector('.nav-dropdown-btn').classList.remove('open'); });
+  });
+
+  // Subcategory filter
+  function filterSubcat(el, sub) {
+    document.querySelectorAll('.subcat-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    currentSubcat = sub;
+    applyFilters();
+  }
+
+  // Search
+  function doSearch(val) {
+    currentSearch = val.toLowerCase().trim();
+    applyFilters();
+  }
+
+  // Apply filters
+  function applyFilters() {
+    const cards = document.querySelectorAll('.pcard');
+    let visible = 0;
+    cards.forEach(c => {
+      const subcatMatch = !currentSubcat || c.dataset.sub === currentSubcat;
+      const nameData = (c.dataset.name || '');
+      const searchMatch = !currentSearch || nameData.includes(currentSearch);
+      const show = subcatMatch && searchMatch;
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('resultCount').textContent = visible;
+    const nr = document.getElementById('noResults');
+    if (nr) nr.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // Sort
+  function sortProducts(val) {
+    const grid = document.getElementById('productGrid');
+    const cards = Array.from(grid.querySelectorAll('.pcard'));
+    cards.sort((a, b) => {
+      if (val === 'price-asc' || val === 'price-desc') {
+        const pa = parseInt(a.querySelector('.pcard-price').textContent.replace(/[^0-9]/g,'')) || 0;
+        const pb = parseInt(b.querySelector('.pcard-price').textContent.replace(/[^0-9]/g,'')) || 0;
+        return val === 'price-asc' ? pa - pb : pb - pa;
+      }
+      if (val === 'name-asc') return a.querySelector('.pcard-name').textContent.localeCompare(b.querySelector('.pcard-name').textContent);
+      return 0;
+    });
+    cards.forEach(c => grid.appendChild(c));
+  }
+
+  // Order modal
+  let _op='', _os='', _opr='';
+  function openOrder(name, specs, price) {
+    _op=name; _os=specs; _opr=price;
+    document.getElementById('modalProductName').textContent = name;
+    document.getElementById('modalProductSpec').textContent = specs;
+    document.getElementById('modalProductPrice').textContent = price;
+    document.getElementById('orderResult').innerHTML = '';
+    document.getElementById('orderForm').reset();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Place Order 🛒'; btn.disabled = false; btn.style.background = '';
+    document.getElementById('orderModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOrder() {
+    document.getElementById('orderModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('orderModal').addEventListener('click', function(e){ if(e.target===this) closeOrder(); });
+
+  async function submitOrder(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const body = {
+      name:     document.getElementById('custName').value.trim(),
+      phone:    document.getElementById('custPhone').value.trim(),
+      location: document.getElementById('custLocation').value.trim(),
+      product:  _op, specs: _os, price: _opr
+    };
+    const res = document.getElementById('orderResult');
+    try {
+      const r = await fetch('/api/order', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+      const d = await r.json();
+      if (d.success) {
+        res.innerHTML = '<p style="color:#16A34A;font-weight:700">✅ Order placed! We\'ll call you within 30 mins.</p>';
+        btn.textContent = 'Order Placed ✅'; btn.style.background = '#16A34A';
+        if (d.admin_wa_link) window.open(d.admin_wa_link, '_blank');
+        setTimeout(closeOrder, 2500);
+      } else { throw new Error(d.error || 'Failed'); }
+    } catch(err) {
+      res.innerHTML = '<p style="color:#DC2626;font-size:0.85rem">⚠️ Could not send. <a href="https://wa.me/254722816001" target="_blank" style="color:var(--primary);font-weight:700">WhatsApp us</a></p>';
+      btn.textContent = 'Place Order 🛒'; btn.disabled = false; btn.style.background='';
+    }
+  }
+
+</script>
+</body>
+</html>
