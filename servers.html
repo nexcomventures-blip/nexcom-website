@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Servers & Networking | Nexcom Limited Nairobi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #E4002B; --primary-dark: #B5001F;
+      --bg: #F5F5F5; --white: #FFFFFF;
+      --text: #1A1A1A; --muted: #6B7280; --border: #E5E7EB;
+      --header-h: 60px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* TOP BAR */
+    .topbar {
+      background: var(--primary); color: #fff;
+      font-size: 0.78rem; font-weight: 500;
+      text-align: center; padding: 6px 1rem;
+    }
+    .topbar a { color: #FFD700; text-decoration: none; font-weight: 700; }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 300;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      height: var(--header-h);
+      display: flex; align-items: center;
+      padding: 0 3%; gap: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; flex-shrink: 0; }
+    .logo span { color: var(--primary); }
+
+    /* NAVBAR */
+    .nav-center { display: flex; align-items: center; gap: 0.3rem; flex: 1; flex-wrap: wrap; }
+
+    /* Category dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-btn {
+      display: flex; align-items: center; gap: 0.35rem;
+      padding: 8px 14px; border-radius: 8px; border: none;
+      background: none; font-size: 0.88rem; font-weight: 600;
+      color: var(--text); cursor: pointer; transition: background .15s;
+      white-space: nowrap;
+    }
+    .nav-dropdown-btn:hover, .nav-dropdown-btn.active {
+      background: #FFF0F0; color: var(--primary);
+    }
+    .nav-dropdown-btn .arrow { font-size: 0.6rem; transition: transform .2s; }
+    .nav-dropdown-btn.open .arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; min-width: 220px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 999;
+      overflow: hidden; padding: 6px 0;
+    }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 10px 18px; font-size: 0.88rem; font-weight: 500;
+      color: var(--text); text-decoration: none; transition: background .15s;
+    }
+    .dropdown-menu a:hover { background: #FFF0F0; color: var(--primary); }
+    .dropdown-menu a.current { background: #FFF0F0; color: var(--primary); font-weight: 700; }
+    .dropdown-menu .sep { border: none; border-top: 1px solid var(--border); margin: 4px 0; }
+
+    /* Home nav link */
+    .nav-link {
+      padding: 8px 14px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--text); text-decoration: none; transition: background .15s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { background: #F3F4F6; }
+    .nav-link.active { background: #FFF0F0; color: var(--primary); }
+
+    /* Search */
+    .search-wrap {
+      flex: 1; max-width: 360px; min-width: 120px;
+      display: flex; align-items: center;
+      background: #F3F4F6; border-radius: 8px;
+      padding: 0 0.8rem; height: 38px;
+      border: 1.5px solid transparent; transition: border .2s;
+    }
+    .search-wrap:focus-within { border-color: var(--primary); background: #fff; }
+    .search-wrap input { flex: 1; border: none; background: transparent; outline: none; font-size: 0.88rem; }
+    .search-wrap input::placeholder { color: var(--muted); }
+
+    /* Header right */
+    .header-right { display: flex; gap: 0.6rem; align-items: center; flex-shrink: 0; margin-left: auto; }
+    .wa-btn {
+      display: flex; align-items: center; gap: 0.35rem;
+      background: #25D366; color: #fff; border: none; border-radius: 8px;
+      padding: 7px 12px; font-size: 0.82rem; font-weight: 700;
+      cursor: pointer; text-decoration: none; transition: opacity .2s;
+    }
+    .wa-btn:hover { opacity: .88; }
+
+    /* HERO */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 220px; display: flex; align-items: center;
+      padding: 2.5rem 4%;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      filter: brightness(0.35);
+    }
+    .hero-content { position: relative; z-index: 1; color: #fff; max-width: 600px; }
+    .hero-badge {
+      display: inline-block; background: var(--primary);
+      color: #fff; font-size: 0.72rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 50px; margin-bottom: 0.8rem;
+      letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .hero-content h1 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem; }
+    .hero-content p { font-size: 0.95rem; color: #CBD5E1; line-height: 1.6; }
+
+    /* SUBCATEGORY TABS */
+    .subcat-bar {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 10px 4%; display: flex; gap: 0.5rem; overflow-x: auto;
+    }
+    .subcat-bar::-webkit-scrollbar { height: 0; }
+    .subcat-pill {
+      white-space: nowrap; padding: 7px 18px; border-radius: 50px;
+      border: 1.5px solid var(--border); background: #fff;
+      font-size: 0.82rem; font-weight: 600; cursor: pointer;
+      color: var(--muted); transition: all .2s; flex-shrink: 0;
+    }
+    .subcat-pill.active, .subcat-pill:hover {
+      background: var(--primary); color: #fff; border-color: var(--primary);
+    }
+
+    /* TOOLBAR */
+    .toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 4% 0.5rem; flex-wrap: wrap; gap: 0.8rem;
+    }
+    .results-count { font-size: 0.85rem; color: var(--muted); }
+    .results-count strong { color: var(--text); }
+    .sort-select {
+      border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 7px 12px; font-size: 0.85rem; color: var(--text);
+      background: var(--white); cursor: pointer; outline: none;
+    }
+
+    /* PRODUCT GRID */
+    .pgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1rem; padding: 1rem 4% 3rem;
+    }
+    .pcard {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+      position: relative; display: flex; flex-direction: column;
+    }
+    .pcard:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .badge-new {
+      position: absolute; top: 10px; left: 10px; z-index: 2;
+      background: #F59E0B; color: #fff; font-size: 0.65rem;
+      font-weight: 800; padding: 3px 8px; border-radius: 50px;
+    }
+    .pcard-img { position: relative; height: 165px; overflow: hidden; background: #F9FAFB; }
+    .pcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .pcard:hover .pcard-img img { transform: scale(1.04); }
+    .pcard-brand {
+      position: absolute; bottom: 8px; right: 8px;
+      color: #fff; font-size: 0.65rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 50px; text-transform: uppercase;
+    }
+    .pcard-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+    .pcard-name { font-size: 0.875rem; font-weight: 700; margin-bottom: 4px; line-height: 1.3; }
+    .pcard-spec { font-size: 0.75rem; color: var(--muted); line-height: 1.4; flex: 1; margin-bottom: 10px; }
+    .pcard-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .pcard-price { font-size: 0.95rem; font-weight: 800; color: var(--primary); white-space: nowrap; }
+    .pcard-btn {
+      background: var(--primary); color: #fff; border: none;
+      border-radius: 6px; padding: 7px 12px; font-size: 0.75rem; font-weight: 700;
+      cursor: pointer; transition: background .2s; white-space: nowrap;
+    }
+    .pcard-btn:hover { background: var(--primary-dark); }
+
+    /* NO RESULTS */
+    .no-results {
+      text-align: center; padding: 4rem 2rem; color: var(--muted);
+      font-size: 0.95rem; display: none; grid-column: 1/-1;
+    }
+    .no-results .emoji { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      background: var(--white); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 4%; display: flex; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; }
+
+    /* ORDER MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.55); align-items: center; justify-content: center; padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px;
+      width: 100%; max-width: 460px; max-height: 90vh;
+      overflow-y: auto; padding: 2rem; position: relative;
+    }
+    .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); }
+    .modal h2 { font-size: 1.15rem; font-weight: 800; margin-bottom: 1.2rem; }
+    .modal-product-box {
+      background: #FFF0F0; border: 1px solid #FECACA;
+      border-radius: 10px; padding: 12px 14px; margin-bottom: 1.5rem;
+    }
+    .modal-product-box strong { display: block; font-size: 0.9rem; font-weight: 700; }
+    .modal-product-box span { font-size: 0.78rem; color: var(--muted); }
+    .modal-product-box .mprice { font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-top: 4px; }
+    .form-row { margin-bottom: 1rem; }
+    .form-row label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+    .form-row input {
+      width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+      padding: 10px 12px; font-size: 0.9rem; color: var(--text); outline: none; transition: border .2s;
+    }
+    .form-row input:focus { border-color: var(--primary); }
+    .submit-btn {
+      width: 100%; background: var(--primary); color: #fff; border: none;
+      border-radius: 10px; padding: 13px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: background .2s;
+    }
+    .submit-btn:hover { background: var(--primary-dark); }
+    #orderResult { margin-top: 0.8rem; font-size: 0.9rem; text-align: center; }
+
+    /* FOOTER */
+    footer { background: #1A1A2E; color: #CBD5E1; padding: 2.5rem 4% 1.5rem; margin-top: 1rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { color: #fff; font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; }
+    .footer-col p, .footer-col a { font-size: 0.82rem; color: #94A3B8; line-height: 2; text-decoration: none; display: block; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; text-align: center; font-size: 0.78rem; color: #64748B; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-center { gap: 0; }
+      .nav-dropdown-btn { padding: 6px 10px; font-size: 0.82rem; }
+      .nav-link { padding: 6px 8px; font-size: 0.82rem; }
+      .pgrid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.7rem; padding: 0.75rem 3% 2rem; }
+      .pcard-img { height: 130px; }
+      .hero { min-height: 160px; padding: 1.8rem 4%; }
+      .wa-btn span { display: none; }
+      .trust-strip { gap: 1.2rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  🚚 Free delivery within Nairobi CBD &nbsp;|&nbsp; Call/WhatsApp: <a href="tel:+254722816001">+254 722 816 001</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="index.html">Nex<span>com</span></a>
+
+  <nav class="nav-center">
+    <a class="nav-link" href="index.html">🏠 Home</a>
+
+    <!-- Products dropdown -->
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-btn active">
+        🛍️ Servers & Networking <span class="arrow">▼</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="hp.html">💻 HP Laptops</a>
+<a href="dell.html">💻 Dell Laptops</a>
+<a href="lenovo.html">💻 Lenovo Laptops</a>
+<a href="macbook.html">🍎 MacBooks</a>
+<a href="servers.html" class="current">🖥️ Servers & Networking</a>
+<a href="accessories.html">🖱️ Accessories</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="Search..." oninput="doSearch(this.value)"/>
+  </div>
+
+  <div class="header-right">
+    <a class="wa-btn" href="https://wa.me/254722816001" target="_blank">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format')"></div>
+  <div class="hero-content">
+    <span class="hero-badge">🖥️ Servers & Networking</span>
+    <h1>Servers & Networking</h1>
+    <p>HPE, Dell & Lenovo servers · NAS · Switches · Access points</p>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">✅ Every device tested</div>
+  <div class="trust-item">🚚 Same-day delivery Nairobi</div>
+  <div class="trust-item">💳 M-Pesa accepted</div>
+  <div class="trust-item">🔄 Buy your old device</div>
+</div>
+
+<div class="subcat-bar">
+        <div class="subcat-pill active" onclick="filterSubcat(this,'')" >All (33)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'HPE Server')">HPE Server (6)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'Dell Server')">Dell Server (5)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'Lenovo Server')">Lenovo Server (19)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'NAS')">NAS (1)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'Network')">Network (2)</div>
+      </div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="results-count">Showing <strong id="resultCount">33</strong> products</div>
+  <select class="sort-select" onchange="sortProducts(this.value)">
+    <option value="default">Sort: Default</option>
+    <option value="price-asc">Price: Low → High</option>
+    <option value="price-desc">Price: High → Low</option>
+    <option value="name-asc">Name: A–Z</option>
+  </select>
+</div>
+
+<!-- GRID -->
+<div class="pgrid" id="productGrid">
+  
+    <div class="pcard" data-sub="HPE Server" data-name="hpe ml350 gen11 tower (16c) xeon silver 5416s, 32gb ecc ddr5, tower server, 3yr warranty">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="HPE ML350 Gen11 Tower (16C)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">HPE Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HPE ML350 Gen11 Tower (16C)</h3>
+        <p class="pcard-spec">Xeon Silver 5416S, 32GB ECC DDR5, Tower Server, 3yr Warranty</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 1,224,496</span>
+          <button class="pcard-btn" onclick="openOrder('HPE ML350 Gen11 Tower (16C)','Xeon Silver 5416S, 32GB ECC DDR5, Tower Server, 3yr Warranty','KES 1,224,496')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="HPE Server" data-name="hpe dl380 gen11 2u rack (16c) xeon silver 4514y, 32gb ddr5, 2u rack server, 3yr warranty">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="HPE DL380 Gen11 2U Rack (16C)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">HPE Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HPE DL380 Gen11 2U Rack (16C)</h3>
+        <p class="pcard-spec">Xeon Silver 4514Y, 32GB DDR5, 2U Rack Server, 3yr Warranty</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 1,372,280</span>
+          <button class="pcard-btn" onclick="openOrder('HPE DL380 Gen11 2U Rack (16C)','Xeon Silver 4514Y, 32GB DDR5, 2U Rack Server, 3yr Warranty','KES 1,372,280')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="HPE Server" data-name="hpe dl380 gen11 2u rack (32c) 2x xeon silver 4514y, 64gb ddr5, 2u rack server, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="HPE DL380 Gen11 2U Rack (32C)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">HPE Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HPE DL380 Gen11 2U Rack (32C)</h3>
+        <p class="pcard-spec">2x Xeon Silver 4514Y, 64GB DDR5, 2U Rack Server, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 1,604,512</span>
+          <button class="pcard-btn" onclick="openOrder('HPE DL380 Gen11 2U Rack (32C)','2x Xeon Silver 4514Y, 64GB DDR5, 2U Rack Server, 3yr','KES 1,604,512')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="HPE Server" data-name="hpe dl380 gen11 2u rack (40c) 2x xeon silver 4416+, 64gb ddr5, 2u rack server, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="HPE DL380 Gen11 2U Rack (40C)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">HPE Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HPE DL380 Gen11 2U Rack (40C)</h3>
+        <p class="pcard-spec">2x Xeon Silver 4416+, 64GB DDR5, 2U Rack Server, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 1,646,736</span>
+          <button class="pcard-btn" onclick="openOrder('HPE DL380 Gen11 2U Rack (40C)','2x Xeon Silver 4416+, 64GB DDR5, 2U Rack Server, 3yr','KES 1,646,736')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="HPE Server" data-name="hpe dl380 gen11 2u rack (32c gold) xeon gold 6430, 64gb ddr5, 2x480gb ssd, 2u rack">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="HPE DL380 Gen11 2U Rack (32C Gold)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">HPE Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HPE DL380 Gen11 2U Rack (32C Gold)</h3>
+        <p class="pcard-spec">Xeon Gold 6430, 64GB DDR5, 2x480GB SSD, 2U Rack</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 1,857,856</span>
+          <button class="pcard-btn" onclick="openOrder('HPE DL380 Gen11 2U Rack (32C Gold)','Xeon Gold 6430, 64GB DDR5, 2x480GB SSD, 2U Rack','KES 1,857,856')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="HPE Server" data-name="hpe dl380 gen11 2u rack (64c gold) 2x xeon gold 6430, 64gb ddr5, 2x480gb ssd, 2u rack">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="HPE DL380 Gen11 2U Rack (64C Gold)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">HPE Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">HPE DL380 Gen11 2U Rack (64C Gold)</h3>
+        <p class="pcard-spec">2x Xeon Gold 6430, 64GB DDR5, 2x480GB SSD, 2U Rack</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 2,111,200</span>
+          <button class="pcard-btn" onclick="openOrder('HPE DL380 Gen11 2U Rack (64C Gold)','2x Xeon Gold 6430, 64GB DDR5, 2x480GB SSD, 2U Rack','KES 2,111,200')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Dell Server" data-name="dell poweredge t160 tower xeon 6315p 4c, 32gb ecc, 2tb sata, idrac9, 3yr nbd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Dell PowerEdge T160 Tower" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Dell Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Dell PowerEdge T160 Tower</h3>
+        <p class="pcard-spec">Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 327,447</span>
+          <button class="pcard-btn" onclick="openOrder('Dell PowerEdge T160 Tower','Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD','KES 327,447')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Dell Server" data-name="dell poweredge r360 rack 1u xeon 6315p 4c, 32gb ecc, 2tb sata, idrac9, 3yr nbd">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Dell PowerEdge R360 Rack 1U" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Dell Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Dell PowerEdge R360 Rack 1U</h3>
+        <p class="pcard-spec">Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 371,783</span>
+          <button class="pcard-btn" onclick="openOrder('Dell PowerEdge R360 Rack 1U','Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD','KES 371,783')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Dell Server" data-name="dell poweredge r660xs rack 2u 2x xeon silver 4510 12c, 64gb rdimm, 480gb ssd, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Dell PowerEdge R660xs Rack 2U" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Dell Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Dell PowerEdge R660xs Rack 2U</h3>
+        <p class="pcard-spec">2x Xeon Silver 4510 12C, 64GB RDIMM, 480GB SSD, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 999,442</span>
+          <button class="pcard-btn" onclick="openOrder('Dell PowerEdge R660xs Rack 2U','2x Xeon Silver 4510 12C, 64GB RDIMM, 480GB SSD, 3yr','KES 999,442')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Dell Server" data-name="dell poweredge r760xs rack (3.5") xeon silver 4514y 16c, 64gb rdimm, 480gb ssd, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Dell PowerEdge R760xs Rack (3.5")" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Dell Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Dell PowerEdge R760xs Rack (3.5")</h3>
+        <p class="pcard-spec">Xeon Silver 4514Y 16C, 64GB RDIMM, 480GB SSD, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 866,648</span>
+          <button class="pcard-btn" onclick="openOrder('Dell PowerEdge R760xs Rack (3.5")','Xeon Silver 4514Y 16C, 64GB RDIMM, 480GB SSD, 3yr','KES 866,648')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Dell Server" data-name="dell poweredge r760xs rack (2.5") xeon silver 4514y 16c, 64gb rdimm, 480gb ssd, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Dell PowerEdge R760xs Rack (2.5")" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Dell Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Dell PowerEdge R760xs Rack (2.5")</h3>
+        <p class="pcard-spec">Xeon Silver 4514Y 16C, 64GB RDIMM, 480GB SSD, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 872,770</span>
+          <button class="pcard-btn" onclick="openOrder('Dell PowerEdge R760xs Rack (2.5")','Xeon Silver 4514Y 16C, 64GB RDIMM, 480GB SSD, 3yr','KES 872,770')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st45 v3 tower (epyc 4124p) amd epyc 4124p 4c, 16gb, 2x1tb sata, 500w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST45 V3 Tower (EPYC 4124P)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST45 V3 Tower (EPYC 4124P)</h3>
+        <p class="pcard-spec">AMD EPYC 4124P 4C, 16GB, 2x1TB SATA, 500W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 256,511</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST45 V3 Tower (EPYC 4124P)','AMD EPYC 4124P 4C, 16GB, 2x1TB SATA, 500W, 3yr','KES 256,511')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st45 v3 tower (epyc 4244p) amd epyc 4244p 6c, 16gb, 2x2tb sata, 500w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST45 V3 Tower (EPYC 4244P)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST45 V3 Tower (EPYC 4244P)</h3>
+        <p class="pcard-spec">AMD EPYC 4244P 6C, 16GB, 2x2TB SATA, 500W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 294,512</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST45 V3 Tower (EPYC 4244P)','AMD EPYC 4244P 6C, 16GB, 2x2TB SATA, 500W, 3yr','KES 294,512')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st45 v3 tower (epyc 4344p) amd epyc 4344p 8c, 32gb, 2x2tb sata, 500w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST45 V3 Tower (EPYC 4344P)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST45 V3 Tower (EPYC 4344P)</h3>
+        <p class="pcard-spec">AMD EPYC 4344P 8C, 32GB, 2x2TB SATA, 500W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 320,691</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST45 V3 Tower (EPYC 4344P)','AMD EPYC 4344P 8C, 32GB, 2x2TB SATA, 500W, 3yr','KES 320,691')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st50 v3 tower (xeon e-2414) xeon e-2414 4c, 16gb, 2x960gb ssd, 500w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST50 V3 Tower (Xeon E-2414)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST50 V3 Tower (Xeon E-2414)</h3>
+        <p class="pcard-spec">Xeon E-2414 4C, 16GB, 2x960GB SSD, 500W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 383,816</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST50 V3 Tower (Xeon E-2414)','Xeon E-2414 4C, 16GB, 2x960GB SSD, 500W, 3yr','KES 383,816')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st50 v3 tower (xeon e-2434) xeon e-2434 4c, 32gb, 2x960gb ssd, 500w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST50 V3 Tower (Xeon E-2434)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST50 V3 Tower (Xeon E-2434)</h3>
+        <p class="pcard-spec">Xeon E-2434 4C, 32GB, 2x960GB SSD, 500W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 416,539</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST50 V3 Tower (Xeon E-2434)','Xeon E-2434 4C, 32GB, 2x960GB SSD, 500W, 3yr','KES 416,539')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st250 v3 tower (xeon e-2436) xeon e-2436 6c, 32gb, 8-bay 2.5", 800w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST250 V3 Tower (Xeon E-2436)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST250 V3 Tower (Xeon E-2436)</h3>
+        <p class="pcard-spec">Xeon E-2436 6C, 32GB, 8-bay 2.5", 800W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 481,776</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST250 V3 Tower (Xeon E-2436)','Xeon E-2436 6C, 32GB, 8-bay 2.5", 800W, 3yr','KES 481,776')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st650 v3 tower (silver 4509y) xeon silver 4509y 8c, 32gb ddr5, 940-8i, 1100w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST650 V3 Tower (Silver 4509Y)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST650 V3 Tower (Silver 4509Y)</h3>
+        <p class="pcard-spec">Xeon Silver 4509Y 8C, 32GB DDR5, 940-8i, 1100W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 974,742</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST650 V3 Tower (Silver 4509Y)','Xeon Silver 4509Y 8C, 32GB DDR5, 940-8i, 1100W, 3yr','KES 974,742')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo st650 v3 tower (silver 4514y) xeon silver 4514y 16c, 32gb ddr5, 940-8i, 1100w, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo ST650 V3 Tower (Silver 4514Y)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo ST650 V3 Tower (Silver 4514Y)</h3>
+        <p class="pcard-spec">Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 995,008</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo ST650 V3 Tower (Silver 4514Y)','Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, 3yr','KES 995,008')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr250 v3 rack (xeon e-2434) xeon e-2434 4c, 16gb, 2.5" hs x8, 800w, rails, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR250 V3 Rack (Xeon E-2434)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR250 V3 Rack (Xeon E-2434)</h3>
+        <p class="pcard-spec">Xeon E-2434 4C, 16GB, 2.5" HS x8, 800W, Rails, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 397,117</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR250 V3 Rack (Xeon E-2434)','Xeon E-2434 4C, 16GB, 2.5" HS x8, 800W, Rails, 3yr','KES 397,117')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr250 v3 rack (xeon e-2436) xeon e-2436 6c, 32gb, 2.5" hs x8, 800w, rails, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR250 V3 Rack (Xeon E-2436)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR250 V3 Rack (Xeon E-2436)</h3>
+        <p class="pcard-spec">Xeon E-2436 6C, 32GB, 2.5" HS x8, 800W, Rails, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 465,097</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR250 V3 Rack (Xeon E-2436)','Xeon E-2436 6C, 32GB, 2.5" HS x8, 800W, Rails, 3yr','KES 465,097')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr630 v3 rack (silver 4509y) xeon silver 4509y 8c, 32gb ddr5, 940-8i, 1100w, rails">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR630 V3 Rack (Silver 4509Y)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR630 V3 Rack (Silver 4509Y)</h3>
+        <p class="pcard-spec">Xeon Silver 4509Y 8C, 32GB DDR5, 940-8i, 1100W, Rails</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 814,712</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR630 V3 Rack (Silver 4509Y)','Xeon Silver 4509Y 8C, 32GB DDR5, 940-8i, 1100W, Rails','KES 814,712')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr630 v3 rack (silver 4510) xeon silver 4510 12c, 32gb ddr5, 940-8i, 1100w, rails">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR630 V3 Rack (Silver 4510)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR630 V3 Rack (Silver 4510)</h3>
+        <p class="pcard-spec">Xeon Silver 4510 12C, 32GB DDR5, 940-8i, 1100W, Rails</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 814,712</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR630 V3 Rack (Silver 4510)','Xeon Silver 4510 12C, 32GB DDR5, 940-8i, 1100W, Rails','KES 814,712')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr630 v3 rack (silver 4514y) xeon silver 4514y 16c, 32gb ddr5, 940-8i, 1100w, rails">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR630 V3 Rack (Silver 4514Y)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR630 V3 Rack (Silver 4514Y)</h3>
+        <p class="pcard-spec">Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, Rails</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 849,758</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR630 V3 Rack (Silver 4514Y)','Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, Rails','KES 849,758')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr630 v3 rack (gold 6526y) xeon gold 6526y 16c, 32gb ddr5, 940-8i, 1100w, rails">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR630 V3 Rack (Gold 6526Y)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR630 V3 Rack (Gold 6526Y)</h3>
+        <p class="pcard-spec">Xeon Gold 6526Y 16C, 32GB DDR5, 940-8i, 1100W, Rails</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 961,229</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR630 V3 Rack (Gold 6526Y)','Xeon Gold 6526Y 16C, 32GB DDR5, 940-8i, 1100W, Rails','KES 961,229')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr650 v3 rack (silver 4509y) xeon silver 4509y 8c, 32gb ddr5, 940-8i, 1100w, rails">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR650 V3 Rack (Silver 4509Y)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR650 V3 Rack (Silver 4509Y)</h3>
+        <p class="pcard-spec">Xeon Silver 4509Y 8C, 32GB DDR5, 940-8i, 1100W, Rails</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 843,424</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR650 V3 Rack (Silver 4509Y)','Xeon Silver 4509Y 8C, 32GB DDR5, 940-8i, 1100W, Rails','KES 843,424')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr650 v3 rack (silver 4514y) xeon silver 4514y 16c, 32gb ddr5, 940-8i, 1100w, rails">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR650 V3 Rack (Silver 4514Y)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR650 V3 Rack (Silver 4514Y)</h3>
+        <p class="pcard-spec">Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, Rails</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 863,904</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR650 V3 Rack (Silver 4514Y)','Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, Rails','KES 863,904')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr665 v3 rack (epyc 9124) amd epyc 9124 16c, 32gb ddr5, 1100w, rails, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR665 V3 Rack (EPYC 9124)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR665 V3 Rack (EPYC 9124)</h3>
+        <p class="pcard-spec">AMD EPYC 9124 16C, 32GB DDR5, 1100W, Rails, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 852,713</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR665 V3 Rack (EPYC 9124)','AMD EPYC 9124 16C, 32GB DDR5, 1100W, Rails, 3yr','KES 852,713')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr665 v3 rack (epyc 9174f) amd epyc 9174f 16c, 32gb ddr5, 1800w, rails, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR665 V3 Rack (EPYC 9174F)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR665 V3 Rack (EPYC 9174F)</h3>
+        <p class="pcard-spec">AMD EPYC 9174F 16C, 32GB DDR5, 1800W, Rails, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 1,229,351</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR665 V3 Rack (EPYC 9174F)','AMD EPYC 9174F 16C, 32GB DDR5, 1800W, Rails, 3yr','KES 1,229,351')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Lenovo Server" data-name="lenovo sr665 v3 rack (epyc 9274f) amd epyc 9274f 24c, 32gb ddr5, 1800w, rails, 3yr">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Lenovo SR665 V3 Rack (EPYC 9274F)" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Lenovo Server</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Lenovo SR665 V3 Rack (EPYC 9274F)</h3>
+        <p class="pcard-spec">AMD EPYC 9274F 24C, 32GB DDR5, 1800W, Rails, 3yr</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 1,255,531</span>
+          <button class="pcard-btn" onclick="openOrder('Lenovo SR665 V3 Rack (EPYC 9274F)','AMD EPYC 9274F 24C, 32GB DDR5, 1800W, Rails, 3yr','KES 1,255,531')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="NAS" data-name="synology ds923+ nas 4-bay nas, amd ryzen r1600, 4gb ram, expandable">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Synology DS923+ NAS" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">NAS</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Synology DS923+ NAS</h3>
+        <p class="pcard-spec">4-Bay NAS, AMD Ryzen R1600, 4GB RAM, Expandable</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 55,000</span>
+          <button class="pcard-btn" onclick="openOrder('Synology DS923+ NAS','4-Bay NAS, AMD Ryzen R1600, 4GB RAM, Expandable','KES 55,000')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Network" data-name="aruba ion 1830 24g poe switch 24-port gigabit, 2x sfp, 195w poe, managed switch">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Aruba IoN 1830 24G PoE Switch" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Network</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Aruba IoN 1830 24G PoE Switch</h3>
+        <p class="pcard-spec">24-Port Gigabit, 2x SFP, 195W PoE, Managed Switch</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 54,891</span>
+          <button class="pcard-btn" onclick="openOrder('Aruba IoN 1830 24G PoE Switch','24-Port Gigabit, 2x SFP, 195W PoE, Managed Switch','KES 54,891')">Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard" data-sub="Network" data-name="aruba instant on ap22 access point wifi 6 indoor access point, 2x2 mu-mimo, ceiling/wall mount">
+      
+      <div class="pcard-img">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format" alt="Aruba Instant On AP22 Access Point" loading="lazy">
+        <span class="pcard-brand" style="background:#6B21A8">Network</span>
+      </div>
+      <div class="pcard-body">
+        <h3 class="pcard-name">Aruba Instant On AP22 Access Point</h3>
+        <p class="pcard-spec">WiFi 6 Indoor Access Point, 2x2 MU-MIMO, Ceiling/Wall mount</p>
+        <div class="pcard-footer">
+          <span class="pcard-price">KES 17,000</span>
+          <button class="pcard-btn" onclick="openOrder('Aruba Instant On AP22 Access Point','WiFi 6 Indoor Access Point, 2x2 MU-MIMO, Ceiling/Wall mount','KES 17,000')">Order</button>
+        </div>
+      </div>
+    </div>
+  <div class="no-results" id="noResults">
+    <span class="emoji">🔍</span>
+    Nothing found. <a href="https://wa.me/254722816001" target="_blank" style="color:var(--primary);font-weight:700">Ask us on WhatsApp</a>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeOrder()">×</button>
+    <h2>Place Your Order</h2>
+    <div class="modal-product-box">
+      <strong id="modalProductName"></strong>
+      <span id="modalProductSpec"></span>
+      <div class="mprice" id="modalProductPrice"></div>
+    </div>
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-row">
+        <label>Full Name *</label>
+        <input id="custName" type="text" required placeholder="e.g. John Kamau"/>
+      </div>
+      <div class="form-row">
+        <label>Phone Number *</label>
+        <input id="custPhone" type="tel" required placeholder="e.g. 0722 816 001"/>
+      </div>
+      <div class="form-row">
+        <label>Location / Area</label>
+        <input id="custLocation" type="text" placeholder="e.g. Westlands, Nairobi"/>
+      </div>
+      <div id="orderResult"></div>
+      <button class="submit-btn" type="submit" id="submitBtn">Place Order 🛒</button>
+      <p style="text-align:center;font-size:0.75rem;color:var(--muted);margin-top:0.7rem">We'll call within 30 minutes to confirm 📞</p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Nexcom Limited</h4>
+      <p>Nairobi's premier tech store. Laptops, servers, accessories and professional repair services.</p>
+      <p style="margin-top:0.8rem;color:#fff;font-weight:600">📍 Nairobi CBD, Kenya</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="hp.html">💻 HP Laptops</a><a href="dell.html">💻 Dell Laptops</a><a href="lenovo.html">💻 Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Laptop Repair</a>
+      <a href="#">Screen Replacement</a>
+      <a href="#">Buy My Old Laptop</a>
+      <a href="#">Enterprise Quotes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+254722816001">📞 +254 722 816 001</a>
+      <a href="https://wa.me/254722816001" target="_blank">💬 WhatsApp Us</a>
+      <a href="mailto:nexcomventures@gmail.com">✉️ Email Us</a>
+      <p>Mon–Sat · 9AM–7PM EAT</p>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Nexcom Limited. All rights reserved. · Built with ❤️ in Nairobi</div>
+</footer>
+
+<script>
+  let currentSubcat = '';
+  let currentSearch = '';
+
+  // Dropdown toggle
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const btn = dd.querySelector('.nav-dropdown-btn');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      document.querySelectorAll('.nav-dropdown').forEach(x => { if(x!==dd){ x.classList.remove('open'); x.querySelector('.nav-dropdown-btn').classList.remove('open'); }});
+      dd.classList.toggle('open');
+      btn.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown').forEach(dd => { dd.classList.remove('open'); dd.querySelector('.nav-dropdown-btn').classList.remove('open'); });
+  });
+
+  // Subcategory filter
+  function filterSubcat(el, sub) {
+    document.querySelectorAll('.subcat-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    currentSubcat = sub;
+    applyFilters();
+  }
+
+  // Search
+  function doSearch(val) {
+    currentSearch = val.toLowerCase().trim();
+    applyFilters();
+  }
+
+  // Apply filters
+  function applyFilters() {
+    const cards = document.querySelectorAll('.pcard');
+    let visible = 0;
+    cards.forEach(c => {
+      const subcatMatch = !currentSubcat || c.dataset.sub === currentSubcat;
+      const nameData = (c.dataset.name || '');
+      const searchMatch = !currentSearch || nameData.includes(currentSearch);
+      const show = subcatMatch && searchMatch;
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('resultCount').textContent = visible;
+    const nr = document.getElementById('noResults');
+    if (nr) nr.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // Sort
+  function sortProducts(val) {
+    const grid = document.getElementById('productGrid');
+    const cards = Array.from(grid.querySelectorAll('.pcard'));
+    cards.sort((a, b) => {
+      if (val === 'price-asc' || val === 'price-desc') {
+        const pa = parseInt(a.querySelector('.pcard-price').textContent.replace(/[^0-9]/g,'')) || 0;
+        const pb = parseInt(b.querySelector('.pcard-price').textContent.replace(/[^0-9]/g,'')) || 0;
+        return val === 'price-asc' ? pa - pb : pb - pa;
+      }
+      if (val === 'name-asc') return a.querySelector('.pcard-name').textContent.localeCompare(b.querySelector('.pcard-name').textContent);
+      return 0;
+    });
+    cards.forEach(c => grid.appendChild(c));
+  }
+
+  // Order modal
+  let _op='', _os='', _opr='';
+  function openOrder(name, specs, price) {
+    _op=name; _os=specs; _opr=price;
+    document.getElementById('modalProductName').textContent = name;
+    document.getElementById('modalProductSpec').textContent = specs;
+    document.getElementById('modalProductPrice').textContent = price;
+    document.getElementById('orderResult').innerHTML = '';
+    document.getElementById('orderForm').reset();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Place Order 🛒'; btn.disabled = false; btn.style.background = '';
+    document.getElementById('orderModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOrder() {
+    document.getElementById('orderModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('orderModal').addEventListener('click', function(e){ if(e.target===this) closeOrder(); });
+
+  async function submitOrder(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const body = {
+      name:     document.getElementById('custName').value.trim(),
+      phone:    document.getElementById('custPhone').value.trim(),
+      location: document.getElementById('custLocation').value.trim(),
+      product:  _op, specs: _os, price: _opr
+    };
+    const res = document.getElementById('orderResult');
+    try {
+      const r = await fetch('/api/order', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+      const d = await r.json();
+      if (d.success) {
+        res.innerHTML = '<p style="color:#16A34A;font-weight:700">✅ Order placed! We\'ll call you within 30 mins.</p>';
+        btn.textContent = 'Order Placed ✅'; btn.style.background = '#16A34A';
+        if (d.admin_wa_link) window.open(d.admin_wa_link, '_blank');
+        setTimeout(closeOrder, 2500);
+      } else { throw new Error(d.error || 'Failed'); }
+    } catch(err) {
+      res.innerHTML = '<p style="color:#DC2626;font-size:0.85rem">⚠️ Could not send. <a href="https://wa.me/254722816001" target="_blank" style="color:var(--primary);font-weight:700">WhatsApp us</a></p>';
+      btn.textContent = 'Place Order 🛒'; btn.disabled = false; btn.style.background='';
+    }
+  }
+
+</script>
+</body>
+</html>
