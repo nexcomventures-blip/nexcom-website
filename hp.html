@@ -2010,30 +2010,26 @@
   }
   document.getElementById('orderModal').addEventListener('click', function(e){ if(e.target===this) closeOrder(); });
 
-  async function submitOrder(e) {
+    async function submitOrder(e) {
     e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    const body = {
-      name:     document.getElementById('custName').value.trim(),
-      phone:    document.getElementById('custPhone').value.trim(),
-      location: document.getElementById('custLocation').value.trim(),
-      product:  _op, specs: _os, price: _opr
-    };
+    const name     = document.getElementById('custName').value.trim();
+    const phone    = document.getElementById('custPhone').value.trim();
+    const location = document.getElementById('custLocation').value.trim();
+    const msg = encodeURIComponent(
+      'Hi Nexcom! I would like to order:\n\n' +
+      'Product: ' + _op + '\n' +
+      'Specs: ' + _os + '\n' +
+      'Price: ' + _opr + '\n\n' +
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone + '\n' +
+      'Location: ' + location
+    );
+    window.open('https://wa.me/254719626363?text=' + msg, '_blank');
     const res = document.getElementById('orderResult');
-    try {
-      const r = await fetch('/api/order', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
-      const d = await r.json();
-      if (d.success) {
-        res.innerHTML = '<p style="color:#16A34A;font-weight:700">✅ Order placed! We\'ll call you within 30 mins.</p>';
-        btn.textContent = 'Order Placed ✅'; btn.style.background = '#16A34A';
-        if (d.admin_wa_link) window.open(d.admin_wa_link, '_blank');
-        setTimeout(closeOrder, 2500);
-      } else { throw new Error(d.error || 'Failed'); }
-    } catch(err) {
-      res.innerHTML = '<p style="color:#DC2626;font-size:0.85rem">⚠️ Could not send. <a href="https://wa.me/254722816001" target="_blank" style="color:var(--primary);font-weight:700">WhatsApp us</a></p>';
-      btn.textContent = 'Place Order 🛒'; btn.disabled = false; btn.style.background='';
-    }
+    res.innerHTML = '<p style="color:#16A34A;font-weight:700">Opening WhatsApp... we will confirm shortly!</p>';
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Order Sent'; btn.style.background = '#16A34A';
+    setTimeout(closeOrder, 3000);
   }
 
 </script>
