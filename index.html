@@ -326,9 +326,144 @@ footer{background:#1A1A1A;color:#9CA3AF;padding:3rem 5% 1.5rem;margin-top:2.5rem
   .pcard-img{height:130px;}
   .footer-grid{grid-template-columns:1fr;}
 }
+
+/* ── Welcome Modal ───────────────────────────────── */
+.welcome-overlay{
+  display:none;position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;
+  animation:fadeIn .3s ease;
+}
+.welcome-overlay.show{display:flex;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes fadeOut{from{opacity:1;}to{opacity:0;}}
+.welcome-box{
+  background:#fff;border-radius:22px;
+  max-width:420px;width:90%;padding:0;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.22);
+  animation:slideUp .4s cubic-bezier(.16,1,.3,1);
+  position:relative;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:none;}}
+.welcome-header{
+  background:linear-gradient(135deg,#CC0000,#8B0000);
+  padding:2rem 2rem 1.5rem;text-align:center;position:relative;
+}
+.welcome-header h2{color:#fff;font-size:1.4rem;font-weight:900;margin:0 0 .3rem;}
+.welcome-header p{color:rgba(255,255,255,.85);font-size:.85rem;margin:0;}
+.welcome-logo{font-size:2.5rem;margin-bottom:.5rem;}
+.welcome-body{padding:1.5rem 2rem;}
+.welcome-body p{font-size:.88rem;color:#444;line-height:1.6;margin:0 0 1.2rem;text-align:center;}
+.welcome-actions{display:flex;flex-direction:column;gap:.7rem;}
+.wa-welcome-btn{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  background:#25D366;color:#fff;border:none;border-radius:12px;
+  padding:12px;font-size:.9rem;font-weight:700;cursor:pointer;
+  transition:opacity .15s;text-decoration:none;
+}
+.wa-welcome-btn:hover{opacity:.88;}
+.browse-btn{
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#CC0000,#8B0000);color:#fff;
+  border:none;border-radius:12px;padding:12px;
+  font-size:.9rem;font-weight:700;cursor:pointer;transition:opacity .15s;
+}
+.browse-btn:hover{opacity:.88;}
+.welcome-close{
+  position:absolute;top:12px;right:14px;background:rgba(255,255,255,.2);
+  border:none;color:#fff;font-size:1.1rem;cursor:pointer;
+  border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+  line-height:1;
+}
+.welcome-footer{
+  text-align:center;padding:.8rem;font-size:.72rem;color:#aaa;
+  border-top:1px solid #f0f0f0;
+}
+
+/* ── Chat Bubble ─────────────────────────────────── */
+.chat-bubble{
+  position:fixed;bottom:24px;right:24px;z-index:1500;
+  display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;
+}
+.chat-popup{
+  background:#fff;border-radius:16px 16px 4px 16px;
+  box-shadow:0 8px 32px rgba(0,0,0,.15);
+  padding:1rem 1.1rem;max-width:260px;
+  animation:bubbleIn .5s cubic-bezier(.16,1,.3,1);
+  position:relative;border:1px solid #eee;
+}
+@keyframes bubbleIn{from{opacity:0;transform:translateY(20px) scale(.9);}to{opacity:1;transform:none;}}
+.chat-popup p{margin:0 0 .6rem;font-size:.82rem;color:#222;line-height:1.5;}
+.chat-popup p strong{color:#CC0000;}
+.chat-popup-close{
+  position:absolute;top:6px;right:8px;background:none;border:none;
+  color:#bbb;font-size:.9rem;cursor:pointer;line-height:1;
+}
+.chat-popup-close:hover{color:#888;}
+.wa-bubble-btn{
+  display:flex;align-items:center;gap:.4rem;
+  background:#25D366;color:#fff;border:none;border-radius:10px;
+  padding:7px 12px;font-size:.78rem;font-weight:700;cursor:pointer;
+  width:100%;justify-content:center;transition:opacity .15s;text-decoration:none;
+}
+.wa-bubble-btn:hover{opacity:.88;}
+.chat-fab{
+  width:56px;height:56px;border-radius:50%;background:#25D366;
+  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;box-shadow:0 4px 18px rgba(37,211,102,.4);
+  transition:transform .2s;
+}
+.chat-fab:hover{transform:scale(1.08);}
+.chat-fab .notif-dot{
+  position:absolute;top:0;right:0;width:14px;height:14px;
+  background:#CC0000;border-radius:50%;border:2px solid #fff;
+  font-size:.55rem;color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:900;
+}
+.chat-fab-wrap{position:relative;}
 </style>
 </head>
 <body>
+
+<!-- ══ Welcome Modal ══════════════════════════════════════════════════════ -->
+<div class="welcome-overlay" id="welcomeModal">
+  <div class="welcome-box">
+    <div class="welcome-header">
+      <button class="welcome-close" onclick="closeWelcome()">✕</button>
+      <div class="welcome-logo">💻</div>
+      <h2>Welcome to Nexcom Ventures</h2>
+      <p>Compute with Confidence</p>
+    </div>
+    <div class="welcome-body">
+      <p>🇰🇪 Nairobi's trusted laptop store — <strong>Brand New, Ex-UK & Refurbished</strong> laptops with <strong>6-month warranty</strong> and countrywide delivery.</p>
+      <div class="welcome-actions">
+        <a class="wa-welcome-btn" href="https://wa.me/254722816001?text=Hi%2C+I+just+landed+on+your+website+and+I%27d+like+some+help!" target="_blank">
+          💬 Chat with Us on WhatsApp
+        </a>
+        <button class="browse-btn" onclick="closeWelcome()">
+          🛍️ Browse Products
+        </button>
+      </div>
+    </div>
+    <div class="welcome-footer">📞 +254 722 816 001 &nbsp;·&nbsp; Mon–Sat 9AM–7PM EAT</div>
+  </div>
+</div>
+
+<!-- ══ Chat Bubble ═════════════════════════════════════════════════════════ -->
+<div class="chat-bubble" id="chatBubble">
+  <div class="chat-popup" id="chatPopup">
+    <button class="chat-popup-close" onclick="closeChatPopup()">✕</button>
+    <p>👋 Hi there! Need help finding the <strong>right laptop?</strong><br>We're online and ready to help!</p>
+    <a class="wa-bubble-btn" href="https://wa.me/254722816001?text=Hi%2C+I+need+help+finding+a+laptop!" target="_blank">
+      💬 Chat on WhatsApp
+    </a>
+  </div>
+  <div class="chat-fab-wrap">
+    <button class="chat-fab" onclick="toggleChatPopup()" id="chatFab">💬</button>
+    <span class="notif-dot" id="chatDot">1</span>
+  </div>
+</div>
+
 
 <!-- Header -->
 <header>
@@ -1895,6 +2030,54 @@ function setView(v){
   const saved = localStorage.getItem('nexcom-view');
   if(saved) setView(saved);
 })();
+
+// ── Welcome Modal ────────────────────────────────────────────────────────────
+function closeWelcome(){
+  const m = document.getElementById('welcomeModal');
+  m.style.animation = 'fadeOut .25s ease forwards';
+  setTimeout(()=>{ m.style.display='none'; }, 250);
+  sessionStorage.setItem('nexcom-welcomed','1');
+}
+
+// Show modal after 1.5s if not seen this session
+window.addEventListener('DOMContentLoaded', function(){
+  if(!sessionStorage.getItem('nexcom-welcomed')){
+    setTimeout(function(){
+      const m = document.getElementById('welcomeModal');
+      m.classList.add('show');
+    }, 1500);
+  }
+});
+
+// Close modal on overlay click
+document.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('welcomeModal').addEventListener('click', function(e){
+    if(e.target === this) closeWelcome();
+  });
+});
+
+// ── Chat Bubble ──────────────────────────────────────────────────────────────
+function closeChatPopup(){
+  document.getElementById('chatPopup').style.display='none';
+  document.getElementById('chatDot').style.display='none';
+}
+function toggleChatPopup(){
+  const p = document.getElementById('chatPopup');
+  const dot = document.getElementById('chatDot');
+  const isHidden = p.style.display === 'none';
+  p.style.display = isHidden ? 'block' : 'none';
+  dot.style.display = 'none';
+}
+
+// Show chat bubble after 6 seconds
+window.addEventListener('DOMContentLoaded', function(){
+  const bubble = document.getElementById('chatBubble');
+  bubble.style.opacity = '0';
+  setTimeout(function(){
+    bubble.style.transition = 'opacity .5s';
+    bubble.style.opacity = '1';
+  }, 6000);
+});
 </script>
 </body>
 </html>
