@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Brand New Laptops – Nexcom Limited | Nairobi</title>
+<style>
+  :root{--red:#CC0000;--red-dark:#A30000;--text:#1A1A1A;--muted:#6B7280;--border:#E5E7EB;--bg:#F7F7F7;--white:#FFFFFF;--green:#16A34A;--orange:#EA6F00;--blue:#1D4ED8;--header-h:60px;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);}
+  a{text-decoration:none;color:inherit;}
+
+  .topbar{background:var(--red);color:#fff;font-size:0.75rem;font-weight:600;padding:6px 0;overflow:hidden;white-space:nowrap;}
+  .topbar-inner{display:inline-block;animation:ticker 28s linear infinite;}
+  @keyframes ticker{0%{transform:translateX(100vw);}100%{transform:translateX(-100%);}}
+
+  header{background:var(--white);border-bottom:1px solid var(--border);height:var(--header-h);display:flex;align-items:center;padding:0 3%;gap:1rem;position:sticky;top:0;z-index:300;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+  .logo{font-size:1.55rem;font-weight:900;color:var(--text);flex-shrink:0;}
+  .logo span{color:var(--red);}
+  .header-nav{display:flex;gap:0;align-items:center;flex-shrink:0;}
+  .header-nav a{padding:8px 13px;font-size:0.83rem;font-weight:600;color:var(--text);border-radius:6px;transition:background .15s;white-space:nowrap;}
+  .header-nav a:hover,.header-nav a.active{background:#FFF0F0;color:var(--red);}
+  .search-wrap{flex:1;max-width:380px;display:flex;align-items:center;background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:0 1rem;height:38px;transition:border .2s;}
+  .search-wrap:focus-within{border-color:var(--red);}
+  .search-wrap input{flex:1;border:none;background:transparent;outline:none;font-size:0.85rem;color:var(--text);margin-left:0.5rem;}
+  .wa-btn{display:flex;align-items:center;gap:0.35rem;background:#25D366;color:#fff;border-radius:50px;padding:7px 14px;font-size:0.82rem;font-weight:700;white-space:nowrap;}
+  .wa-btn:hover{opacity:0.88;}
+
+  .services-strip{background:linear-gradient(90deg,var(--red-dark),var(--red),var(--red-dark));overflow:hidden;height:48px;display:flex;align-items:center;}
+  .services-track{display:flex;align-items:center;white-space:nowrap;animation:sScroll 22s linear infinite;}
+  @keyframes sScroll{0%{transform:translateX(100vw);}100%{transform:translateX(-100%);}}
+  .svc-item{display:inline-flex;align-items:center;gap:0.5rem;color:#fff;font-size:0.88rem;font-weight:700;padding:0 2.5rem;text-decoration:none;}
+  .svc-sep{color:rgba(255,255,255,0.35);font-size:1.2rem;padding:0 0.5rem;}
+
+  /* HERO */
+  .page-hero{background:linear-gradient(135deg,#0f172a,#1e3a5f);padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .page-hero-left h1{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:0.6rem;}
+  .page-hero-left h1 span{color:#60A5FA;}
+  .page-hero-left p{color:rgba(255,255,255,0.75);font-size:0.9rem;line-height:1.7;max-width:500px;}
+  .hero-badges{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:1.2rem;}
+  .hero-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:700;}
+  .hero-badge.green{border-color:#22C55E;color:#22C55E;}
+  .hero-badge.blue{border-color:#60A5FA;color:#60A5FA;}
+
+  /* TRUST BAR */
+  .trust-bar{background:var(--white);border-bottom:3px solid var(--red);display:flex;justify-content:center;flex-wrap:wrap;}
+  .trust-item{display:flex;align-items:center;gap:0.5rem;padding:10px 20px;font-size:0.8rem;font-weight:600;color:var(--text);border-right:1px solid var(--border);}
+  .trust-item:last-child{border-right:none;}
+
+  /* MAIN */
+  .main-layout{display:grid;grid-template-columns:220px 1fr;gap:1.5rem;padding:1.5rem 3%;max-width:1400px;margin:0 auto;}
+
+  /* SIDEBAR */
+  .sidebar-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.2rem;margin-bottom:1rem;}
+  .sidebar-box h4{font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:0.8rem;}
+  .sidebar-cat{display:flex;align-items:center;gap:0.6rem;padding:8px 10px;border-radius:8px;font-size:0.85rem;font-weight:600;color:var(--text);cursor:pointer;transition:background .15s;border:none;background:none;width:100%;text-align:left;}
+  .sidebar-cat:hover,.sidebar-cat.active{background:#FFF0F0;color:var(--red);}
+  .sidebar-cat .cat-count{margin-left:auto;font-size:0.74rem;color:var(--muted);}
+  .price-range label{font-size:0.8rem;color:var(--muted);display:block;margin-bottom:0.3rem;}
+  .price-range input[type=range]{width:100%;accent-color:var(--red);margin-bottom:0.3rem;}
+  .price-display{display:flex;justify-content:space-between;font-size:0.76rem;font-weight:700;}
+  .sidebar-btn{display:block;width:100%;padding:9px;border-radius:8px;background:var(--red);color:#fff;font-weight:700;font-size:0.84rem;border:none;cursor:pointer;margin-top:0.5rem;transition:background .2s;text-align:center;}
+  .sidebar-btn:hover{background:var(--red-dark);}
+  .sidebar-btn.green{background:#25D366;}
+  .sidebar-btn.green:hover{background:#1ea754;}
+  .warranty-box{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1px solid #BFDBFE;border-radius:10px;padding:1rem;text-align:center;}
+  .warranty-box .icon{font-size:1.8rem;display:block;margin-bottom:0.4rem;}
+  .warranty-box h5{font-size:0.88rem;font-weight:800;color:var(--blue);margin-bottom:0.2rem;}
+  .warranty-box p{font-size:0.75rem;color:#1e40af;line-height:1.4;}
+
+  /* PRODUCTS */
+  .products-topbar{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:0.8rem 1.2rem;margin-bottom:1rem;gap:1rem;flex-wrap:wrap;}
+  .products-topbar h2{font-size:1.1rem;font-weight:800;}
+  .sort-select{padding:6px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:0.82rem;font-weight:600;color:var(--text);background:var(--white);outline:none;cursor:pointer;}
+  .sort-select:focus{border-color:var(--red);}
+
+  .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+  .pcard{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .25s;display:flex;flex-direction:column;position:relative;}
+  .pcard:hover{border-color:var(--red);box-shadow:0 6px 24px rgba(204,0,0,0.1);transform:translateY(-2px);}
+  .pcard-img{height:160px;overflow:hidden;background:#f8f8f8;position:relative;}
+  .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+  .pcard:hover .pcard-img img{transform:scale(1.04);}
+
+  /* BADGES */
+  .badge{position:absolute;font-size:0.64rem;font-weight:800;padding:3px 9px;border-radius:4px;text-transform:uppercase;}
+  .badge-brand{top:8px;left:8px;}
+  .badge-new{background:#16A34A;color:#fff;}
+  .badge-hp{background:#0096D6;color:#fff;}
+  .badge-dell{background:#007DB8;color:#fff;}
+  .badge-lenovo{background:#E2231A;color:#fff;}
+  .badge-infinix{background:#6D28D9;color:#fff;}
+  .badge-limited{top:8px;right:8px;background:#F97316;color:#fff;}
+  .badge-warranty{bottom:8px;left:8px;background:#1D4ED8;color:#fff;}
+
+  .pcard-body{padding:0.9rem;flex:1;display:flex;flex-direction:column;}
+  .pcard-name{font-size:0.87rem;font-weight:800;color:var(--text);margin-bottom:0.3rem;line-height:1.3;}
+  .pcard-spec{font-size:0.74rem;color:var(--muted);line-height:1.5;flex:1;margin-bottom:0.6rem;}
+  .pcard-price{font-size:1.05rem;font-weight:900;color:var(--red);}
+  .pcard-footer{padding:0 0.9rem 0.9rem;display:flex;flex-direction:column;gap:0.4rem;}
+  .order-btn{display:flex;align-items:center;justify-content:center;gap:0.4rem;width:100%;background:var(--red);color:#fff;border:none;border-radius:8px;padding:9px;font-size:0.82rem;font-weight:700;cursor:pointer;transition:background .2s;}
+  .order-btn:hover{background:var(--red-dark);}
+  .no-results{text-align:center;padding:3rem;color:var(--muted);font-size:0.95rem;grid-column:1/-1;}
+
+  /* MODAL */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;align-items:center;justify-content:center;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:var(--white);border-radius:16px;width:90%;max-width:460px;padding:2rem;position:relative;max-height:90vh;overflow-y:auto;}
+  .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--muted);}
+  .modal-product-info{background:var(--bg);border-radius:8px;padding:0.8rem;margin:1rem 0;font-size:0.85rem;}
+  .warranty-note{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:0.6rem 0.8rem;font-size:0.78rem;color:#1e40af;font-weight:600;margin-bottom:1rem;}
+  .form-group{margin-bottom:1rem;}
+  .form-group label{display:block;font-size:0.8rem;font-weight:700;margin-bottom:0.3rem;}
+  .form-group input{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.88rem;outline:none;transition:border .2s;font-family:inherit;}
+  .form-group input:focus{border-color:var(--red);}
+  .submit-btn{width:100%;background:var(--red);color:#fff;border:none;border-radius:10px;padding:12px;font-size:0.95rem;font-weight:800;cursor:pointer;transition:background .2s;}
+  .submit-btn:hover{background:var(--red-dark);}
+
+  footer{background:var(--text);color:#9CA3AF;padding:3rem 5% 1.5rem;margin-top:3rem;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+  .footer-col h4{color:#fff;font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem;}
+  .footer-col a{display:block;color:#9CA3AF;font-size:0.82rem;margin-bottom:0.5rem;transition:color .2s;}
+  .footer-col a:hover{color:#fff;}
+  .footer-col p{font-size:0.82rem;line-height:1.7;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.2rem;text-align:center;font-size:0.78rem;color:#4B5563;}
+
+  @media(max-width:900px){.main-layout{grid-template-columns:1fr;}.sidebar{display:none;}.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.header-nav{display:none;}.product-grid{grid-template-columns:repeat(2,1fr);}.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-inner">🆕 Brand New Laptops — 6 Months Warranty Included &nbsp;|&nbsp; Call/WhatsApp: +254 722 816 001 &nbsp;|&nbsp; Free delivery within Nairobi CBD &nbsp;|&nbsp; Mon–Sat 9AM–7PM &nbsp;&nbsp;&nbsp;&nbsp; 🆕 Brand New Laptops — 6 Months Warranty Included &nbsp;|&nbsp; Call/WhatsApp: +254 722 816 001</span>
+</div>
+
+<header>
+  <a class="logo" href="index.html">Nex<span>com</span></a>
+  <nav class="header-nav">
+    <a href="index.html">Home</a>
+    <a href="new-laptops.html" class="active">🆕 Brand New</a>
+    <a href="refurbished.html">♻️ Refurbished</a>
+    <a href="hp.html">HP</a>
+    <a href="dell.html">Dell</a>
+    <a href="lenovo.html">Lenovo</a>
+    <a href="servers.html">Servers</a>
+  </nav>
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Search brand new laptops..." oninput="doSearch(this.value)"/>
+  </div>
+  <a class="wa-btn" href="https://wa.me/254722816001" target="_blank">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</header>
+
+<div class="services-strip">
+  <div class="services-track">
+    <a class="svc-item" href="https://wa.me/254722816001?text=Hi%2C+I+want+to+repair+my+laptop" target="_blank">🔧 Laptop Repair — Book Now</a>
+    <span class="svc-sep">|</span>
+    <a class="svc-item" href="https://wa.me/254722816001?text=Hi%2C+I+want+to+sell+my+laptop" target="_blank">💰 Sell Your Old Laptop — Get a Quote</a>
+    <span class="svc-sep">|</span>
+    <a class="svc-item" href="https://wa.me/254722816001?text=Hi%2C+I+need+a+screen+replacement" target="_blank">📺 Screen Replacement — Fast Turnaround</a>
+    <span class="svc-sep">|</span>
+    <a class="svc-item" href="https://wa.me/254722816001?text=Hi%2C+I+need+an+enterprise+quote" target="_blank">🏢 Enterprise Bulk Quotes — Call Us</a>
+    <span class="svc-sep">|</span>
+    <a class="svc-item" href="https://wa.me/254722816001?text=Hi%2C+I+want+to+repair+my+laptop" target="_blank">🔧 Laptop Repair — Book Now</a>
+    <span class="svc-sep">|</span>
+    <a class="svc-item" href="https://wa.me/254722816001?text=Hi%2C+I+want+to+sell+my+laptop" target="_blank">💰 Sell Your Old Laptop — Get a Quote</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-left">
+    <h1>🆕 Brand New Laptops<br><span>6 Months Warranty. Zero Compromise.</span></h1>
+    <p>Straight from authorized distributors. Every laptop is sealed, genuine, and backed by a 6-month Nexcom warranty. HP, Dell, Lenovo & Infinix in stock.</p>
+    <div class="hero-badges">
+      <span class="hero-badge green">✅ 100% Genuine</span>
+      <span class="hero-badge green">🔒 6 Months Warranty</span>
+      <span class="hero-badge blue">🚚 Same-Day Nairobi Delivery</span>
+      <span class="hero-badge">💳 M-Pesa Accepted</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">🆕 Factory sealed</div>
+  <div class="trust-item">🔒 6-month Nexcom warranty</div>
+  <div class="trust-item">✅ Authorized distributor stock</div>
+  <div class="trust-item">🚚 Same-day Nairobi delivery</div>
+  <div class="trust-item">💳 M-Pesa & card accepted</div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <h4>Brand</h4>
+      <button class="sidebar-cat active" onclick="filterCat(this,'all')">🛍️ All Brands <span class="cat-count">29</span></button>
+      <button class="sidebar-cat" onclick="filterCat(this,'hp')">💻 HP <span class="cat-count">12</span></button>
+      <button class="sidebar-cat" onclick="filterCat(this,'dell')">💻 Dell <span class="cat-count">3</span></button>
+      <button class="sidebar-cat" onclick="filterCat(this,'lenovo')">💻 Lenovo <span class="cat-count">8</span></button>
+      <button class="sidebar-cat" onclick="filterCat(this,'infinix')">💻 Infinix <span class="cat-count">6</span></button>
+    </div>
+    <div class="sidebar-box">
+      <h4>Price Range</h4>
+      <div class="price-range">
+        <label>Max: <span id="priceLabel">KES 420,000</span></label>
+        <input type="range" min="70000" max="420000" step="10000" value="420000" id="priceSlider" oninput="filterPrice(this.value)"/>
+        <div class="price-display"><span>KES 70K</span><span>KES 420K</span></div>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="warranty-box">
+        <span class="icon">🔒</span>
+        <h5>6 Months Warranty</h5>
+        <p>All brand new laptops come with a 6-month Nexcom warranty. We've got you covered.</p>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <h4>Need Help?</h4>
+      <a class="sidebar-btn green" href="https://wa.me/254722816001?text=Hi%2C+I+need+help+choosing+a+brand+new+laptop" target="_blank">💬 Chat with Us</a>
+      <a class="sidebar-btn" href="https://wa.me/254722816001?text=Hi%2C+I+need+an+enterprise+quote" target="_blank" style="margin-top:0.5rem;">🏢 Bulk / Enterprise</a>
+    </div>
+  </aside>
+
+  <!-- PRODUCTS -->
+  <main>
+    <div class="products-topbar">
+      <div>
+        <h2>Brand New Laptops <span style="font-size:0.82rem;color:var(--muted);font-weight:400;" id="resultCount">29 items</span></h2>
+      </div>
+      <select class="sort-select" onchange="sortProducts(this.value)">
+        <option value="default">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A–Z</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <!-- ══════════ HP ══════════ -->
+
+      <div class="pcard" data-cat="hp" data-price="138000" data-name="hp pavilion x360 14 i5 touch">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="HP Pavilion"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP Pavilion X360 14 Touch</div>
+          <div class="pcard-spec">i5-1335U · 8GB · 512GB SSD · 14" FHD Touch · Win 11 Home · Natural Silver</div>
+          <div class="pcard-price">KES 138,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP Pavilion X360 14 (Touch, Brand New)','i5-1335U · 8GB RAM · 512GB SSD · 14&quot; FHD Touch · Win 11 Home','KES 138,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="139000" data-name="hp probook 440 g11 u5 8gb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&auto=format" alt="HP ProBook 440"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 440 G11</div>
+          <div class="pcard-spec">Intel U5-125U · 8GB · 512GB SSD · 14" WUXGA · DOS · Backlit KB + Carry Case</div>
+          <div class="pcard-price">KES 139,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 440 G11 (Brand New)','Intel U5-125U · 8GB RAM · 512GB SSD · 14&quot; WUXGA · DOS · Backlit KB','KES 139,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="136000" data-name="hp probook 440 g11 u5 8gb fhd">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&auto=format" alt="HP ProBook 440 G11"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 440 G11 FHD</div>
+          <div class="pcard-spec">Intel U5-125U · 8GB · 512GB SSD · 14" FHD · DOS · Pike Silver</div>
+          <div class="pcard-price">KES 136,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 440 G11 FHD (Brand New)','Intel U5-125U · 8GB RAM · 512GB SSD · 14&quot; FHD · DOS · Pike Silver','KES 136,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="146000" data-name="hp probook 440 g11 u5 16gb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&auto=format" alt="HP ProBook 440 16GB"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 440 G11 — 16GB</div>
+          <div class="pcard-spec">Intel U5-125U · 16GB · 512GB SSD · 14" WUXGA · DOS · Backlit KB + Carry Case</div>
+          <div class="pcard-price">KES 146,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 440 G11 16GB (Brand New)','Intel U5-125U · 16GB RAM · 512GB SSD · 14&quot; WUXGA · DOS','KES 146,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="166000" data-name="hp probook 440 g11 u7 8gb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="HP ProBook 440 U7"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 440 G11 — U7</div>
+          <div class="pcard-spec">Intel U7-155U · 8GB · 512GB SSD · 14" WUXGA · DOS · Backlit KB + Carry Case</div>
+          <div class="pcard-price">KES 166,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 440 G11 U7 (Brand New)','Intel U7-155U · 8GB RAM · 512GB SSD · 14&quot; WUXGA · DOS','KES 166,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="155000" data-name="hp probook 4 g1i ai ultra 5 16 inch">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&auto=format" alt="HP ProBook 4 AI"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 4 G1i AI — 16"</div>
+          <div class="pcard-spec">Intel Ultra 5 225U · 16GB DDR5 · 512GB SSD · 16" WUXGA · DOS · Backlit KB</div>
+          <div class="pcard-price">KES 155,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 4 G1i AI 16&quot; (Brand New)','Intel Ultra 5 225U · 16GB DDR5 · 512GB SSD · 16&quot; WUXGA · DOS','KES 155,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="155000" data-name="hp probook 4 g1i ai ultra 5 14 inch">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&auto=format" alt="HP ProBook 4 AI 14"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 4 G1i AI — 14"</div>
+          <div class="pcard-spec">Intel Ultra 5 225U · 16GB DDR5 · 512GB SSD · 14" WUXGA · DOS · Backlit KB</div>
+          <div class="pcard-price">KES 155,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 4 G1i AI 14&quot; (Brand New)','Intel Ultra 5 225U · 16GB DDR5 · 512GB SSD · 14&quot; WUXGA · DOS','KES 155,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="183000" data-name="hp probook 4 g1i ai ultra 7 16 inch">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&auto=format" alt="HP ProBook 4 Ultra 7"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 4 G1i AI — Ultra 7</div>
+          <div class="pcard-spec">Intel Ultra 7 255U · 16GB DDR5 · 512GB SSD · 16" WUXGA · DOS · Backlit KB</div>
+          <div class="pcard-price">KES 183,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 4 G1i AI Ultra 7 16&quot; (Brand New)','Intel Ultra 7 255U · 16GB DDR5 · 512GB SSD · 16&quot; WUXGA · DOS','KES 183,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="146000" data-name="hp probook 460 g11 u5 16gb 16 inch">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="HP ProBook 460"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 460 G11 — 16GB</div>
+          <div class="pcard-spec">Intel U5-125U · 16GB · 512GB SSD · 16" WUXGA · DOS · Backlit KB + Carry Case</div>
+          <div class="pcard-price">KES 146,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 460 G11 16GB (Brand New)','Intel U5-125U · 16GB RAM · 512GB SSD · 16&quot; WUXGA · DOS','KES 146,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="138000" data-name="hp probook 460 g11 u5 8gb 16 inch">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&auto=format" alt="HP ProBook 460 8GB"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 460 G11 — 8GB</div>
+          <div class="pcard-spec">Intel U5-125U · 8GB · 512GB SSD · 16" WUXGA · DOS · Backlit KB + Carry Case</div>
+          <div class="pcard-price">KES 138,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 460 G11 8GB (Brand New)','Intel U5-125U · 8GB RAM · 512GB SSD · 16&quot; WUXGA · DOS','KES 138,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="172000" data-name="hp probook 460 g11 u7 16gb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="HP ProBook 460 U7"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 460 G11 U7 — 16GB</div>
+          <div class="pcard-spec">Intel U7-155U · 16GB · 512GB SSD · 16" WUXGA · DOS · Backlit KB</div>
+          <div class="pcard-price">KES 172,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 460 G11 U7 16GB (Brand New)','Intel U7-155U · 16GB RAM · 512GB SSD · 16&quot; WUXGA · DOS','KES 172,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="hp" data-price="166000" data-name="hp probook 460 g11 u7 8gb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&auto=format" alt="HP ProBook 460 U7 8GB"/>
+          <span class="badge badge-brand badge-hp">HP</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">HP ProBook 460 G11 U7 — 8GB</div>
+          <div class="pcard-spec">Intel U7-155U · 8GB · 512GB SSD · 16" WUXGA · DOS · Backlit KB</div>
+          <div class="pcard-price">KES 166,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('HP ProBook 460 G11 U7 8GB (Brand New)','Intel U7-155U · 8GB RAM · 512GB SSD · 16&quot; WUXGA · DOS','KES 166,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <!-- ══════════ DELL ══════════ -->
+
+      <div class="pcard" data-cat="dell" data-price="200000" data-name="dell latitude 3450 i7 limited">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&auto=format" alt="Dell Latitude 3450"/>
+          <span class="badge badge-brand badge-dell">Dell</span>
+          <span class="badge badge-limited">⚡ Limited Stock</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Dell Latitude 3450 — i7</div>
+          <div class="pcard-spec">i7-1355U · 8GB · 512GB SSD · 14" FHD · Ubuntu · Limited units available</div>
+          <div class="pcard-price">KES 200,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Dell Latitude 3450 i7 (Brand New — Limited Stock)','i7-1355U · 8GB RAM · 512GB SSD · 14&quot; FHD · Ubuntu','KES 200,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="dell" data-price="108000" data-name="dell pro 15 dc15250 i5">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?w=400&auto=format" alt="Dell Pro 15"/>
+          <span class="badge badge-brand badge-dell">Dell</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Dell Pro 15 DC15250</div>
+          <div class="pcard-spec">i5-1334U · 8GB · 512GB SSD · 15.6" FHD · Ubuntu</div>
+          <div class="pcard-price">KES 108,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Dell Pro 15 DC15250 (Brand New)','i5-1334U · 8GB RAM · 512GB SSD · 15.6&quot; FHD · Ubuntu','KES 108,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="dell" data-price="131000" data-name="dell pro essentials pv15250 i7 limited">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&auto=format" alt="Dell Pro Essentials"/>
+          <span class="badge badge-brand badge-dell">Dell</span>
+          <span class="badge badge-limited">⚡ Limited Stock</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Dell Pro Essentials 15</div>
+          <div class="pcard-spec">i7-1355U · 8GB · 512GB SSD · 15.6" FHD · Ubuntu · Limited units</div>
+          <div class="pcard-price">KES 131,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Dell Pro Essentials 15 PV15250 (Brand New — Limited Stock)','i7-1355U · 8GB RAM · 512GB SSD · 15.6&quot; FHD · Ubuntu','KES 131,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <!-- ══════════ LENOVO ══════════ -->
+
+      <div class="pcard" data-cat="lenovo" data-price="151000" data-name="lenovo thinkbook 14 g9 core 7">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&auto=format" alt="Lenovo ThinkBook 14"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo ThinkBook 14 G9</div>
+          <div class="pcard-spec">Core 7-240H · 8GB DDR5 · 512GB SSD · 14" WUXGA · No OS · IR Cam · Wi-Fi 7</div>
+          <div class="pcard-price">KES 151,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo ThinkBook 14 G9 (Brand New)','Core 7-240H · 8GB DDR5 · 512GB SSD · 14&quot; WUXGA · No OS','KES 151,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="lenovo" data-price="202000" data-name="lenovo thinkpad e14 g7 u7">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&auto=format" alt="Lenovo ThinkPad E14"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo ThinkPad E14 G7</div>
+          <div class="pcard-spec">U7-256V · 16GB DDR5 · 512GB SSD · 14" WUXGA · Intel Arc · No OS · IR Cam</div>
+          <div class="pcard-price">KES 202,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo ThinkPad E14 G7 (Brand New)','U7-256V · 16GB DDR5 · 512GB SSD · 14&quot; WUXGA · Intel Arc','KES 202,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="lenovo" data-price="232000" data-name="lenovo thinkpad l14 u7 16gb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&auto=format" alt="Lenovo ThinkPad L14"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo ThinkPad L14</div>
+          <div class="pcard-spec">U7-255U · 16GB DDR5 · 512GB SSD · 14" WUXGA · 5M RGB+IR Cam · Backlit KB</div>
+          <div class="pcard-price">KES 232,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo ThinkPad L14 (Brand New)','U7-255U · 16GB DDR5 · 512GB SSD · 14&quot; WUXGA','KES 232,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="lenovo" data-price="265000" data-name="lenovo thinkpad t14 g5 ultra 7">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&auto=format" alt="Lenovo T14 G5"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo ThinkPad T14 G5</div>
+          <div class="pcard-spec">Core Ultra 7 155U · 16GB · 512GB SSD · 14" WUXGA · NFC · 5MP IR · 3yr Warranty</div>
+          <div class="pcard-price">KES 265,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo ThinkPad T14 G5 (Brand New)','Core Ultra 7 155U · 16GB RAM · 512GB SSD · 14&quot; WUXGA','KES 265,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="lenovo" data-price="286000" data-name="lenovo thinkpad t14 lnl u7 32gb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&auto=format" alt="Lenovo T14 LNL"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo ThinkPad T14 — 32GB</div>
+          <div class="pcard-spec">U7-258V · 32GB DDR5 · 512GB SSD · 14" WUXGA · Intel Arc · IR Cam · Backlit KB</div>
+          <div class="pcard-price">KES 286,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo ThinkPad T14 32GB (Brand New)','U7-258V · 32GB DDR5 · 512GB SSD · 14&quot; WUXGA · Intel Arc','KES 286,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="lenovo" data-price="338000" data-name="lenovo thinkpad t14s u7 win11 1tb">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&auto=format" alt="Lenovo T14s"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo ThinkPad T14s — Win 11</div>
+          <div class="pcard-spec">U7-255U · 16GB DDR5 · 1TB SSD · 14" WUXGA · Win 11 Pro · IR Cam · Backlit KB</div>
+          <div class="pcard-price">KES 338,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo ThinkPad T14s Win 11 (Brand New)','U7-255U · 16GB DDR5 · 1TB SSD · 14&quot; WUXGA · Win 11 Pro','KES 338,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="lenovo" data-price="386000" data-name="lenovo x1 carbon g13 no os">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&auto=format" alt="Lenovo X1 Carbon"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo X1 Carbon G13 — No OS</div>
+          <div class="pcard-spec">U7-255U · 16GB DDR5 · 512GB SSD · 14" WUXGA 500nits · IR Cam · 3yr Carry-in</div>
+          <div class="pcard-price">KES 386,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo X1 Carbon G13 No OS (Brand New)','U7-255U · 16GB DDR5 · 512GB SSD · 14&quot; WUXGA 500nits','KES 386,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="lenovo" data-price="413000" data-name="lenovo x1 carbon g13 win11">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&auto=format" alt="Lenovo X1 Carbon Win11"/>
+          <span class="badge badge-brand badge-lenovo">Lenovo</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Lenovo X1 Carbon G13 — Win 11</div>
+          <div class="pcard-spec">U7-255U · 16GB DDR5 · 512GB SSD · 14" WUXGA 500nits · Win 11 Pro · 3yr Carry-in</div>
+          <div class="pcard-price">KES 413,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Lenovo X1 Carbon G13 Win 11 (Brand New)','U7-255U · 16GB DDR5 · 512GB SSD · 14&quot; WUXGA 500nits · Win 11 Pro','KES 413,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <!-- ══════════ INFINIX ══════════ -->
+
+      <div class="pcard" data-cat="infinix" data-price="75000" data-name="infinix xl442 i5 8gb dos">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="Infinix XL442"/>
+          <span class="badge badge-brand badge-infinix">Infinix</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Infinix XL442 — i5 / 8GB</div>
+          <div class="pcard-spec">i5-1235U · 8GB · 512GB SSD · 14" · DOS · Grey</div>
+          <div class="pcard-price">KES 75,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Infinix XL442 i5/8GB DOS (Brand New)','i5-1235U · 8GB RAM · 512GB SSD · 14&quot; · DOS · Grey','KES 75,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="infinix" data-price="80000" data-name="infinix xl442 i5 16gb dos">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="Infinix XL442 16GB"/>
+          <span class="badge badge-brand badge-infinix">Infinix</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Infinix XL442 — i5 / 16GB</div>
+          <div class="pcard-spec">i5-1235U · 16GB · 512GB SSD · 14" · DOS · Grey</div>
+          <div class="pcard-price">KES 80,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Infinix XL442 i5/16GB DOS (Brand New)','i5-1235U · 16GB RAM · 512GB SSD · 14&quot; · DOS · Grey','KES 80,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="infinix" data-price="97000" data-name="infinix xl442 i7 8gb dos">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&auto=format" alt="Infinix XL442 i7"/>
+          <span class="badge badge-brand badge-infinix">Infinix</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Infinix XL442 — i7 / 8GB</div>
+          <div class="pcard-spec">i7-1255U · 8GB · 512GB SSD · 14" · DOS · Grey</div>
+          <div class="pcard-price">KES 97,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Infinix XL442 i7/8GB DOS (Brand New)','i7-1255U · 8GB RAM · 512GB SSD · 14&quot; · DOS · Grey','KES 97,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="infinix" data-price="102000" data-name="infinix xl442 i7 16gb dos">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="Infinix XL442 i7 16GB"/>
+          <span class="badge badge-brand badge-infinix">Infinix</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Infinix XL442 — i7 / 16GB</div>
+          <div class="pcard-spec">i7-1255U · 16GB · 512GB SSD · 14" · DOS · Grey</div>
+          <div class="pcard-price">KES 102,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Infinix XL442 i7/16GB DOS (Brand New)','i7-1255U · 16GB RAM · 512GB SSD · 14&quot; · DOS · Grey','KES 102,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="infinix" data-price="102000" data-name="infinix xl442 i7 8gb win11">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&auto=format" alt="Infinix XL442 Win11"/>
+          <span class="badge badge-brand badge-infinix">Infinix</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Infinix XL442 — i7 Win 11</div>
+          <div class="pcard-spec">i7-1255U · 8GB · 512GB SSD · 14" · Win 11 Home · Grey</div>
+          <div class="pcard-price">KES 102,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Infinix XL442 i7/8GB Win 11 (Brand New)','i7-1255U · 8GB RAM · 512GB SSD · 14&quot; · Win 11 Home · Grey','KES 102,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-cat="infinix" data-price="104000" data-name="infinix xl442 i7 16gb win11">
+        <div class="pcard-img">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&auto=format" alt="Infinix XL442 i7 16GB Win11"/>
+          <span class="badge badge-brand badge-infinix">Infinix</span>
+          <span class="badge badge-warranty">🔒 6M Warranty</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-name">Infinix XL442 — i7/16GB Win 11</div>
+          <div class="pcard-spec">i7-1255U · 16GB · 512GB SSD · 14" · Win 11 Home · Grey</div>
+          <div class="pcard-price">KES 104,000</div>
+        </div>
+        <div class="pcard-footer">
+          <button class="order-btn" onclick="openOrder('Infinix XL442 i7/16GB Win 11 (Brand New)','i7-1255U · 16GB RAM · 512GB SSD · 14&quot; · Win 11 Home · Grey','KES 104,000')">🛒 Order via WhatsApp</button>
+        </div>
+      </div>
+
+      <div id="noResults" class="no-results" style="display:none;">😕 No products match. <a href="#" onclick="resetFilters()" style="color:var(--red);font-weight:700;">Clear filters</a></div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Nexcom Limited</h4>
+      <p>Nairobi's premier tech store. Brand new, ex-UK and refurbished laptops, servers, accessories and professional repair services.</p>
+      <p style="margin-top:0.8rem;color:#fff;font-weight:600;">📍 Nairobi CBD, Kenya</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="index.html">🏠 All Products</a>
+      <a href="new-laptops.html">🆕 Brand New Laptops</a>
+      <a href="refurbished.html">♻️ Refurbished</a>
+      <a href="servers.html">🖥️ Servers</a>
+      <a href="accessories.html">🖱️ Accessories</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="https://wa.me/254722816001?text=Hi%2C+I+want+to+repair+my+laptop" target="_blank">🔧 Laptop Repair</a>
+      <a href="https://wa.me/254722816001?text=Hi%2C+I+need+a+screen+replacement" target="_blank">📺 Screen Replacement</a>
+      <a href="https://wa.me/254722816001?text=Hi%2C+I+want+to+sell+my+laptop" target="_blank">💰 Sell Your Laptop</a>
+      <a href="https://wa.me/254722816001?text=Hi%2C+I+need+an+enterprise+quote" target="_blank">🏢 Enterprise Quotes</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+254722816001">📞 +254 722 816 001</a>
+      <a href="https://wa.me/254722816001" target="_blank">💬 WhatsApp Us</a>
+      <a href="mailto:nexcomventures@gmail.com">✉️ nexcomventures@gmail.com</a>
+      <p style="margin-top:0.5rem;font-size:0.8rem;">Mon–Sat · 9AM–7PM EAT</p>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Nexcom Limited. All rights reserved. · Built with ❤️ in Nairobi</div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeOrder()">✕</button>
+    <h3>🛒 Place Your Order</h3>
+    <p style="font-size:0.82rem;color:var(--muted);">We'll confirm via WhatsApp within minutes.</p>
+    <div class="warranty-note">🔒 This laptop comes with a <strong>6-month Nexcom warranty</strong>. You're covered.</div>
+    <div class="modal-product-info">
+      <strong id="modalProductName"></strong><br/>
+      <span id="modalProductSpec" style="color:var(--muted);font-size:0.8rem;"></span><br/>
+      <span id="modalProductPrice" style="font-weight:900;font-size:1rem;color:var(--red);"></span>
+    </div>
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-group"><label>Your Name</label><input type="text" id="custName" placeholder="John Kamau" required/></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="custPhone" placeholder="+254 7XX XXX XXX" required/></div>
+      <div class="form-group"><label>Delivery Location</label><input type="text" id="custLocation" placeholder="e.g. Westlands, CBD..." required/></div>
+      <div id="orderResult"></div>
+      <button type="submit" class="submit-btn" id="submitBtn">Place Order via WhatsApp 💬</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  let currentCat='all', currentSearch='', maxPrice=420000;
+
+  function filterCat(el,cat){
+    document.querySelectorAll('.sidebar-cat').forEach(b=>b.classList.remove('active'));
+    el.classList.add('active'); currentCat=cat; applyFilters();
+  }
+  function filterPrice(val){
+    maxPrice=parseInt(val);
+    document.getElementById('priceLabel').textContent='KES '+parseInt(val).toLocaleString();
+    applyFilters();
+  }
+  function doSearch(val){currentSearch=val.toLowerCase().trim();applyFilters();}
+  function applyFilters(){
+    const cards=document.querySelectorAll('.pcard'); let visible=0;
+    cards.forEach(c=>{
+      if(c.id==='noResults')return;
+      const catOk=currentCat==='all'||c.dataset.cat===currentCat;
+      const priceOk=parseInt(c.dataset.price||0)<=maxPrice;
+      const searchOk=!currentSearch||(c.dataset.name||'').includes(currentSearch);
+      const show=catOk&&priceOk&&searchOk;
+      c.style.display=show?'':'none'; if(show)visible++;
+    });
+    document.getElementById('resultCount').textContent=visible+' items';
+    document.getElementById('noResults').style.display=visible===0?'block':'none';
+  }
+  function resetFilters(){
+    currentCat='all';currentSearch='';maxPrice=420000;
+    document.getElementById('priceSlider').value=420000;
+    document.getElementById('priceLabel').textContent='KES 420,000';
+    document.querySelectorAll('.sidebar-cat').forEach((b,i)=>b.classList.toggle('active',i===0));
+    applyFilters();
+  }
+  function sortProducts(val){
+    const grid=document.getElementById('productGrid');
+    const cards=Array.from(grid.querySelectorAll('.pcard:not(#noResults)'));
+    cards.sort((a,b)=>{
+      if(val==='price-asc'||val==='price-desc'){const pa=parseInt(a.dataset.price)||0,pb=parseInt(b.dataset.price)||0;return val==='price-asc'?pa-pb:pb-pa;}
+      if(val==='name-asc')return(a.dataset.name||'').localeCompare(b.dataset.name||'');
+      return 0;
+    });
+    cards.forEach(c=>grid.appendChild(c));
+  }
+
+  let _op='',_os='',_opr='';
+  function openOrder(name,specs,price){
+    _op=name;_os=specs;_opr=price;
+    document.getElementById('modalProductName').textContent=name;
+    document.getElementById('modalProductSpec').textContent=specs;
+    document.getElementById('modalProductPrice').textContent=price;
+    document.getElementById('orderResult').innerHTML='';
+    document.getElementById('orderForm').reset();
+    const btn=document.getElementById('submitBtn');
+    btn.textContent='Place Order via WhatsApp 💬';btn.disabled=false;btn.style.background='';
+    document.getElementById('orderModal').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeOrder(){document.getElementById('orderModal').classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('orderModal').addEventListener('click',function(e){if(e.target===this)closeOrder();});
+  function submitOrder(e){
+    e.preventDefault();
+    const name=document.getElementById('custName').value.trim();
+    const phone=document.getElementById('custPhone').value.trim();
+    const location=document.getElementById('custLocation').value.trim();
+    const msg=encodeURIComponent('Hi Nexcom! I would like to order:\n\n📦 Product: '+_op+'\n🔧 Specs: '+_os+'\n💰 Price: '+_opr+'\n\n👤 Name: '+name+'\n📞 Phone: '+phone+'\n📍 Location: '+location+'\n\n🔒 I understand this comes with a 6-month Nexcom warranty.');
+    window.open('https://wa.me/254719626363?text='+msg,'_blank');
+    document.getElementById('orderResult').innerHTML='<p style="color:#16A34A;font-weight:700;margin-bottom:0.5rem;">✅ Opening WhatsApp... we\'ll confirm shortly!</p>';
+    const btn=document.getElementById('submitBtn');
+    btn.textContent='Order Sent ✅';btn.disabled=true;btn.style.background='#16A34A';
+    setTimeout(closeOrder,3000);
+  }
+</script>
+</body>
+</html>
