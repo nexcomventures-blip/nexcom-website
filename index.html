@@ -59,7 +59,7 @@ header{
   background:linear-gradient(90deg,#A30000,#CC0000,#A30000);
   height:40px;overflow:hidden;display:flex;align-items:center;
 }
-.promo-inner{display:flex;align-items:center;white-space:nowrap;animation:ss 26s linear infinite;}
+.promo-inner{display:flex;align-items:center;white-space:nowrap;animation:ss 30s linear infinite reverse;}
 @keyframes ss{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .promo-item{
   display:inline-flex;align-items:center;gap:.4rem;
@@ -151,51 +151,120 @@ header{
 /* ── Product Grid ────────────────────────────────── */
 .product-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-  gap:1rem;padding:1.2rem 4%;max-width:1600px;margin:0 auto;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:1.2rem;padding:1.2rem 4%;max-width:1600px;margin:0 auto;
 }
+
+/* ── View toggle ─────────────────────────────────── */
+.view-toggle{display:flex;gap:.4rem;align-items:center;}
+.vt-btn{background:none;border:1.5px solid var(--border);border-radius:7px;padding:5px 9px;cursor:pointer;font-size:.85rem;color:var(--muted);transition:all .15s;}
+.vt-btn.active{background:var(--red);border-color:var(--red);color:#fff;}
+
+/* ── Grid card ───────────────────────────────────── */
 .pcard{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;transition:all .22s;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:16px;
+  overflow:hidden;
+  transition:transform .22s, box-shadow .22s, border-color .22s;
   display:flex;flex-direction:column;position:relative;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
 }
 .pcard:hover{
-  border-color:var(--red);box-shadow:0 6px 24px rgba(204,0,0,.1);
-  transform:translateY(-3px);
+  border-color:var(--red);
+  box-shadow:0 12px 32px rgba(204,0,0,.13);
+  transform:translateY(-5px);
 }
-.pcard-img{height:155px;overflow:hidden;background:#f8f8f8;position:relative;}
-.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
-.pcard:hover .pcard-img img{transform:scale(1.05);}
+.pcard-img{
+  height:170px;overflow:hidden;background:linear-gradient(135deg,#f5f5f5,#ebebeb);
+  position:relative;
+}
+.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.pcard:hover .pcard-img img{transform:scale(1.07);}
+.pcard-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.18) 0%,transparent 60%);
+  pointer-events:none;
+}
 
 /* Badges */
 .badge,.pcard-badge,.pcard-brand{
-  position:absolute;font-size:.6rem;font-weight:800;
-  padding:3px 7px;border-radius:4px;text-transform:uppercase;
+  position:absolute;font-size:.58rem;font-weight:800;
+  padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.03em;
 }
-.badge-brand,.pcard-brand{top:7px;left:7px;color:#fff;}
-.badge-warranty,.badge-stock{bottom:7px;left:7px;}
-.badge-stock{background:#D1FAE5;color:#065F46;border:1px solid #6EE7B7;}
-.badge-warranty{background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;}
-.badge-hp{background:#0096D6;}
-.badge-dell{background:#007DB8;}
-.badge-lenovo{background:#E2231A;}
-.badge-macbook{background:#555;}
-.pcard-badge{background:rgba(0,0,0,.7);color:#fff;top:7px;right:7px;left:auto;}
+.badge-brand,.pcard-brand{top:10px;left:10px;color:#fff;backdrop-filter:blur(4px);}
+.badge-stock{bottom:10px;left:10px;background:rgba(6,95,70,.85);color:#fff;border:none;backdrop-filter:blur(4px);}
+.badge-warranty{display:none;}
+.badge-hp{background:rgba(0,150,214,.9);}
+.badge-dell{background:rgba(0,125,184,.9);}
+.badge-lenovo{background:rgba(226,35,26,.9);}
+.badge-macbook{background:rgba(60,60,60,.9);}
+.pcard-badge{background:rgba(0,0,0,.6);color:#fff;top:10px;right:10px;left:auto;backdrop-filter:blur(4px);}
 
-.pcard-body{padding:.8rem;flex:1;display:flex;flex-direction:column;}
-.pcard-name{font-size:.82rem;font-weight:800;margin-bottom:.25rem;line-height:1.3;}
-.pcard-spec{font-size:.7rem;color:var(--muted);line-height:1.45;flex:1;margin-bottom:.5rem;}
-.pcard-price{font-size:.96rem;font-weight:900;color:var(--red);}
-.excl-vat{font-size:.65rem;color:var(--muted);font-weight:400;margin-left:3px;}
+.pcard-body{padding:1rem;flex:1;display:flex;flex-direction:column;}
+.pcard-name{font-size:.88rem;font-weight:800;margin-bottom:.3rem;line-height:1.35;color:#111;}
+.pcard-spec{font-size:.72rem;color:#666;line-height:1.55;flex:1;margin-bottom:.6rem;}
+.pcard-price{font-size:1.05rem;font-weight:900;color:var(--red);letter-spacing:-.01em;}
+.excl-vat{font-size:.62rem;color:#aaa;font-weight:400;margin-left:4px;}
 
-.pcard-footer{padding:0 .8rem .8rem;}
+.pcard-footer{padding:0 1rem 1rem;}
 .order-btn,.pcard-btn{
-  display:flex;align-items:center;justify-content:center;gap:.3rem;
-  width:100%;background:var(--red);color:#fff;border:none;
-  border-radius:7px;padding:8px;font-size:.78rem;font-weight:700;cursor:pointer;
-  transition:background .15s;
+  display:flex;align-items:center;justify-content:center;gap:.35rem;
+  width:100%;
+  background:linear-gradient(135deg,var(--red),#a00000);
+  color:#fff;border:none;
+  border-radius:10px;padding:9px;font-size:.8rem;font-weight:700;cursor:pointer;
+  transition:opacity .15s, transform .1s;
+  box-shadow:0 3px 10px rgba(204,0,0,.25);
 }
-.order-btn:hover,.pcard-btn:hover{background:var(--rd);}
+.order-btn:hover,.pcard-btn:hover{opacity:.9;transform:scale(.98);}
+
+/* ── LIST VIEW ───────────────────────────────────── */
+.product-grid.list-view{
+  grid-template-columns:1fr;
+  gap:.7rem;
+}
+.product-grid.list-view .pcard{
+  flex-direction:row;
+  border-radius:14px;
+  height:120px;
+}
+.product-grid.list-view .pcard-img{
+  width:140px;min-width:140px;height:100%;border-radius:0;
+}
+.product-grid.list-view .pcard-img::after{
+  background:linear-gradient(to right,rgba(0,0,0,.15) 0%,transparent 60%);
+}
+.product-grid.list-view .pcard-body{
+  padding:.75rem 1rem;flex-direction:row;align-items:center;gap:1rem;flex:1;
+}
+.product-grid.list-view .pcard-name{
+  font-size:.9rem;margin-bottom:.2rem;min-width:200px;
+}
+.product-grid.list-view .pcard-spec{
+  flex:1;font-size:.7rem;margin-bottom:0;color:#777;
+}
+.product-grid.list-view .pcard-price{
+  font-size:1rem;white-space:nowrap;min-width:110px;text-align:right;
+}
+.product-grid.list-view .pcard-footer{
+  padding:.75rem 1rem .75rem 0;display:flex;align-items:center;
+}
+.product-grid.list-view .order-btn{
+  white-space:nowrap;width:auto;padding:9px 16px;font-size:.75rem;
+}
+@media(max-width:600px){
+  .product-grid.list-view .pcard{height:auto;flex-direction:column;}
+  .product-grid.list-view .pcard-img{width:100%;height:150px;min-width:unset;}
+  .product-grid.list-view .pcard-body{flex-direction:column;align-items:flex-start;gap:.3rem;}
+  .product-grid.list-view .pcard-price{text-align:left;}
+  .product-grid.list-view .pcard-footer{padding:.5rem 1rem 1rem;}
+  .product-grid.list-view .order-btn{width:100%;}
+}
+
+/* ── card entry animation ────────────────────────── */
+@keyframes cardIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.pcard{animation:cardIn .3s ease both;}
 
 /* ── No-results ──────────────────────────────────── */
 .no-results{
@@ -352,12 +421,18 @@ footer{background:#1A1A1A;color:#9CA3AF;padding:3rem 5% 1.5rem;margin-top:2.5rem
 <!-- Toolbar -->
 <div class="toolbar">
   <div class="toolbar-left">Showing <strong id="resultCount">295</strong> products</div>
-  <select class="sort-sel" onchange="sortProducts(this.value)">
-    <option value="default">Sort: Featured</option>
-    <option value="price-asc">Price: Low to High</option>
-    <option value="price-desc">Price: High to Low</option>
-    <option value="name-asc">Name: A–Z</option>
-  </select>
+  <div style="display:flex;gap:.7rem;align-items:center;">
+    <select class="sort-sel" onchange="sortProducts(this.value)">
+      <option value="default">Sort: Featured</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="name-asc">Name: A–Z</option>
+    </select>
+    <div class="view-toggle">
+      <button class="vt-btn active" id="btnGrid" onclick="setView('grid')" title="Grid view">⊞</button>
+      <button class="vt-btn" id="btnList" onclick="setView('list')" title="List view">≡</button>
+    </div>
+  </div>
 </div>
 
 <!-- Product grid -->
@@ -1798,6 +1873,28 @@ function submitOrder(e) {
 // ── Init ──────────────────────────────────────────────────────────────────────
 buildSubcats('all');
 applyFilters();
+
+// ── View toggle ──────────────────────────────────────────────────────────────
+function setView(v){
+  const grid = document.getElementById('productGrid');
+  const btnGrid = document.getElementById('btnGrid');
+  const btnList = document.getElementById('btnList');
+  if(v==='list'){
+    grid.classList.add('list-view');
+    btnList.classList.add('active');
+    btnGrid.classList.remove('active');
+  } else {
+    grid.classList.remove('list-view');
+    btnGrid.classList.add('active');
+    btnList.classList.remove('active');
+  }
+  localStorage.setItem('nexcom-view', v);
+}
+// Restore saved view preference
+(function(){
+  const saved = localStorage.getItem('nexcom-view');
+  if(saved) setView(saved);
+})();
 </script>
 </body>
 </html>
