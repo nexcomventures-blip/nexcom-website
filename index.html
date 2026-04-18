@@ -380,47 +380,39 @@ footer{background:#1A1A1A;color:#9CA3AF;padding:3rem 5% 1.5rem;margin-top:2.5rem
   border-top:1px solid #f0f0f0;
 }
 
-/* ── Chat Bubble ─────────────────────────────────── */
+/* ── Chat Bubble — WhatsApp Pill ─────────────────── */
 .chat-bubble{
-  position:fixed;bottom:24px;right:24px;z-index:1500;
-  display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;
+  position:fixed;bottom:22px;right:20px;z-index:1500;
+  display:flex;align-items:center;
+  opacity:0;transition:opacity .5s;
 }
-.chat-popup{
-  background:#fff;border-radius:16px 16px 4px 16px;
-  box-shadow:0 8px 32px rgba(0,0,0,.15);
-  padding:1rem 1.1rem;max-width:260px;
-  animation:bubbleIn .5s cubic-bezier(.16,1,.3,1);
-  position:relative;border:1px solid #eee;
+.wa-pill{
+  display:flex;align-items:center;gap:.45rem;
+  background:#25D366;
+  color:#fff;
+  border:none;
+  border-radius:50px;
+  padding:9px 16px 9px 12px;
+  font-size:.78rem;font-weight:700;
+  cursor:pointer;
+  box-shadow:0 4px 16px rgba(37,211,102,.35);
+  transition:transform .2s, box-shadow .2s;
+  text-decoration:none;
+  white-space:nowrap;
 }
-@keyframes bubbleIn{from{opacity:0;transform:translateY(20px) scale(.9);}to{opacity:1;transform:none;}}
-.chat-popup p{margin:0 0 .6rem;font-size:.82rem;color:#222;line-height:1.5;}
-.chat-popup p strong{color:#CC0000;}
-.chat-popup-close{
-  position:absolute;top:6px;right:8px;background:none;border:none;
-  color:#bbb;font-size:.9rem;cursor:pointer;line-height:1;
+.wa-pill:hover{
+  transform:scale(1.05);
+  box-shadow:0 6px 22px rgba(37,211,102,.45);
 }
-.chat-popup-close:hover{color:#888;}
-.wa-bubble-btn{
-  display:flex;align-items:center;gap:.4rem;
-  background:#25D366;color:#fff;border:none;border-radius:10px;
-  padding:7px 12px;font-size:.78rem;font-weight:700;cursor:pointer;
-  width:100%;justify-content:center;transition:opacity .15s;text-decoration:none;
+.wa-pill svg{width:18px;height:18px;flex-shrink:0;}
+.wa-pill-close{
+  background:rgba(0,0,0,.18);border:none;color:#fff;
+  border-radius:50%;width:17px;height:17px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;cursor:pointer;margin-left:.3rem;
+  line-height:1;flex-shrink:0;
 }
-.wa-bubble-btn:hover{opacity:.88;}
-.chat-fab{
-  width:56px;height:56px;border-radius:50%;background:#25D366;
-  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;box-shadow:0 4px 18px rgba(37,211,102,.4);
-  transition:transform .2s;
-}
-.chat-fab:hover{transform:scale(1.08);}
-.chat-fab .notif-dot{
-  position:absolute;top:0;right:0;width:14px;height:14px;
-  background:#CC0000;border-radius:50%;border:2px solid #fff;
-  font-size:.55rem;color:#fff;display:flex;align-items:center;justify-content:center;
-  font-weight:900;
-}
-.chat-fab-wrap{position:relative;}
+.wa-pill-close:hover{background:rgba(0,0,0,.32);}
 </style>
 </head>
 <body>
@@ -449,19 +441,16 @@ footer{background:#1A1A1A;color:#9CA3AF;padding:3rem 5% 1.5rem;margin-top:2.5rem
   </div>
 </div>
 
-<!-- ══ Chat Bubble ═════════════════════════════════════════════════════════ -->
+<!-- ══ Chat Bubble — WhatsApp Pill ════════════════════════════════════════ -->
 <div class="chat-bubble" id="chatBubble">
-  <div class="chat-popup" id="chatPopup">
-    <button class="chat-popup-close" onclick="closeChatPopup()">✕</button>
-    <p>👋 Hi there! Need help finding the <strong>right laptop?</strong><br>We're online and ready to help!</p>
-    <a class="wa-bubble-btn" href="https://wa.me/254722816001?text=Hi%2C+I+need+help+finding+a+laptop!" target="_blank">
-      💬 Chat on WhatsApp
-    </a>
-  </div>
-  <div class="chat-fab-wrap">
-    <button class="chat-fab" onclick="toggleChatPopup()" id="chatFab">💬</button>
-    <span class="notif-dot" id="chatDot">1</span>
-  </div>
+  <a class="wa-pill" href="https://wa.me/254722816001?text=Hi%2C+I+need+help+finding+a+laptop!" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.132 1.535 5.875L.057 23.012a.75.75 0 00.931.931l5.137-1.478A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.714 9.714 0 01-4.962-1.355l-.356-.213-3.683 1.059 1.059-3.683-.213-.356A9.714 9.714 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+    Chat with us
+  </a>
+  <button class="wa-pill-close" id="pillClose" onclick="closePill()" title="Dismiss">✕</button>
 </div>
 
 
@@ -2056,27 +2045,24 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
-// ── Chat Bubble ──────────────────────────────────────────────────────────────
-function closeChatPopup(){
-  document.getElementById('chatPopup').style.display='none';
-  document.getElementById('chatDot').style.display='none';
-}
-function toggleChatPopup(){
-  const p = document.getElementById('chatPopup');
-  const dot = document.getElementById('chatDot');
-  const isHidden = p.style.display === 'none';
-  p.style.display = isHidden ? 'block' : 'none';
-  dot.style.display = 'none';
+// ── Chat Bubble — Pill ───────────────────────────────────────────────────────
+function closePill(){
+  const b = document.getElementById('chatBubble');
+  b.style.opacity = '0';
+  setTimeout(()=>{ b.style.display='none'; }, 400);
+  sessionStorage.setItem('nexcom-pill-closed','1');
 }
 
-// Show chat bubble after 6 seconds
+// Show pill after 5 seconds
 window.addEventListener('DOMContentLoaded', function(){
-  const bubble = document.getElementById('chatBubble');
-  bubble.style.opacity = '0';
-  setTimeout(function(){
-    bubble.style.transition = 'opacity .5s';
-    bubble.style.opacity = '1';
-  }, 6000);
+  if(!sessionStorage.getItem('nexcom-pill-closed')){
+    setTimeout(function(){
+      const b = document.getElementById('chatBubble');
+      b.style.opacity = '1';
+    }, 5000);
+  } else {
+    document.getElementById('chatBubble').style.display = 'none';
+  }
 });
 </script>
 </body>
