@@ -3,104 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roam Kenya Safaris | Premium Travel & Tours</title>
+    <title>Roam Kenya Safaris | Premium Travel</title>
     <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
     <link href="[https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap](https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap)" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('[https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1920&q=80](https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1920&q=80)');
-            background-size: cover;
-            background-position: center;
+        body { font-family: 'Poppins', sans-serif; background-color: #F9F9F9; color: #1A1A1A; margin: 0; padding: 0; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('[https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1200&q=80)');
+            background-size: cover; background-position: center;
+            height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px;
         }
-        .gold-accent { color: #FFB800; }
-        .bg-gold { background-color: #FFB800; }
-        .bg-obsidian { background-color: #1A1A1A; }
+        .btn-gold { background-color: #FFB800; color: #1A1A1A; padding: 15px 30px; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 20px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; margin-bottom: 25px; shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .section { padding: 40px 20px; }
     </style>
 </head>
-<body class="bg-[#F9F9F9] text-[#1A1A1A]">
+<body>
 
-    <!-- Navigation -->
-    <nav class="flex justify-between items-center px-6 py-4 bg-white shadow-sm sticky top-0 z-50">
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-[#1A1A1A] rounded-full flex items-center justify-center">
-                <span class="text-[#FFB800] font-bold text-xl">R</span>
-            </div>
-            <span class="font-bold text-lg tracking-tight uppercase">ROAM <span class="text-[#FFB800]">KENYA</span></span>
-        </div>
-        <div class="hidden md:flex gap-8 font-medium text-sm uppercase tracking-widest">
-            <a href="#home" class="hover:text-[#FFB800]">Home</a>
-            <a href="#about" class="hover:text-[#FFB800]">Our Story</a>
-            <a href="#groups" class="hover:text-[#FFB800]">Groups</a>
-            <a href="#booking" class="hover:text-[#FFB800]">Book Now</a>
-        </div>
-        <a href="#booking" class="bg-[#1A1A1A] text-white px-5 py-2 rounded-full text-sm font-semibold">Book Now</a>
+    <!-- Nav -->
+    <nav style="background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+        <div style="font-weight: bold; font-size: 1.2rem;">ROAM <span style="color: #FFB800;">KENYA</span></div>
+        <a href="#booking" style="background: #1A1A1A; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">BOOK NOW</a>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="hero-bg h-[80vh] flex flex-col justify-center items-center text-center px-6 text-white">
-        <h1 class="text-4xl md:text-6xl mb-4 leading-tight">Kenya, Curated <br>for the <span class="gold-accent">Modern Explorer</span>.</h1>
-        <p class="max-w-2xl text-lg md:text-xl font-light mb-8 opacity-90">Experience the heart of the savannah and the soul of the coast with Roam Kenya Safaris. Seamless, tech-forward, and authentically Kenyan.</p>
-        <div class="flex flex-col md:flex-row gap-4">
-            <a href="#booking" class="bg-gold text-[#1A1A1A] px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition text-center">Explore Packages</a>
-            <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#1A1A1A] transition">Chat on WhatsApp</button>
-        </div>
-    </section>
+    <!-- Hero -->
+    <header class="hero">
+        <h1 style="font-size: 2.2rem; line-height: 1.1;">KENYA, <span style="color: #FFB800;">CURATED</span>.</h1>
+        <p style="margin-top: 15px; font-weight: 300; opacity: 0.9;">Premium safaris for the modern explorer.</p>
+        <a href="#booking" class="btn-gold">Explore Packages</a>
+    </header>
 
     <!-- Experiences -->
-    <section class="py-20 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 text-center">Popular Experiences</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-                <img src="[https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80)" class="h-64 w-full object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold">The Mara Majesty</h3>
-                    <p class="text-gray-500 text-sm mt-2">3 Days in the heart of the Great Migration.</p>
-                    <p class="font-bold text-lg mt-4">KSh 45,000</p>
-                </div>
-            </div>
-            <div class="bg-white rounded-2xl overflow-hidden shadow-md border-2 border-[#FFB800]">
-                <img src="[https://images.unsplash.com/photo-1589982840479-2879555bb057?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1589982840479-2879555bb057?auto=format&fit=crop&w=800&q=80)" class="h-64 w-full object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold">The Diani Dream</h3>
-                    <p class="text-gray-500 text-sm mt-2">5 Days of luxury on white sands.</p>
-                    <p class="font-bold text-lg mt-4">KSh 35,000</p>
-                </div>
-            </div>
-            <div class="bg-white rounded-2xl overflow-hidden shadow-md">
-                <img src="[https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80)" class="h-64 w-full object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold">Nairobi Pulse</h3>
-                    <p class="text-gray-500 text-sm mt-2">Explore the only city park in the world.</p>
-                    <p class="font-bold text-lg mt-4">KSh 8,500</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Groups Section -->
-    <section id="groups" class="bg-obsidian text-white py-20 px-6 text-center">
-        <h2 class="text-3xl font-bold mb-4 italic text-[#FFB800]">"Better Together."</h2>
-        <h3 class="text-2xl font-bold mb-8">Group Travel & Corporate Getaways</h3>
-        <p class="text-gray-400 mb-12">Chamas & Teams: Roam in style with our seamless coordination.</p>
-        <a href="#booking" class="bg-[#FFB800] text-black px-12 py-5 rounded-xl font-bold text-lg">Get a Group Quote</a>
-    </section>
-
-    <!-- Booking -->
-    <section id="booking" class="py-20 px-6 max-w-2xl mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-12">Ready to <span class="gold-accent">Roam</span>?</h2>
-        <form class="space-y-6">
-            <input type="text" placeholder="Full Name" class="w-full bg-white border border-gray-200 p-4 rounded-xl outline-none focus:border-[#FFB800]">
-            <input type="email" placeholder="Email Address" class="w-full bg-white border border-gray-200 p-4 rounded-xl outline-none focus:border-[#FFB800]">
-            <button class="w-full bg-obsidian text-white py-5 rounded-2xl font-bold text-lg hover:bg-gold hover:text-black transition-all">Send Booking Request</button>
-        </form>
-    </section>
-
-    <footer class="py-12 text-center text-gray-400 text-xs border-t">
-        © 2026 Roam Kenya Safaris. Designed for the Modern Explorer.
-    </footer>
-
-</body>
-</html>
+    <section class="section">
+        <h2 style="margin-bottom: 25px; font-size: 1.5rem;">Popular Roams</h2>
+        
+        <div class="card">
+            <img src="[https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=600&q=80](https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=600&q=80)" style="width:
