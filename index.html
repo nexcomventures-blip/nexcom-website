@@ -3,81 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roam Kenya Safaris | Premium Travel</title>
+    <title>Roam Kenya Safaris | Premium Curated Travel</title>
     <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <link href="[https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap](https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap)" rel="stylesheet">
+    <link href="[https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap](https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap)" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background-color: #F8FAF8; color: #1A2F1A; margin: 0; padding: 0; }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; }
+        body { font-family: 'Poppins', sans-serif; background-color: #FDFDFD; color: #1B4332; margin: 0; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('[https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1200&q=80)');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('[https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1600&q=80](https://images.unsplash.com/photo-1516422317953-2f8413041c8f?auto=format&fit=crop&w=1600&q=80)');
             background-size: cover; background-position: center;
-            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px;
+            height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px;
         }
-        .btn-jungle { background-color: #1B4332; color: white; padding: 15px 30px; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 20px; border: none; }
-        .card { background: white; border-radius: 15px; overflow: hidden; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .btn-luxury { background-color: #1B4332; color: white; padding: 20px 40px; border-radius: 2px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; }
+        .package-img { width: 100%; height: 450px; object-fit: cover; transition: 0.5s; }
+        .package-card:hover .package-img { transform: scale(1.02); }
     </style>
 </head>
 <body>
 
-    <nav style="background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-        <div style="font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; color: #1B4332;">ROAM KENYA</div>
-        <a href="#booking" style="background: #1B4332; color: white; padding: 8px 15px; border-radius: 20px; text-decoration: none; font-size: 0.7rem; font-weight: 600;">BOOK NOW</a>
+    <!-- Minimalist Nav -->
+    <nav style="padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid #EEE;">
+        <div style="font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; color: #1B4332; font-family: 'Playfair Display', serif;">ROAM <span style="font-style: italic; font-weight: 400;">Kenya.</span></div>
+        <a href="#booking" style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #1B4332; text-decoration: none; border-bottom: 2px solid #1B4332;">Book Inquiries</a>
     </nav>
 
+    <!-- Hero -->
     <header class="hero">
-        <h1 style="font-size: 2rem; line-height: 1.1;">ROAM <span style="color: #409167;">AFRICA</span>.</h1>
-        <p style="margin-top: 10px; font-weight: 300; opacity: 0.9; font-size: 0.9rem;">Unforgettable journeys through the wild.</p>
-        <a href="#booking" class="btn-jungle">Explore Safaris</a>
+        <h1 style="font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1; margin-bottom: 20px;">The Art of <br><span style="font-style: italic;">The Safari.</span></h1>
+        <p style="font-size: 1.1rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px;">Curated for the modern explorer</p>
+        <a href="#experiences" class="btn-luxury" style="background: white; color: #1B4332;">Explore the Collection</a>
     </header>
 
-    <div style="padding: 40px 20px;">
-        <h2 style="margin-bottom: 25px; font-size: 1.4rem; color: #1B4332;">Featured Destinations</h2>
-        
-        <div class="card">
-            <img src="[https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=800&q=80)" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-            <div style="padding: 20px;">
-                <h3 style="font-size: 1.1rem; color: #1B4332;">Maasai Mara</h3>
-                <p style="color: #555; font-size: 0.85rem; margin: 10px 0;">3 Days Wildlife Safari Adventure.</p>
-                <div style="font-weight: bold; font-size: 1rem; color: #1B4332;">KSh 45,000</div>
+    <!-- The Curation -->
+    <section id="experiences" style="padding: 100px 5%;">
+        <div style="max-width: 800px; margin-bottom: 80px;">
+            <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; color: #409167; font-weight: 600; margin-bottom: 10px;">The Collection</p>
+            <h2 style="font-size: 3rem; color: #1B4332; line-height: 1.2;">Handpicked Experiences for the Discerning Traveler.</h2>
+        </div>
+
+        <!-- Mara Card -->
+        <div class="package-card" style="margin-bottom: 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
+            <img src="[https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1000&q=80)" class="package-img">
+            <div>
+                <h3 style="font-size: 2.5rem; margin-bottom: 20px;">The Mara <br><span style="font-style: italic;">Majesty.</span></h3>
+                <p style="color: #555; line-height: 1.8; margin-bottom: 30px;">Escape to the world’s most iconic savannah. Our private Mara experience offers unparalleled access to wildlife, luxury tented camps, and sundowners under the acacia trees.</p>
+                <p style="font-weight: 600; font-size: 1.2rem; color: #1B4332; margin-bottom: 30px;">Starts from KSh 55,000</p>
+                <a href="#booking" class="btn-luxury" style="padding: 15px 30px;">Request Itinerary</a>
             </div>
         </div>
 
-        <div class="card">
-            <img src="[https://images.unsplash.com/photo-1589982840479-2879555bb057?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1589982840479-2879555bb057?auto=format&fit=crop&w=800&q=80)" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-            <div style="padding: 20px;">
-                <h3 style="font-size: 1.1rem; color: #1B4332;">Diani Beach</h3>
-                <p style="color: #555; font-size: 0.85rem; margin: 10px 0;">5 Days Luxury Coastal Retreat.</p>
-                <div style="font-weight: bold; font-size: 1rem; color: #1B4332;">KSh 35,000</div>
+        <!-- Diani Card -->
+        <div class="package-card" style="margin-bottom: 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
+            <div style="order: 2;">
+                <img src="[https://images.unsplash.com/photo-1589982840479-2879555bb057?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1589982840479-2879555bb057?auto=format&fit=crop&w=1000&q=80)" class="package-img">
+            </div>
+            <div style="order: 1;">
+                <h3 style="font-size: 2.5rem; margin-bottom: 20px;">Diani <br><span style="font-style: italic;">Sun-Drenched.</span></h3>
+                <p style="color: #555; line-height: 1.8; margin-bottom: 30px;">White sands, turquoise waters, and total seclusion. A bespoke coastal retreat designed for those who seek the sun in its purest form.</p>
+                <p style="font-weight: 600; font-size: 1.2rem; color: #1B4332; margin-bottom: 30px;">Starts from KSh 45,000</p>
+                <a href="#booking" class="btn-luxury" style="padding: 15px 30px;">Request Itinerary</a>
             </div>
         </div>
-    </div>
-
-    <section style="background: #1B4332; color: white; padding: 60px 20px; text-align: center;">
-        <h2 style="color: #95D5B2; font-style: italic; font-size: 1.5rem; margin-bottom: 15px;">"Nature is Home."</h2>
-        <p style="font-weight: 300; color: #D8F3DC; font-size: 0.9rem; margin-bottom: 30px;">Special packages for Corporate Teams and Chamas.</p>
-        <a href="#booking" style="border: 1px solid #D8F3DC; color: #D8F3DC; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">Get Group Quote</a>
     </section>
 
-    <section id="booking" style="padding: 60px 20px; text-align: center;">
-        <h2 style="font-size: 1.6rem; margin-bottom: 30px; color: #1B4332;">Plan Your <span style="color: #409167;">Escape</span></h2>
-        <div style="background: white; padding: 35px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 500px; margin: 0 auto;">
-            <form style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="text" placeholder="Your Name" style="padding: 15px; border: 1px solid #E1E8E1; border-radius: 10px; font-size: 1rem; outline: none; background: #FDFDFD;">
-                <input type="email" placeholder="Your Email" style="padding: 15px; border: 1px solid #E1E8E1; border-radius: 10px; font-size: 1rem; outline: none; background: #FDFDFD;">
-                <select style="padding: 15px; border: 1px solid #E1E8E1; border-radius: 10px; font-size: 1rem; background: #FDFDFD; color: #666;">
-                    <option>Choose Destination</option>
-                    <option>Maasai Mara</option>
-                    <option>Diani Beach</option>
-                </select>
-                <button type="submit" style="background: #1B4332; color: white; padding: 18px; border-radius: 15px; font-weight: bold; border: none; font-size: 1rem; margin-top: 10px;">Send Inquiry</button>
+    <!-- The Group Section -->
+    <section style="background: #1B4332; color: white; padding: 120px 5%; text-align: center;">
+        <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px;">Better Together.</h2>
+        <p style="font-weight: 300; color: #95D5B2; max-width: 600px; margin: 0 auto 50px; line-height: 1.8;">From Chamas to Corporate Teams, we handle the complex logistics so you can focus on the memories. Seamless group coordination, curated for you.</p>
+        <a href="#booking" style="color: white; border: 1px solid white; padding: 15px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.8rem;">Group Travel Solutions</a>
+    </section>
+
+    <!-- The Form -->
+    <section id="booking" style="padding: 120px 5%; background: #F8FAF8;">
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">Start the Journey.</h2>
+            <p style="color: #555; margin-bottom: 50px;">Tell us your vision, and we’ll build the itinerary.</p>
+            
+            <form style="display: flex; flex-direction: column; gap: 20px; text-align: left;">
+                <label style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Full Name</label>
+                <input type="text" style="padding: 20px; border: none; border-bottom: 1px solid #1B4332; background: transparent; font-size: 1.1rem; outline: none;">
+                
+                <label style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 20px;">Email Address</label>
+                <input type="email" style="padding: 20px; border: none; border-bottom: 1px solid #1B4332; background: transparent; font-size: 1.1rem; outline: none;">
+                
+                <button type="submit" class="btn-luxury" style="margin-top: 40px; width: 100%;">Submit Inquiry</button>
             </form>
         </div>
     </section>
 
-    <footer style="padding: 40px 20px; text-align: center; border-top: 1px solid #E1E8E1; font-size: 0.6rem; color: #8DA38D; letter-spacing: 2px;">
-        © 2026 ROAM KENYA SAFARIS | ESTABLISHED IN NAIROBI
+    <footer style="padding: 80px 5%; border-top: 1px solid #EEE; text-align: center; color: #AAA; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;">
+        ROAM KENYA SAFARIS — THE ART OF TRAVEL
     </footer>
 
 </body>
