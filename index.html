@@ -255,31 +255,31 @@
     .reviews-section {
       background: #050000;
       padding: 5rem 5%;
+      overflow: hidden; /* Hide overflow for slider */
     }
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 3rem auto;
+    .rev-swiper {
+      padding: 2rem 0 4rem;
     }
     .review-card {
       background: #111;
       border: 1px solid #222;
-      padding: 2rem;
+      padding: 2.5rem;
       border-radius: 20px;
       transition: all 0.3s ease;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .review-card:hover {
       border-color: var(--primary);
-      transform: translateY(-5px);
     }
     .rev-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
     .rev-avatar { width: 45px; height: 45px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; }
     .rev-info h4 { color: #fff; font-size: 1rem; margin: 0; }
     .rev-info span { color: #555; font-size: 0.8rem; }
     .rev-stars { color: #ffcc00; font-size: 0.9rem; margin-bottom: 1rem; }
-    .rev-text { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; font-style: italic; }
+    .rev-text { color: #94a3b8; font-size: 1.1rem; line-height: 1.6; font-style: italic; }
 
     /* ── AD SECTION ── */
     .ad-banner {
@@ -567,8 +567,8 @@
 
 
 
-<!-- FEATURED PRODUCTS (Hidden to prioritize Services/Reviews) -->
-<div class="featured-section" data-aos="fade-up" style="display:none;">
+<!-- FEATURED PRODUCTS -->
+<div class="featured-section" data-aos="fade-up">
   <div class="section-label">Hot Picks</div>
   <div class="section-title">Featured Products</div>
   <div class="section-sub" style="margin-bottom:2rem;">Our most popular items this week — slide through and order instantly.</div>
@@ -706,13 +706,16 @@
   <div class="section-label" style="text-align:center;">Testimonials</div>
   <div class="section-title" style="text-align:center;">What Our Customers Say</div>
   
-  <div class="review-grid" id="reviewGrid">
-    <!-- Reviews will be injected by JS for variety -->
+  <div class="swiper rev-swiper" id="revSwiper">
+    <div class="swiper-wrapper" id="reviewWrapper">
+      <!-- Reviews injected by JS -->
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
 </section>
 
-<!-- CATEGORIES GRID (Hidden to prioritize Services/Reviews) -->
-<div class="tab-section" id="products" style="display:none; padding-top: 5rem;">
+<!-- CATEGORIES GRID -->
+<div class="tab-section" id="products" style="padding-top: 5rem;">
   <div class="section-label" style="text-align:center;">Inventory</div>
   <div class="section-title" style="text-align:center;">Shop by Brand</div>
   <div class="section-sub" style="text-align:center; margin: 0 auto 3rem;">Premium laptops from the world's most trusted manufacturers.</div>
@@ -11195,22 +11198,36 @@
     { name: "Frank O.", date: "Dec 20, 2025", stars: 5, text: "Great after-sales service. They helped me set up my printer via phone call." }
   ];
 
-  const grid_review = document.getElementById('reviewGrid');
-  if(grid_review) {
-    grid_review.innerHTML = reviews.map(r => `
-      <div class="review-card" data-aos="fade-up">
-        <div class="rev-header">
-          <div class="rev-avatar">${r.name[0]}</div>
-          <div class="rev-info">
-            <h4>${r.name}</h4>
-            <span>${r.date}</span>
+  const wrapper = document.getElementById('reviewWrapper');
+  if(wrapper) {
+    wrapper.innerHTML = reviews.map(r => `
+      <div class="swiper-slide">
+        <div class="review-card">
+          <div class="rev-header">
+            <div class="rev-avatar">${r.name[0]}</div>
+            <div class="rev-info">
+              <h4>${r.name}</h4>
+              <span>${r.date}</span>
+            </div>
           </div>
+          <div class="rev-stars">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>
+          <p class="rev-text">"${r.text}"</p>
         </div>
-        <div class="rev-stars">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>
-        <p class="rev-text">"${r.text}"</p>
       </div>
     `).join('');
   }
+
+  new Swiper('#revSwiper', {
+    loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: '#revSwiper .swiper-pagination', clickable: true },
+    slidesPerView: 1,
+    spaceBetween: 30,
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
   document.querySelectorAll('.cat-card').forEach(card => {
     card.onmousemove = e => {
       const rect = card.getBoundingClientRect();
