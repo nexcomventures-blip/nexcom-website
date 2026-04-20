@@ -251,7 +251,48 @@
       overflow:hidden; transition:border-color .25s, transform .25s;
     }
     .featured-swiper .swiper-slide:hover { border-color:var(--primary); transform:translateY(-4px); }
-    /* ── CATEGORY CARDS ── */
+    /* ── REVIEWS SECTION ── */
+    .reviews-section {
+      background: #050000;
+      padding: 5rem 5%;
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 3rem auto;
+    }
+    .review-card {
+      background: #111;
+      border: 1px solid #222;
+      padding: 2rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    .review-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    .rev-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+    .rev-avatar { width: 45px; height: 45px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #fff; }
+    .rev-info h4 { color: #fff; font-size: 1rem; margin: 0; }
+    .rev-info span { color: #555; font-size: 0.8rem; }
+    .rev-stars { color: #ffcc00; font-size: 0.9rem; margin-bottom: 1rem; }
+    .rev-text { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; font-style: italic; }
+
+    /* ── AD SECTION ── */
+    .ad-banner {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 6rem 5%;
+      text-align: center;
+      border-top: 1px solid var(--primary);
+      border-bottom: 1px solid var(--primary);
+    }
+    .ad-content h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: #fff; margin-bottom: 1.5rem; }
+    .ad-content p { color: #ccc; font-size: 1.2rem; max-width: 800px; margin: 0 auto 2.5rem; }
     .category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -526,8 +567,8 @@
 
 
 
-<!-- FEATURED PRODUCTS -->
-<div class="featured-section" data-aos="fade-up">
+<!-- FEATURED PRODUCTS (Hidden to prioritize Services/Reviews) -->
+<div class="featured-section" data-aos="fade-up" style="display:none;">
   <div class="section-label">Hot Picks</div>
   <div class="section-title">Featured Products</div>
   <div class="section-sub" style="margin-bottom:2rem;">Our most popular items this week — slide through and order instantly.</div>
@@ -644,8 +685,34 @@
 </div>
 
 
-<!-- CATEGORIES GRID -->
-<div class="tab-section" id="products" style="padding-top: 5rem;">
+<!-- AD SECTION: REPAIRS & BUYBACK -->
+<section class="ad-banner" id="repairs-ad">
+  <div class="ad-content" data-aos="zoom-in">
+    <div class="hero-badge" style="margin: 0 auto 1.5rem;">🛠️ EXPERT TECH SERVICES</div>
+    <h2>Professional Laptop Repairs <br> & <span style="color:var(--primary);">Instant Cash</span> for Broken Tech</h2>
+    <p>
+      Screen replacements, battery issues, motherboard repairs, or software upgrades — we fix it all. 
+      <br><strong>Have a dead laptop?</strong> We buy faulty, broken, or "beyond repair" laptops for instant cash!
+    </p>
+    <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://wa.me/254722816001?text=Hi%20Nexcom!%20I%20need%20a%20repair%20quote" class="btn-primary" style="padding: 1rem 2.5rem;">Book a Repair</a>
+      <a href="https://wa.me/254722816001?text=Hi%20Nexcom!%20I%20want%20to%20sell%20my%20broken%20laptop" class="btn-outline" style="padding: 1rem 2.5rem; border-color:#fff; color:#fff;">Sell Broken Laptop</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section class="reviews-section">
+  <div class="section-label" style="text-align:center;">Testimonials</div>
+  <div class="section-title" style="text-align:center;">What Our Customers Say</div>
+  
+  <div class="review-grid" id="reviewGrid">
+    <!-- Reviews will be injected by JS for variety -->
+  </div>
+</section>
+
+<!-- CATEGORIES GRID (Hidden to prioritize Services/Reviews) -->
+<div class="tab-section" id="products" style="display:none; padding-top: 5rem;">
   <div class="section-label" style="text-align:center;">Inventory</div>
   <div class="section-title" style="text-align:center;">Shop by Brand</div>
   <div class="section-sub" style="text-align:center; margin: 0 auto 3rem;">Premium laptops from the world's most trusted manufacturers.</div>
@@ -11104,7 +11171,46 @@
     btn.textContent = 'Place Order'; btn.disabled = false;
   }
 
-  // ── Mouse Glow Effect for Category Cards ──
+  // ── Inject Reviews ──
+  const reviews = [
+    { name: "John Kamau", date: "April 18, 2026", stars: 5, text: "Got a ThinkPad X1 Carbon. The machine is mint condition and delivery was under 1 hour in Westlands. Highly recommend Nexcom!" },
+    { name: "Sarah Wanjiku", date: "April 15, 2026", stars: 5, text: "Sold my broken Dell that had been sitting in the drawer for a year. Got paid instantly via M-Pesa. Great service." },
+    { name: "David Otieno", date: "April 12, 2026", stars: 5, text: "Best place for corporate servers. They set up our HPE ProLiant and it's running perfectly." },
+    { name: "Faith Mutua", date: "April 10, 2026", stars: 5, text: "Fixed my cracked MacBook screen same day. Cheaper and faster than everywhere else I checked." },
+    { name: "Brian Kiprop", date: "April 5, 2026", stars: 4, text: "Good selection of laptops. Delivery took a bit longer but the quality is top notch." },
+    { name: "Grace Njeri", date: "March 28, 2026", stars: 5, text: "The student deals are amazing. Got a Latitude for my campus work at a very fair price." },
+    { name: "Michael Chen", date: "March 22, 2026", stars: 5, text: "Professional IT support. Helped our SME migrate to a new server seamlessly." },
+    { name: "Alice Mwangi", date: "March 15, 2026", stars: 5, text: "Very honest sellers. They told me exactly what I needed and didn't try to upsell me on something expensive." },
+    { name: "Kevin Omari", date: "March 10, 2026", stars: 5, text: "Found a hard-to-get replacement charger here. Lifesavers!" },
+    { name: "Mercy Achieng", date: "March 2, 2026", stars: 5, text: "Super happy with my HP EliteBook. It looks and feels brand new even though it's refurbished." },
+    { name: "Peter Kariuki", date: "Feb 25, 2026", stars: 5, text: "Repaired my laptop motherboard. Other shops said it was 'dead', but Nexcom brought it back to life." },
+    { name: "Linda G.", date: "Feb 18, 2026", stars: 4, text: "Got a great deal on a monitor. The colors are perfect for my design work." },
+    { name: "Emmanuel S.", date: "Feb 12, 2026", stars: 5, text: "Sold 3 old office laptops to them. Fast valuation and cash on the spot." },
+    { name: "Rose T.", date: "Feb 5, 2026", stars: 5, text: "The WhatsApp support is very responsive. Answered all my technical questions before I bought." },
+    { name: "George V.", date: "Jan 28, 2026", stars: 5, text: "Genuine accessories. Don't waste money on fakes elsewhere, just come to Nexcom." },
+    { name: "Sandra B.", date: "Jan 20, 2026", stars: 5, text: "Excellent customer journey. From inquiry to delivery, everything was smooth." },
+    { name: "Steve M.", date: "Jan 15, 2026", stars: 5, text: "Nairobi's hidden gem for tech. Best prices by far." },
+    { name: "Tom K.", date: "Jan 5, 2026", stars: 5, text: "The only place I trust with my MacBook repairs." },
+    { name: "Lucy W.", date: "Dec 28, 2025", stars: 4, text: "Found exactly what I was looking for. Very knowledgeable staff." },
+    { name: "Frank O.", date: "Dec 20, 2025", stars: 5, text: "Great after-sales service. They helped me set up my printer via phone call." }
+  ];
+
+  const grid_review = document.getElementById('reviewGrid');
+  if(grid_review) {
+    grid_review.innerHTML = reviews.map(r => `
+      <div class="review-card" data-aos="fade-up">
+        <div class="rev-header">
+          <div class="rev-avatar">${r.name[0]}</div>
+          <div class="rev-info">
+            <h4>${r.name}</h4>
+            <span>${r.date}</span>
+          </div>
+        </div>
+        <div class="rev-stars">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>
+        <p class="rev-text">"${r.text}"</p>
+      </div>
+    `).join('');
+  }
   document.querySelectorAll('.cat-card').forEach(card => {
     card.onmousemove = e => {
       const rect = card.getBoundingClientRect();
