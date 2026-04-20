@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Servers & Networking | Nexcom Limited Nairobi</title>
+  <title>Servers & Networking | Compute with Confidence – Nexcom Ventures Nairobi</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
 
@@ -268,7 +268,7 @@
 
 <!-- TOP BAR -->
 <div class="topbar">
-  🚚 Free delivery within Nairobi CBD &nbsp;|&nbsp; Call/WhatsApp: <a href="tel:+254722816001">+254 722 816 001</a>
+  🚚 Free delivery within Nairobi CBD &nbsp;|&nbsp; Call/WhatsApp: <a href="tel:+254719626363">+254 719 626 363</a>
 </div>
 
 <!-- HEADER -->
@@ -290,6 +290,7 @@
 <a href="macbook.html">🍎 MacBooks</a>
 <a href="servers.html" class="current">🖥️ Servers & Networking</a>
 <a href="accessories.html">🖱️ Accessories</a>
+<a href="refurbished.html">♻️ Refurbished Laptops</a>
 
       </div>
     </div>
@@ -914,30 +915,30 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-col">
-      <h4>Nexcom Limited</h4>
-      <p>Nairobi's premier tech store. Laptops, servers, accessories and professional repair services.</p>
+      <h4>Nexcom Ventures</h4>
+      <p><strong>Compute with Confidence.</strong> Nairobi's premier tech store. Laptops, servers, accessories and professional repair services.</p>
       <p style="margin-top:0.8rem;color:#fff;font-weight:600">📍 Nairobi CBD, Kenya</p>
     </div>
     <div class="footer-col">
       <h4>Shop</h4>
-      <a href="hp.html">💻 HP Laptops</a><a href="dell.html">💻 Dell Laptops</a><a href="lenovo.html">💻 Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a>
+      <a href="hp.html">💻 HP Laptops</a><a href="dell.html">💻 Dell Laptops</a><a href="lenovo.html">💻 Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a><a href="refurbished.html">♻️ Refurbished Laptops</a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
-      <a href="#">Laptop Repair</a>
-      <a href="#">Screen Replacement</a>
-      <a href="#">Buy My Old Laptop</a>
-      <a href="#">Enterprise Quotes</a>
+      <a href="https://wa.me/254719626363?text=Hi%2C+I+want+to+repair+my+laptop">Laptop Repair</a>
+      <a href="https://wa.me/254719626363?text=Hi%2C+I+need+a+screen+replacement">Screen Replacement</a>
+      <a href="https://wa.me/254719626363?text=Hi%2C+I+want+to+sell+my+laptop">Buy My Old Laptop</a>
+      <a href="https://wa.me/254719626363?text=Hi%2C+I+need+an+enterprise+quote">Enterprise Quotes</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="tel:+254722816001">📞 +254 722 816 001</a>
-      <a href="https://wa.me/254722816001" target="_blank">💬 WhatsApp Us</a>
+      <a href="tel:+254719626363">📞 +254 719 626 363</a>
+      <a href="https://wa.me/254719626363" target="_blank">💬 WhatsApp Us</a>
       <a href="mailto:nexcomventures@gmail.com">✉️ Email Us</a>
       <p>Mon–Sat · 9AM–7PM EAT</p>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2025 Nexcom Limited. All rights reserved. · Built with ❤️ in Nairobi</div>
+  <div class="footer-bottom">&copy; 2026 Nexcom Ventures. All rights reserved. · Built with ❤️ in Nairobi</div>
 </footer>
 
 <script>
@@ -1025,26 +1026,30 @@
   }
   document.getElementById('orderModal').addEventListener('click', function(e){ if(e.target===this) closeOrder(); });
 
-    async function submitOrder(e) {
+  async function submitOrder(e) {
     e.preventDefault();
-    const name     = document.getElementById('custName').value.trim();
-    const phone    = document.getElementById('custPhone').value.trim();
-    const location = document.getElementById('custLocation').value.trim();
-    const msg = encodeURIComponent(
-      'Hi Nexcom! I would like to order:\n\n' +
-      'Product: ' + _op + '\n' +
-      'Specs: ' + _os + '\n' +
-      'Price: ' + _opr + '\n\n' +
-      'Name: ' + name + '\n' +
-      'Phone: ' + phone + '\n' +
-      'Location: ' + location
-    );
-    window.open('https://wa.me/254719626363?text=' + msg, '_blank');
-    const res = document.getElementById('orderResult');
-    res.innerHTML = '<p style="color:#16A34A;font-weight:700">Opening WhatsApp... we will confirm shortly!</p>';
     const btn = document.getElementById('submitBtn');
-    btn.textContent = 'Order Sent'; btn.style.background = '#16A34A';
-    setTimeout(closeOrder, 3000);
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const body = {
+      name:     document.getElementById('custName').value.trim(),
+      phone:    document.getElementById('custPhone').value.trim(),
+      location: document.getElementById('custLocation').value.trim(),
+      product:  _op, specs: _os, price: _opr
+    };
+    const res = document.getElementById('orderResult');
+    try {
+      const r = await fetch('/api/order', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+      const d = await r.json();
+      if (d.success) {
+        res.innerHTML = '<p style="color:#16A34A;font-weight:700">✅ Order placed! We\'ll call you within 30 mins.</p>';
+        btn.textContent = 'Order Placed ✅'; btn.style.background = '#16A34A';
+        if (d.admin_wa_link) window.open(d.admin_wa_link, '_blank');
+        setTimeout(closeOrder, 2500);
+      } else { throw new Error(d.error || 'Failed'); }
+    } catch(err) {
+      res.innerHTML = '<p style="color:#DC2626;font-size:0.85rem">⚠️ Could not send. <a href="https://wa.me/254722816001" target="_blank" style="color:var(--primary);font-weight:700">WhatsApp us</a></p>';
+      btn.textContent = 'Place Order 🛒'; btn.disabled = false; btn.style.background='';
+    }
   }
 
 </script>
