@@ -7,7 +7,7 @@ app = Flask(__name__, static_folder='.')
 CORS(app)
 
 # WhatsApp notification via CallMeBot or similar
-WHATSAPP_NUMBER = os.environ.get('WHATSAPP_NUMBER', '254719626363')
+WHATSAPP_NUMBER = os.environ.get('WHATSAPP_NUMBER', '254722816001')
 WHATSAPP_API_KEY = os.environ.get('WHATSAPP_API_KEY', '')
 
 @app.route('/')
