@@ -53,25 +53,25 @@
       position: sticky; top: 0; width: 100%; z-index: 100;
       background: rgba(10,0,0,0.92); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center; /* Center by default */
-      padding: 0 4%; height: 68px;
-      transition: justify-content 0.5s ease-in-out, padding 0.5s ease-in-out;
+      display: flex; align-items: center; justify-content: center; /* Logo always centered */
+      padding: 0 5%; height: 72px;
+      transition: all 0.4s ease;
     }
-    nav.scrolled {
-      justify-content: space-between; /* Move to side on scroll */
+    .nav-links { 
+      position: absolute; left: 5%;
+      display: flex; gap: 1.5rem; list-style: none;
+      opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
     }
-    .nav-links, .nav-cta { 
-      opacity: 0; 
-      visibility: hidden; 
-      transition: opacity 0.5s ease;
+    .nav-cta-wrap {
+      position: absolute; right: 5%;
+      display: flex; align-items: center; gap: 1rem;
+      opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
     }
-    nav.scrolled .nav-links, nav.scrolled .nav-cta {
-      opacity: 1;
-      visibility: visible;
+    nav.scrolled .nav-links, nav.scrolled .nav-cta-wrap {
+      opacity: 1; visibility: visible;
     }
-    .logo { font-size: 1.4rem; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+    .logo { font-size: 1.4rem; font-weight: 900; color: #fff; letter-spacing: -0.5px; z-index: 10; cursor: pointer; }
     .logo span { color: var(--primary); }
-    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color .2s; }
     .nav-links a:hover { color: #fff; }
     .nav-cta {
@@ -443,13 +443,15 @@
 
 <!-- NAV -->
 <nav id="mainNav">
-  <div class="logo">Nexcom Ventures Limited<span>.</span></div>
-  <ul class="nav-links">
+  <div class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div style="display:flex;align-items:center;gap:1rem;">
+  </div>
+  
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Nexcom Ventures Limited<span>.</span></div>
+  
+  <div class="nav-cta-wrap">
     <a href="https://wa.me/254722816001" class="nav-cta">📲 Buy Now</a>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -10998,9 +11000,9 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="logo">Nexcom<span style="color:#cc0000">.</span></div>
-  <div>© 2026 Nexcom Ventures Limited · Norwich Union House, Mama Ngina Street, 5th Floor Suite 5A, Nairobi · Mon–Sat 9AM–7PM</div>
+<footer style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:1.5rem; padding: 4rem 5%; border-top: 1px solid var(--border);">
+  <div class="logo" style="font-size:1.8rem;">Nexcom Ventures Limited<span>.</span></div>
+  <div style="max-width:600px;">© 2026 Nexcom Ventures Limited · Norwich Union House, Mama Ngina Street, 5th Floor Suite 5A, Nairobi · Mon–Sat 9AM–7PM</div>
   <div style="color:var(--muted);font-size:0.8rem;margin-top:0.4rem;">* Trade-in and purchase offers vary depending on device condition. Chat with us to confirm the latest price before ordering.</div>
   <div class="footer-links">
     <a href="https://wa.me/254722816001">WhatsApp</a>
