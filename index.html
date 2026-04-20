@@ -251,9 +251,71 @@
       overflow:hidden; transition:border-color .25s, transform .25s;
     }
     .featured-swiper .swiper-slide:hover { border-color:var(--primary); transform:translateY(-4px); }
-    .featured-swiper .swiper-pagination-bullet { background:var(--muted); }
-    .featured-swiper .swiper-pagination-bullet-active { background:var(--primary); }
-    .feat-img { height:150px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; background:linear-gradient(135deg,#1a0000,#2a0505); }
+    /* ── CATEGORY CARDS ── */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 5%;
+    }
+    .cat-card {
+      background: linear-gradient(145deg, #120000, #1a0000);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(600px circle at var(--x) var(--y), rgba(204,0,0,0.15), transparent 40%);
+      opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .cat-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(204,0,0,0.1);
+    }
+    .cat-card:hover::before { opacity: 1; }
+    
+    .cat-icon {
+      width: 70px; height: 70px;
+      background: rgba(204,0,0,0.1);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2.5rem;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    .cat-card:hover .cat-icon {
+      background: var(--primary);
+      color: #fff;
+      transform: rotate(-5deg) scale(1.1);
+    }
+    .cat-title {
+      color: #fff; font-size: 1.4rem; font-weight: 800;
+      margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .cat-desc {
+      color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .cat-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--primary); font-weight: 700; font-size: 0.9rem;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .cat-link i { transition: transform 0.3s; }
+    .cat-card:hover .cat-link i { transform: translateX(5px); }
     .feat-body { padding:1.1rem; }
     .feat-tag { font-size:0.65rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1px; margin-bottom:.3rem; }
     .feat-name { font-weight:700; font-size:.9rem; margin-bottom:.3rem; line-height:1.3; }
@@ -582,67 +644,81 @@
 </div>
 
 
-<!-- CATEGORIES GRID (TANKS) -->
-<div class="tab-section" id="products">
-  <div class="section-label">Inventory</div>
-  <div class="section-title">Shop by Category</div>
-  <div class="section-sub">Browse our full selection by category.</div>
+<!-- CATEGORIES GRID -->
+<div class="tab-section" id="products" style="padding-top: 5rem;">
+  <div class="section-label" style="text-align:center;">Inventory</div>
+  <div class="section-title" style="text-align:center;">Shop by Brand</div>
+  <div class="section-sub" style="text-align:center; margin: 0 auto 3rem;">Premium laptops from the world's most trusted manufacturers.</div>
   
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 3rem auto; padding: 0 5%;">
+  <div class="category-grid">
     <!-- DELL -->
-    <a href="dell.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
-      <h3 style="color: #fff; margin-bottom: 0.5rem;">Dell Laptops</h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">Latitude, Precision, XPS</p>
-      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    <a href="dell.html" class="cat-card">
+      <div class="cat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      </div>
+      <h3 class="cat-title">Dell Laptops</h3>
+      <p class="cat-desc">Latitude • Precision • XPS</p>
+      <div class="cat-link">Explore Collection <span>→</span></div>
     </a>
     
     <!-- HP -->
-    <a href="hp.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
-      <h3 style="color: #fff; margin-bottom: 0.5rem;">HP Laptops</h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">ProBook, EliteBook, ZBook</p>
-      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    <a href="hp.html" class="cat-card">
+      <div class="cat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14l6-6 6 6-6 6z"></path><path d="M14 10l6-6-6-6 6 6z"></path></svg>
+      </div>
+      <h3 class="cat-title">HP Laptops</h3>
+      <p class="cat-desc">ProBook • EliteBook • ZBook</p>
+      <div class="cat-link">Explore Collection <span>→</span></div>
     </a>
     
     <!-- LENOVO -->
-    <a href="lenovo.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
-      <h3 style="color: #fff; margin-bottom: 0.5rem;">Lenovo Laptops</h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">ThinkPad, Yoga, Legion</p>
-      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    <a href="lenovo.html" class="cat-card">
+      <div class="cat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M7 8h10"></path><path d="M7 12h10"></path><path d="M7 16h10"></path></svg>
+      </div>
+      <h3 class="cat-title">Lenovo Laptops</h3>
+      <p class="cat-desc">ThinkPad • Yoga • Legion</p>
+      <div class="cat-link">Explore Collection <span>→</span></div>
     </a>
     
     <!-- APPLE -->
-    <a href="macbook.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">🍎</div>
-      <h3 style="color: #fff; margin-bottom: 0.5rem;">MacBooks</h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">M1, M2, M3 Pro/Max</p>
-      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    <a href="macbook.html" class="cat-card">
+      <div class="cat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 1.44S8.22 5 6 5a4.91 4.91 0 0 0-5 4.78c0 4.22 3 12.22 6 12.22 1.25 0 2.5-1.06 4-1.06z"></path><path d="M10 2c1 .5 2 2 2 5"></path></svg>
+      </div>
+      <h3 class="cat-title">MacBooks</h3>
+      <p class="cat-desc">M1 • M2 • M3 Pro/Max</p>
+      <div class="cat-link">Explore Collection <span>→</span></div>
     </a>
     
     <!-- SERVERS -->
-    <a href="servers.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">🖥️</div>
-      <h3 style="color: #fff; margin-bottom: 0.5rem;">Servers & Workstations</h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">HPE, Dell PowerEdge, Rack/Tower</p>
-      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    <a href="servers.html" class="cat-card">
+      <div class="cat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg>
+      </div>
+      <h3 class="cat-title">Servers</h3>
+      <p class="cat-desc">Rack • Tower • Workstations</p>
+      <div class="cat-link">Explore Collection <span>→</span></div>
     </a>
-    
+
     <!-- EX-UK -->
-    <a href="refurbished.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">♻️</div>
-      <h3 style="color: #fff; margin-bottom: 0.5rem;">Ex-UK / Refurbished</h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">Tested Premium Corporate Laptops</p>
-      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    <a href="refurbished.html" class="cat-card">
+      <div class="cat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M3 21v-5h5"></path></svg>
+      </div>
+      <h3 class="cat-title">Ex-UK Laptops</h3>
+      <p class="cat-desc">Premium • Refurbished • Tested</p>
+      <div class="cat-link">Explore Collection <span>→</span></div>
     </a>
-    
+
     <!-- ACCESSORIES -->
-    <a href="accessories.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">🖱️</div>
-      <h3 style="color: #fff; margin-bottom: 0.5rem;">Accessories</h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">Monitors, Docks, Networking</p>
-      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    <a href="accessories.html" class="cat-card">
+      <div class="cat-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l5 5"></path><circle cx="11" cy="11" r="2"></circle></svg>
+      </div>
+      <h3 class="cat-title">Accessories</h3>
+      <p class="cat-desc">Monitors • Printers • Storage</p>
+      <div class="cat-link">Explore Collection <span>→</span></div>
     </a>
   </div>
 </div>
@@ -11027,6 +11103,17 @@
     }
     btn.textContent = 'Place Order'; btn.disabled = false;
   }
+
+  // ── Mouse Glow Effect for Category Cards ──
+  document.querySelectorAll('.cat-card').forEach(card => {
+    card.onmousemove = e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    };
+  });
 </script>
 
 <!-- ORDER MODAL -->
