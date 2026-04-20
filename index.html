@@ -538,24 +538,71 @@
   </div>
 </div>
 
-<!-- PRODUCTS -->
-<div class="tab-section" id="products" style="display:none;">
-  <div class="section-label">Full Catalog</div>
-  <div class="section-title">Shop By Category</div>
-  <div class="section-sub">All items tested, verified, and ready to ship. Best prices guaranteed.</div>
-  <div class="tabs">
-    <button class="tab-btn active" onclick="filterProducts('all')">All</button>
-    <button class="tab-btn" onclick="filterProducts('dell')">Dell</button>
-    <button class="tab-btn" onclick="filterProducts('hp')">HP</button>
-    <button class="tab-btn" onclick="filterProducts('lenovo')">Lenovo</button>
-    <button class="tab-btn" onclick="filterProducts('mac')">MacBook</button>
-    <button class="tab-btn" onclick="filterProducts('refurbished')">Ex-UK / Refurbished</button>
-    <button class="tab-btn" onclick="filterProducts('server')">Servers</button>
-    <button class="tab-btn" onclick="filterProducts('accessory')">Accessories</button>
-    <button class="tab-btn" onclick="filterProducts('repairs')" style="color: var(--accent); font-weight: 700;">Repairs & Buyback</button>
+
+<!-- CATEGORIES GRID (TANKS) -->
+<div class="tab-section" id="products">
+  <div class="section-label">Inventory</div>
+  <div class="section-title">Shop by Category</div>
+  <div class="section-sub">Browse our full selection by category.</div>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 3rem auto; padding: 0 5%;">
+    <!-- DELL -->
+    <a href="dell.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
+      <h3 style="color: #fff; margin-bottom: 0.5rem;">Dell Laptops</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">Latitude, Precision, XPS</p>
+      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    </a>
+    
+    <!-- HP -->
+    <a href="hp.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
+      <h3 style="color: #fff; margin-bottom: 0.5rem;">HP Laptops</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">ProBook, EliteBook, ZBook</p>
+      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    </a>
+    
+    <!-- LENOVO -->
+    <a href="lenovo.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">💻</div>
+      <h3 style="color: #fff; margin-bottom: 0.5rem;">Lenovo Laptops</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">ThinkPad, Yoga, Legion</p>
+      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    </a>
+    
+    <!-- APPLE -->
+    <a href="macbook.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🍎</div>
+      <h3 style="color: #fff; margin-bottom: 0.5rem;">MacBooks</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">M1, M2, M3 Pro/Max</p>
+      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    </a>
+    
+    <!-- SERVERS -->
+    <a href="servers.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🖥️</div>
+      <h3 style="color: #fff; margin-bottom: 0.5rem;">Servers & Workstations</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">HPE, Dell PowerEdge, Rack/Tower</p>
+      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    </a>
+    
+    <!-- EX-UK -->
+    <a href="refurbished.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">♻️</div>
+      <h3 style="color: #fff; margin-bottom: 0.5rem;">Ex-UK / Refurbished</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">Tested Premium Corporate Laptops</p>
+      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    </a>
+    
+    <!-- ACCESSORIES -->
+    <a href="accessories.html" class="product-card visible" style="text-align: center; padding: 2rem; border: 1px solid var(--border); transition: transform 0.3s ease;">
+      <div style="font-size: 3rem; margin-bottom: 1rem;">🖱️</div>
+      <h3 style="color: #fff; margin-bottom: 0.5rem;">Accessories</h3>
+      <p style="color: var(--muted); font-size: 0.9rem;">Monitors, Docks, Networking</p>
+      <div style="margin-top: 1.5rem; color: var(--primary); font-weight: 700;">View All →</div>
+    </a>
   </div>
 </div>
-
 <!-- SERVICES / REPAIRS SECTION -->
 <div id="repairs-section" class="tab-content" style="padding: 4rem 5%; background: #0a0000;">
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
@@ -591,17 +638,7 @@
   </div>
 </div>
 
-  <div class="search-wrap" data-aos="fade-up" style="display:none;">
-    <input class="search-input" type="text" id="searchInput" placeholder="🔍  Search laptops, servers, accessories..." oninput="searchProducts(this.value)"/>
-  </div>
-
-<div class="products-bg" style="display:none;">
-  <div class="products-grid" id="productsGrid">
-
-    <div class="product-card visible" data-cat="dell">
-      <div class="product-img" style="display:flex; align-items:center; justify-content:center; font-size:4.5rem; height:200px; background:linear-gradient(135deg, #1a0000 0%, #0d0000 100%); color:var(--primary);">💻</div>
-      <div class="product-info">
-        <div class="product-tag">Dell</div>
+  
         <div class="product-name">Dell Latitude 3450</div>
         <div class="product-desc">i7-1355U, 8GB, 512GB, 14" FHD, Ubuntu</div>
         <div class="product-footer">
