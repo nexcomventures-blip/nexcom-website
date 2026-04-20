@@ -221,6 +221,11 @@
       text-decoration: none; transition: background .2s;
     }
     .custom-cta .cta-btn:hover { background: var(--primary-dark); }
+    .currency-note {
+      background: #fff; border: 1px solid #fed7aa; color: #9a3412;
+      padding: 10px; border-radius: 8px; margin: 0 4% 1.5rem;
+      font-size: 0.85rem; font-weight: 600; text-align: center;
+    }
 
     /* ORDER MODAL */
     .modal-overlay {
@@ -369,6 +374,7 @@
 </div>
 
 <!-- GRID -->
+<div class="currency-note">⚠️ Note: Server pricing is linked to USD market rates. Final KES totals may vary based on the daily exchange rate. All prices listed are exclusive of VAT.</div>
 <div class="pgrid" id="productGrid">
   
     <div class="pcard" data-sub="HPE Server" data-name="hpe ml350 gen11 tower (16c) xeon silver 5416s, 32gb ecc ddr5, tower server, 3yr warranty">
@@ -381,7 +387,7 @@
         <h3 class="pcard-name">HPE ML350 Gen11 Tower (16C)</h3>
         <p class="pcard-spec">Xeon Silver 5416S, 32GB ECC DDR5, Tower Server, 3yr Warranty</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 1,224,496</span>
+          <span class="pcard-price">$8,120</span>
           <button class="pcard-btn" onclick="openOrder('HPE ML350 Gen11 Tower (16C)','Xeon Silver 5416S, 32GB ECC DDR5, Tower Server, 3yr Warranty','KES 1,224,496')">Order</button>
         </div>
       </div>
@@ -477,7 +483,7 @@
         <h3 class="pcard-name">Dell PowerEdge T160 Tower</h3>
         <p class="pcard-spec">Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 327,447</span>
+          <span class="pcard-price">$2,171</span>
           <button class="pcard-btn" onclick="openOrder('Dell PowerEdge T160 Tower','Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD','KES 327,447')">Order</button>
         </div>
       </div>
@@ -493,7 +499,7 @@
         <h3 class="pcard-name">Dell PowerEdge R360 Rack 1U</h3>
         <p class="pcard-spec">Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 371,783</span>
+          <span class="pcard-price">$2,465</span>
           <button class="pcard-btn" onclick="openOrder('Dell PowerEdge R360 Rack 1U','Xeon 6315P 4C, 32GB ECC, 2TB SATA, iDRAC9, 3yr NBD','KES 371,783')">Order</button>
         </div>
       </div>
@@ -509,7 +515,7 @@
         <h3 class="pcard-name">Dell PowerEdge R660xs Rack 2U</h3>
         <p class="pcard-spec">2x Xeon Silver 4510 12C, 64GB RDIMM, 480GB SSD, 3yr</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 999,442</span>
+          <span class="pcard-price">$6,628</span>
           <button class="pcard-btn" onclick="openOrder('Dell PowerEdge R660xs Rack 2U','2x Xeon Silver 4510 12C, 64GB RDIMM, 480GB SSD, 3yr','KES 999,442')">Order</button>
         </div>
       </div>
@@ -557,7 +563,7 @@
         <h3 class="pcard-name">Lenovo ST45 V3 Tower (EPYC 4124P)</h3>
         <p class="pcard-spec">AMD EPYC 4124P 4C, 16GB, 2x1TB SATA, 500W, 3yr</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 256,511</span>
+          <span class="pcard-price">$1,701</span>
           <button class="pcard-btn" onclick="openOrder('Lenovo ST45 V3 Tower (EPYC 4124P)','AMD EPYC 4124P 4C, 16GB, 2x1TB SATA, 500W, 3yr','KES 256,511')">Order</button>
         </div>
       </div>
@@ -605,7 +611,7 @@
         <h3 class="pcard-name">Lenovo ST50 V3 Tower (Xeon E-2414)</h3>
         <p class="pcard-spec">Xeon E-2414 4C, 16GB, 2x960GB SSD, 500W, 3yr</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 383,816</span>
+          <span class="pcard-price">$2,545</span>
           <button class="pcard-btn" onclick="openOrder('Lenovo ST50 V3 Tower (Xeon E-2414)','Xeon E-2414 4C, 16GB, 2x960GB SSD, 500W, 3yr','KES 383,816')">Order</button>
         </div>
       </div>
@@ -669,7 +675,7 @@
         <h3 class="pcard-name">Lenovo ST650 V3 Tower (Silver 4514Y)</h3>
         <p class="pcard-spec">Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, 3yr</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 995,008</span>
+          <span class="pcard-price">$6,598</span>
           <button class="pcard-btn" onclick="openOrder('Lenovo ST650 V3 Tower (Silver 4514Y)','Xeon Silver 4514Y 16C, 32GB DDR5, 940-8i, 1100W, 3yr','KES 995,008')">Order</button>
         </div>
       </div>
@@ -765,7 +771,7 @@
         <h3 class="pcard-name">Lenovo SR630 V3 Rack (Gold 6526Y)</h3>
         <p class="pcard-spec">Xeon Gold 6526Y 16C, 32GB DDR5, 940-8i, 1100W, Rails</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 961,229</span>
+          <span class="pcard-price">$6,374</span>
           <button class="pcard-btn" onclick="openOrder('Lenovo SR630 V3 Rack (Gold 6526Y)','Xeon Gold 6526Y 16C, 32GB DDR5, 940-8i, 1100W, Rails','KES 961,229')">Order</button>
         </div>
       </div>
@@ -845,7 +851,7 @@
         <h3 class="pcard-name">Lenovo SR665 V3 Rack (EPYC 9274F)</h3>
         <p class="pcard-spec">AMD EPYC 9274F 24C, 32GB DDR5, 1800W, Rails, 3yr</p>
         <div class="pcard-footer">
-          <span class="pcard-price">KES 1,255,531</span>
+          <span class="pcard-price">$8,326</span>
           <button class="pcard-btn" onclick="openOrder('Lenovo SR665 V3 Rack (EPYC 9274F)','AMD EPYC 9274F 24C, 32GB DDR5, 1800W, Rails, 3yr','KES 1,255,531')">Order</button>
         </div>
       </div>
