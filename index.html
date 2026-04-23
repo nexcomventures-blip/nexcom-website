@@ -237,6 +237,30 @@
     }
     .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; }
 
+    /* REVIEWS SECTION */
+    .reviews-section { background: var(--white); padding: 3rem 4%; border-top: 1px solid var(--border); overflow: hidden; }
+    .reviews-header { text-align: center; margin-bottom: 2rem; }
+    .reviews-header h2 { font-size: 1.5rem; font-weight: 800; color: var(--text); }
+    .reviews-header p { color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem; }
+    .reviews-scroll {
+      display: flex; gap: 1.2rem; overflow-x: auto; padding: 10px 5px 25px;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .reviews-scroll::-webkit-scrollbar { display: none; }
+    .review-card {
+      flex: 0 0 280px; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: transform .2s;
+    }
+    .review-card:hover { transform: translateY(-3px); }
+    .review-stars { color: #F59E0B; font-size: 0.8rem; margin-bottom: 0.6rem; }
+    .review-text { font-size: 0.82rem; color: var(--text); line-height: 1.5; font-style: italic; flex: 1; margin-bottom: 1rem; }
+    .review-author { display: flex; align-items: center; gap: 0.6rem; }
+    .author-img { width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
+    .author-info { line-height: 1.2; }
+    .author-name { font-size: 0.8rem; font-weight: 700; color: var(--text); }
+    .author-title { font-size: 0.7rem; color: var(--muted); }
+
     /* ORDER MODAL */
     .modal-overlay {
       display: none; position: fixed; inset: 0; z-index: 500;
@@ -496,6 +520,237 @@
         <span class="cat-link">View all →</span>
       </div>
     </a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="reviews-header">
+    <h2>What Our Customers Say</h2>
+    <p>Join 2,000+ happy clients in Nairobi and beyond</p>
+  </div>
+  <div class="reviews-scroll">
+    
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Nexcom is our go-to for office servers. Their HPE ProLiant stock is unmatched in Nairobi."</p>
+        <div class="review-author">
+          <div class="author-img">S</div>
+          <div class="author-info">
+            <div class="author-name">Samuel O.</div>
+            <div class="author-title">IT Manager</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Got a refurbished MacBook Pro M1. It looks and performs like brand new. Highly recommended!"</p>
+        <div class="review-author">
+          <div class="author-img">S</div>
+          <div class="author-info">
+            <div class="author-name">Sarah W.</div>
+            <div class="author-title">Freelance Designer</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Best prices for students. The HP EliteBook I bought is perfect for my coding projects."</p>
+        <div class="review-author">
+          <div class="author-img">P</div>
+          <div class="author-info">
+            <div class="author-name">Peter K.</div>
+            <div class="author-title">Student, JKUAT</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Exceptional service! I ordered a Dell Latitude at 10 AM and it was at my shop by 1 PM."</p>
+        <div class="review-author">
+          <div class="author-img">G</div>
+          <div class="author-info">
+            <div class="author-name">Grace M.</div>
+            <div class="author-title">Business Owner</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Finally found a shop that knows their stuff. Their technical advice on RAM upgrades was spot on."</p>
+        <div class="review-author">
+          <div class="author-img">D</div>
+          <div class="author-info">
+            <div class="author-name">David L.</div>
+            <div class="author-title">Tech Enthusiast</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Reliable and professional. They fixed my laptop's mother board when everyone else said it was dead."</p>
+        <div class="review-author">
+          <div class="author-img">M</div>
+          <div class="author-info">
+            <div class="author-name">Mary A.</div>
+            <div class="author-title">Accountant</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The ex-UK ThinkPads here are top quality. Great keyboard and battery life."</p>
+        <div class="review-author">
+          <div class="author-img">J</div>
+          <div class="author-info">
+            <div class="author-name">John D.</div>
+            <div class="author-title">Remote Developer</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Love my new ZBook. Powerful enough for my rendering work. Nexcom handled the delivery perfectly."</p>
+        <div class="review-author">
+          <div class="author-img">L</div>
+          <div class="author-info">
+            <div class="author-name">Lucy N.</div>
+            <div class="author-title">Graphic Artist</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Great place for institutional quotes. Very transparent pricing and genuine products."</p>
+        <div class="review-author">
+          <div class="author-img">D</div>
+          <div class="author-info">
+            <div class="author-name">Dr. Omondi</div>
+            <div class="author-title">Lecturer</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Quick response on WhatsApp and very helpful staff. I've bought 3 laptops from them so far."</p>
+        <div class="review-author">
+          <div class="author-img">M</div>
+          <div class="author-info">
+            <div class="author-name">Mike R.</div>
+            <div class="author-title">Software Engineer</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Verified stock and real photos. What you see on the site is exactly what you get."</p>
+        <div class="review-author">
+          <div class="author-img">E</div>
+          <div class="author-info">
+            <div class="author-name">Elena M.</div>
+            <div class="author-title">Digital Nomad</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excellent group rates for our field laptops. Durable machines for tough environments."</p>
+        <div class="review-author">
+          <div class="author-img">S</div>
+          <div class="author-info">
+            <div class="author-name">Samuel K.</div>
+            <div class="author-title">NGO Coordinator</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The Lipia Pole Pole plan is a lifesaver. Made owning a premium laptop possible."</p>
+        <div class="review-author">
+          <div class="author-img">F</div>
+          <div class="author-info">
+            <div class="author-name">Fatima S.</div>
+            <div class="author-title">Entrepreneur</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Got a Victus gaming laptop here. Best FPS for the price in the market right now."</p>
+        <div class="review-author">
+          <div class="author-img">K</div>
+          <div class="author-info">
+            <div class="author-name">Kevin J.</div>
+            <div class="author-title">Gaming Fan</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Fast, honest, and reliable. I wouldn't go anywhere else for my computer needs."</p>
+        <div class="review-author">
+          <div class="author-img">A</div>
+          <div class="author-info">
+            <div class="author-name">Alice V.</div>
+            <div class="author-title">Consultant</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The Precision workstation I got from Nexcom is a beast. Handles huge datasets easily."</p>
+        <div class="review-author">
+          <div class="author-img">B</div>
+          <div class="author-info">
+            <div class="author-name">Brian T.</div>
+            <div class="author-title">Data Analyst</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Bought a simple laptop for my kids' schoolwork. Affordable and works perfectly."</p>
+        <div class="review-author">
+          <div class="author-img">J</div>
+          <div class="author-info">
+            <div class="author-name">Jane P.</div>
+            <div class="author-title">Teacher</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I trust Nexcom for my hardware. Their security-focused laptop suggestions were great."</p>
+        <div class="review-author">
+          <div class="author-img">R</div>
+          <div class="author-info">
+            <div class="author-name">Robert S.</div>
+            <div class="author-title">Cybersecurity Expert</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Clear communication and fair trade-in value for my old laptop. 5 stars!"</p>
+        <div class="review-author">
+          <div class="author-img">H</div>
+          <div class="author-info">
+            <div class="author-name">Hans G.</div>
+            <div class="author-title">Expat</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Bulk order of 15 laptops was delivered and set up within 24 hours. Incredible speed."</p>
+        <div class="review-author">
+          <div class="author-img">H</div>
+          <div class="author-info">
+            <div class="author-name">HR Dept</div>
+            <div class="author-title">Corporate Client</div>
+          </div>
+        </div>
+      </div>
   </div>
 </section>
 
