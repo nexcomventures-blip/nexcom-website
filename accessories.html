@@ -161,12 +161,12 @@
     }
     .subcat-track {
       display: flex; width: max-content;
-      animation: scrollSubcats 25s linear infinite;
+      animation: scrollSubcats 20s linear infinite;
     }
     .subcat-track:hover { animation-play-state: paused; }
     @keyframes scrollSubcats {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100vw); }
     }
     .subcat-pill {
       white-space: nowrap; padding: 7px 18px; border-radius: 50px;
@@ -245,7 +245,7 @@
     }
     .trust-track {
       display: flex; width: max-content;
-      animation: scrollTrust 30s linear infinite;
+      animation: scrollTrust 25s linear infinite;
     }
     .trust-item { 
       display: flex; align-items: center; gap: 0.4rem; 
@@ -253,8 +253,8 @@
       padding: 0 1.5rem; /* Replaces gap for perfect loop */
     }
     @keyframes scrollTrust {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100vw); }
     }
 
     /* REVIEWS SECTION */
@@ -272,13 +272,13 @@
     .reviews-track {
       display: flex;
       width: max-content;
-      animation: scrollReviews 60s linear infinite;
+      animation: scrollReviews 50s linear infinite;
     }
     .reviews-track:hover { animation-play-state: paused; }
     
     @keyframes scrollReviews {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100vw); }
     }
 
     .review-card {
@@ -414,11 +414,6 @@
 <!-- TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-track">
-    <div class="trust-item">✅ Every device tested</div>
-    <div class="trust-item">🚚 Same-day delivery Nairobi</div>
-    <div class="trust-item">💳 M-Pesa accepted</div>
-    <div class="trust-item">🔄 Buy your old device</div>
-    <!-- Duplicate -->
     <div class="trust-item">✅ Every device tested</div>
     <div class="trust-item">🚚 Same-day delivery Nairobi</div>
     <div class="trust-item">💳 M-Pesa accepted</div>
