@@ -230,6 +230,23 @@
     }
     .pcard-btn:hover { background: var(--primary-dark); }
 
+    /* DELIVERY PAGE */
+    .delivery-container { max-width: 900px; margin: 3rem auto; padding: 0 4%; }
+    .delivery-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    .delivery-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; color: var(--text); display: flex; align-items: center; gap: 0.8rem; }
+    .delivery-search { margin: 1.5rem 0; position: relative; }
+    .delivery-search input { width: 100%; padding: 1rem 1rem 1rem 3rem; border: 2px solid var(--border); border-radius: 8px; font-size: 1rem; outline: none; transition: 0.2s; }
+    .delivery-search input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(228,0,43,0.1); }
+    .delivery-search::before { content: '🔍'; position: absolute; left: 1rem; top: 1rem; font-size: 1.2rem; }
+    .delivery-table-wrap { overflow-x: auto; margin-top: 1.5rem; }
+    .delivery-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .delivery-table th { padding: 1rem; background: #F9FAFB; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 0.85rem; text-transform: uppercase; }
+    .delivery-table td { padding: 1rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+    .delivery-table tr:hover { background: #FDF2F2; }
+    .fee-badge { background: #ECFDF5; color: #065F46; padding: 0.2rem 0.6rem; border-radius: 100px; font-weight: 700; font-size: 0.85rem; }
+    .fee-nairobi { background: #EFF6FF; color: #1E40AF; }
+    .fee-free { background: #FEF3C7; color: #92400E; }
+
     /* NO RESULTS */
     .no-results {
       text-align: center; padding: 4rem 2rem; color: var(--muted);
@@ -370,6 +387,7 @@
 
   <nav class="nav-center">
     <a class="nav-link" href="index.html">🏠 Home</a>
+    <a class="nav-link" href="delivery.html">🚚 Delivery</a>
 
     <!-- Products dropdown -->
     <div class="nav-dropdown">
@@ -384,6 +402,7 @@
 <a href="servers.html">🖥️ Servers & Networking</a>
 <a href="accessories.html" class="current">🖱️ Accessories</a>
 <a href="refurbished.html">♻️ Refurbished Laptops</a>
+<a href="delivery.html">🚚 Delivery Info</a>
 
       </div>
     </div>
@@ -926,8 +945,20 @@
         <input id="custPhone" type="tel" required placeholder="e.g. 0722 816 001"/>
       </div>
       <div class="form-row">
-        <label>Location / Area</label>
-        <input id="custLocation" type="text" placeholder="e.g. Westlands, Nairobi"/>
+        <label>Delivery Method *</label>
+        <select id="deliveryMethod" required onchange="updateTotal()">
+          <option value="CBD" data-fee="0">Nairobi CBD (Free)</option>
+          <option value="Outside CBD" data-fee="350">Outside CBD (KES 350 - 500)</option>
+          <option value="Upcountry" data-fee="800">Upcountry (KES 800 - 1,000)</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Specific Location / Area *</label>
+        <input id="custLocation" type="text" required placeholder="e.g. Westlands, CBD, Nakuru..."/>
+      </div>
+      <div class="modal-total" id="modalTotalBox" style="margin:1rem 0; padding:0.8rem; background:#F8FAFC; border-radius:8px; border:1px solid #E2E8F0; display:flex; justify-content:space-between; font-weight:700; color:var(--dark);">
+        <span>Total Payable:</span>
+        <span id="modalTotalValue"></span>
       </div>
       <div id="orderResult"></div>
       <button class="submit-btn" type="submit" id="submitBtn">Place Order 🛒</button>
@@ -945,7 +976,7 @@
     </div>
     <div class="footer-col">
       <h4>Shop</h4>
-      <a href="hp.html"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="HP"> HP Laptops</a><a href="dell.html"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Dell"> Dell Laptops</a><a href="lenovo.html"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" style="height:10px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Lenovo"> Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a><a href="refurbished.html">♻️ Refurbished Laptops</a>
+      <a href="hp.html"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="HP"> HP Laptops</a><a href="dell.html"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Dell"> Dell Laptops</a><a href="lenovo.html"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" style="height:10px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Lenovo"> Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a><a href="refurbished.html">♻️ Refurbished Laptops</a><a href="delivery.html">🚚 Delivery Info</a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
@@ -1041,8 +1072,16 @@
     document.getElementById('orderForm').reset();
     const btn = document.getElementById('submitBtn');
     btn.textContent = 'Place Order 🛒'; btn.disabled = false; btn.style.background = '';
+    updateTotal();
     document.getElementById('orderModal').classList.add('open');
     document.body.style.overflow = 'hidden';
+  }
+  function updateTotal() {
+    const productPrice = parseInt(_opr.replace(/[^0-9]/g, '')) || 0;
+    const deliverySelect = document.getElementById('deliveryMethod');
+    const deliveryFee = parseInt(deliverySelect.options[deliverySelect.selectedIndex].dataset.fee) || 0;
+    const total = productPrice + deliveryFee;
+    document.getElementById('modalTotalValue').textContent = 'KES ' + total.toLocaleString();
   }
   function closeOrder() {
     document.getElementById('orderModal').classList.remove('open');
@@ -1057,8 +1096,10 @@
     const body = {
       name:     document.getElementById('custName').value.trim(),
       phone:    document.getElementById('custPhone').value.trim(),
+      delivery: document.getElementById('deliveryMethod').value,
       location: document.getElementById('custLocation').value.trim(),
-      product:  _op, specs: _os, price: _opr
+      product:  _op, specs: _os, price: _opr,
+      total:    document.getElementById('modalTotalValue').textContent
     };
     const res = document.getElementById('orderResult');
     try {
