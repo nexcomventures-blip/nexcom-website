@@ -157,15 +157,15 @@
     /* SUBCATEGORY TABS - MARQUEE EFFECT */
     .subcat-bar {
       background: var(--white); border-bottom: 1px solid var(--border);
-      padding: 10px 4%; overflow: hidden;
+      padding: 10px 0; overflow: hidden;
     }
     .subcat-track {
-      display: flex; gap: 0.5rem; width: max-content;
-      animation: scrollSubcats 30s linear infinite;
+      display: flex; width: max-content;
+      animation: scrollSubcats 25s linear infinite;
     }
     .subcat-track:hover { animation-play-state: paused; }
     @keyframes scrollSubcats {
-      0% { transform: translateX(calc(-50% - 0.25rem)); }
+      0% { transform: translateX(-50%); }
       100% { transform: translateX(0); }
     }
     .subcat-pill {
@@ -173,6 +173,7 @@
       border: 1.5px solid var(--border); background: #fff;
       font-size: 0.82rem; font-weight: 600; cursor: pointer;
       color: var(--muted); transition: all .2s; flex-shrink: 0;
+      margin: 0 0.25rem; /* Replaces gap for perfect loop */
     }
     .subcat-pill.active, .subcat-pill:hover {
       background: var(--primary); color: #fff; border-color: var(--primary);
@@ -240,15 +241,19 @@
     .trust-strip {
       background: var(--white); border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 0.8rem 4%; overflow: hidden;
+      padding: 0.8rem 0; overflow: hidden;
     }
     .trust-track {
-      display: flex; gap: 3rem; width: max-content;
-      animation: scrollTrust 40s linear infinite;
+      display: flex; width: max-content;
+      animation: scrollTrust 30s linear infinite;
     }
-    .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
+    .trust-item { 
+      display: flex; align-items: center; gap: 0.4rem; 
+      font-size: 0.82rem; font-weight: 500; white-space: nowrap;
+      padding: 0 1.5rem; /* Replaces gap for perfect loop */
+    }
     @keyframes scrollTrust {
-      0% { transform: translateX(calc(-50% - 1.5rem)); }
+      0% { transform: translateX(-50%); }
       100% { transform: translateX(0); }
     }
 
@@ -266,14 +271,13 @@
     /* ANIMATED SCROLL */
     .reviews-track {
       display: flex;
-      gap: 1.5rem;
       width: max-content;
-      animation: scrollReviews 80s linear infinite;
+      animation: scrollReviews 60s linear infinite;
     }
     .reviews-track:hover { animation-play-state: paused; }
     
     @keyframes scrollReviews {
-      0% { transform: translateX(calc(-50% - 0.75rem)); }
+      0% { transform: translateX(-50%); }
       100% { transform: translateX(0); }
     }
 
@@ -282,6 +286,7 @@
       border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column;
       box-shadow: 0 4px 12px rgba(0,0,0,0.03);
       transition: transform 0.3s ease;
+      margin: 0 0.75rem; /* Replaces gap for perfect loop */
     }
     .review-card:hover { transform: scale(1.02); border-color: var(--primary); }
       box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: transform .2s;
