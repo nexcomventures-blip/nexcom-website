@@ -247,6 +247,21 @@
       scrollbar-width: none; -ms-overflow-style: none;
     }
     .reviews-scroll::-webkit-scrollbar { display: none; }
+    
+    /* ANIMATED SCROLL */
+    .reviews-track {
+      display: flex;
+      gap: 1.2rem;
+      width: max-content;
+      animation: scrollReviews 60s linear infinite;
+    }
+    .reviews-track:hover { animation-play-state: paused; }
+    
+    @keyframes scrollReviews {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 0.6rem)); }
+    }
+
     .review-card {
       flex: 0 0 280px; background: var(--bg); border: 1px solid var(--border);
       border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column;
