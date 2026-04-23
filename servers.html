@@ -154,12 +154,20 @@
     .hero-content h1 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem; }
     .hero-content p { font-size: 0.95rem; color: #CBD5E1; line-height: 1.6; }
 
-    /* SUBCATEGORY TABS */
+    /* SUBCATEGORY TABS - MARQUEE EFFECT */
     .subcat-bar {
       background: var(--white); border-bottom: 1px solid var(--border);
-      padding: 10px 4%; display: flex; gap: 0.5rem; overflow-x: auto;
+      padding: 10px 4%; overflow: hidden;
     }
-    .subcat-bar::-webkit-scrollbar { height: 0; }
+    .subcat-track {
+      display: flex; gap: 0.5rem; width: max-content;
+      animation: scrollSubcats 30s linear infinite;
+    }
+    .subcat-track:hover { animation-play-state: paused; }
+    @keyframes scrollSubcats {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 0.25rem)); }
+    }
     .subcat-pill {
       white-space: nowrap; padding: 7px 18px; border-radius: 50px;
       border: 1.5px solid var(--border); background: #fff;
@@ -409,13 +417,23 @@
   </div>
 </div>
 
-<div class="subcat-bar">
-        <div class="subcat-pill active" onclick="filterSubcat(this,'')" >All (33)</div>
+
+      <div class="subcat-bar">
+        <div class="subcat-track">
+          <div class="subcat-pill active" onclick="filterSubcat(this,'')" >All (33)</div>
         <div class="subcat-pill" onclick="filterSubcat(this,'HPE Server')">HPE Server (6)</div>
         <div class="subcat-pill" onclick="filterSubcat(this,'Dell Server')">Dell Server (5)</div>
         <div class="subcat-pill" onclick="filterSubcat(this,'Lenovo Server')">Lenovo Server (19)</div>
         <div class="subcat-pill" onclick="filterSubcat(this,'NAS')">NAS (1)</div>
         <div class="subcat-pill" onclick="filterSubcat(this,'Network')">Network (2)</div>
+          <!-- Duplicate for animation -->
+          <div class="subcat-pill active" onclick="filterSubcat(this,'')" >All (33)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'HPE Server')">HPE Server (6)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'Dell Server')">Dell Server (5)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'Lenovo Server')">Lenovo Server (19)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'NAS')">NAS (1)</div>
+        <div class="subcat-pill" onclick="filterSubcat(this,'Network')">Network (2)</div>
+        </div>
       </div>
 
 <!-- TOOLBAR -->
