@@ -257,6 +257,23 @@
       100% { transform: translateX(100vw); }
     }
 
+    /* SLOGAN MARQUEE */
+    .slogan-marquee {
+      background: var(--primary); color: #fff;
+      padding: 0.6rem 0; overflow: hidden;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05rem;
+      text-transform: uppercase;
+    }
+    .slogan-track {
+      display: flex; width: max-content;
+      animation: scrollSlogan 15s linear infinite;
+    }
+    .slogan-item { padding: 0 3rem; white-space: nowrap; }
+    @keyframes scrollSlogan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100vw); }
+    }
+
     /* REVIEWS SECTION */
     .reviews-section { background: var(--white); padding: 3rem 4%; border-top: 1px solid var(--border); overflow: hidden; }
     .reviews-header { text-align: center; margin-bottom: 2rem; }
@@ -381,6 +398,10 @@
 <a href="dell.html"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Dell"> Dell Laptops</a>
 <a href="lenovo.html"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" style="height:10px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Lenovo"> Lenovo Laptops</a>
 <a href="macbook.html">🍎 MacBooks</a>
+<a href="gaming.html">🎮 Gaming Laptops</a>
+<a href="student.html">🎓 Student Laptops</a>
+<a href="office.html">🏢 Office Laptops</a>
+<a href="deals.html">🏷️ Deals & Clearance</a>
 <a href="servers.html">🖥️ Servers & Networking</a>
 <a href="accessories.html">🖱️ Accessories</a>
 <a href="refurbished.html" class="current">♻️ Refurbished Laptops</a>
@@ -400,6 +421,13 @@
     </a>
   </div>
 </header>
+
+<!-- SLOGAN MARQUEE -->
+<div class="slogan-marquee">
+  <div class="slogan-track">
+    <div class="slogan-item">Compute with Confidence. Best Laptops. Best Prices.</div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1137,7 +1165,7 @@
     </div>
     <div class="footer-col">
       <h4>Shop</h4>
-      <a href="hp.html"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="HP"> HP Laptops</a><a href="dell.html"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Dell"> Dell Laptops</a><a href="lenovo.html"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" style="height:10px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Lenovo"> Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a><a href="refurbished.html">♻️ Refurbished Laptops</a>
+      <a href="hp.html"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/HP_logo_2012.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="HP"> HP Laptops</a><a href="dell.html"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" style="height:14px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Dell"> Dell Laptops</a><a href="lenovo.html"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" style="height:10px; width:auto; vertical-align:middle; filter:brightness(0) invert(1);" alt="Lenovo"> Lenovo Laptops</a><a href="macbook.html">🍎 MacBooks</a><a href="gaming.html">🎮 Gaming Laptops</a><a href="student.html">🎓 Student Laptops</a><a href="office.html">🏢 Office Laptops</a><a href="deals.html">🏷️ Deals & Clearance</a><a href="servers.html">🖥️ Servers & Networking</a><a href="accessories.html">🖱️ Accessories</a><a href="refurbished.html">♻️ Refurbished Laptops</a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
