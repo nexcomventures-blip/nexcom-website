@@ -232,10 +232,17 @@
     .trust-strip {
       background: var(--white); border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 1rem 4%; display: flex; justify-content: center;
-      gap: 2.5rem; flex-wrap: wrap;
+      padding: 0.8rem 4%; overflow: hidden;
     }
-    .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; }
+    .trust-track {
+      display: flex; gap: 3rem; width: max-content;
+      animation: scrollTrust 40s linear infinite;
+    }
+    .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; white-space: nowrap; }
+    @keyframes scrollTrust {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 1.5rem)); }
+    }
 
     /* REVIEWS SECTION */
     .reviews-section { background: var(--white); padding: 3rem 4%; border-top: 1px solid var(--border); overflow: hidden; }
@@ -389,10 +396,17 @@
 
 <!-- TRUST STRIP -->
 <div class="trust-strip">
-  <div class="trust-item">✅ Every device tested</div>
-  <div class="trust-item">🚚 Same-day delivery Nairobi</div>
-  <div class="trust-item">💳 M-Pesa accepted</div>
-  <div class="trust-item">🔄 Buy your old device</div>
+  <div class="trust-track">
+    <div class="trust-item">✅ Every device tested</div>
+    <div class="trust-item">🚚 Same-day delivery Nairobi</div>
+    <div class="trust-item">💳 M-Pesa accepted</div>
+    <div class="trust-item">🔄 Buy your old device</div>
+    <!-- Duplicate -->
+    <div class="trust-item">✅ Every device tested</div>
+    <div class="trust-item">🚚 Same-day delivery Nairobi</div>
+    <div class="trust-item">💳 M-Pesa accepted</div>
+    <div class="trust-item">🔄 Buy your old device</div>
+  </div>
 </div>
 
 
