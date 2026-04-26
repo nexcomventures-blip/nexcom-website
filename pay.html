@@ -1,1 +1,153 @@
-cat: pay.html: No such file or directory
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Nexcom Ventures | Secure Payment Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #E4002B; --primary-dark: #B5001F;
+      --bg: #F5F5F5; --white: #FFFFFF;
+      --text: #1A1A1A; --muted: #6B7280; --border: #E5E7EB;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+    header {
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 1rem 3%; display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--primary); }
+    
+    .pay-container { max-width: 500px; margin: 3rem auto; padding: 0 1rem; }
+    .pay-card {
+      background: var(--white); border-radius: 16px; padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    .pay-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; text-align: center; }
+    .pay-sub { font-size: 0.9rem; color: var(--muted); text-align: center; margin-bottom: 2rem; }
+    
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+    .form-group input {
+      width: 100%; padding: 12px; border: 1.5px solid var(--border); border-radius: 8px;
+      font-size: 1rem; outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: var(--primary); }
+    
+    .methods-strip {
+      display: flex; justify-content: center; gap: 1rem; margin: 1.5rem 0;
+      opacity: 0.6; grayscale: 1;
+    }
+    .methods-strip img { height: 20px; }
+    
+    .pay-btn {
+      width: 100%; background: var(--primary); color: #fff; border: none;
+      border-radius: 10px; padding: 14px; font-size: 1.1rem; font-weight: 700;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .pay-btn:hover { background: var(--primary-dark); }
+    
+    .secure-note {
+      text-align: center; margin-top: 1.5rem; font-size: 0.75rem; color: var(--muted);
+      display: flex; align-items: center; justify-content: center; gap: 4px;
+    }
+    
+    footer { text-align: center; margin-top: 2rem; font-size: 0.8rem; color: var(--muted); padding-bottom: 2rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">Nex<span>com</span></a>
+  <a href="index.html" style="font-size:0.9rem; color:var(--muted); text-decoration:none; font-weight:600;">← Back to Home</a>
+</header>
+
+<div class="pay-container">
+  <div class="pay-card">
+    <h1 class="pay-title">Secure Payment</h1>
+    <p class="pay-sub">Enter details to pay your invoice via M-Pesa, Card or PayPal</p>
+    
+    <form id="payForm">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="John Doe" required>
+      </div>
+      
+      <div class="form-group">
+        <label>WhatsApp Number (for Receipt)</label>
+        <input type="tel" id="phone" placeholder="2547XXXXXXXX" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Invoice Number (Optional)</label>
+        <input type="text" id="invoice" placeholder="INV-2026-001">
+      </div>
+      
+      <div class="form-group">
+        <label>Amount (KES)</label>
+        <input type="number" id="amount" placeholder="5000" required>
+      </div>
+      
+      <div class="methods-strip">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+      </div>
+      
+      <button type="submit" class="pay-btn" id="payBtn">Proceed to Pay</button>
+    </form>
+    
+    <div class="secure-note">
+      🔒 Secure SSL Encrypted Payment
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Nexcom Ventures Limited. All Rights Reserved.
+</footer>
+
+<script>
+  document.getElementById('payForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('payBtn');
+    btn.disabled = true;
+    btn.innerText = 'Processing...';
+    
+    const data = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      invoice: document.getElementById('invoice').value,
+      amount: document.getElementById('amount').value
+    };
+    
+    try {
+      // In production, this calls your Flutterwave/Gateway initialization endpoint
+      const response = await fetch('http://localhost:5000/api/payments/init', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      
+      const res = await response.json();
+      if(res.link) {
+        window.location.href = res.link;
+      } else {
+        alert('Could not initialize payment. Please try again.');
+        btn.disabled = false;
+        btn.innerText = 'Proceed to Pay';
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error connecting to payment server.');
+      btn.disabled = false;
+      btn.innerText = 'Proceed to Pay';
+    }
+  });
+</script>
+
+</body>
+</html>
