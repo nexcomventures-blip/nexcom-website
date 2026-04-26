@@ -10,6 +10,7 @@
       --primary: #E4002B; --primary-dark: #B5001F;
       --bg: #F5F5F5; --white: #FFFFFF;
       --text: #1A1A1A; --muted: #6B7280; --border: #E5E7EB;
+      --mpesa: #49B249;
     }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
     header {
@@ -37,16 +38,17 @@
     }
     .form-group input:focus { border-color: var(--primary); }
     
-    .methods-strip {
-      display: flex; justify-content: center; gap: 1rem; margin: 1.5rem 0;
-      opacity: 0.6; grayscale: 1;
+    .mpesa-box {
+      background: #f0faf0; border: 1px dashed var(--mpesa); border-radius: 12px;
+      padding: 1.5rem; margin: 1.5rem 0; text-align: center;
     }
-    .methods-strip img { height: 20px; }
+    .mpesa-title { color: var(--mpesa); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .mpesa-details { font-family: monospace; font-size: 1.2rem; font-weight: 700; color: #333; }
     
     .pay-btn {
       width: 100%; background: var(--primary); color: #fff; border: none;
       border-radius: 10px; padding: 14px; font-size: 1.1rem; font-weight: 700;
-      cursor: pointer; transition: background 0.2s;
+      cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
     }
     .pay-btn:hover { background: var(--primary-dark); }
     
@@ -68,40 +70,43 @@
 <div class="pay-container">
   <div class="pay-card">
     <h1 class="pay-title">Secure Payment</h1>
-    <p class="pay-sub">Enter details to pay your invoice via M-Pesa, Card or PayPal</p>
+    <p class="pay-sub">Pay your invoice via M-Pesa Buy Goods</p>
+
+    <div class="mpesa-box">
+      <div class="mpesa-title">Lipa Na M-PESA</div>
+      <div style="font-size: 0.85rem; color: #555; margin-bottom: 4px;">Buy Goods & Services</div>
+      <div class="mpesa-details">TILL: 3291421</div>
+      <div style="font-size: 0.8rem; color: #666; margin-top: 4px;">(Sip Cycle / Nexcom Ventures)</div>
+    </div>
     
     <form id="payForm">
       <div class="form-group">
         <label>Full Name</label>
-        <input type="text" id="name" placeholder="John Doe" required>
+        <input type="text" id="name" placeholder="Your Name" required>
       </div>
       
       <div class="form-group">
-        <label>WhatsApp Number (for Receipt)</label>
+        <label>WhatsApp Number</label>
         <input type="tel" id="phone" placeholder="2547XXXXXXXX" required>
       </div>
       
       <div class="form-group">
-        <label>Invoice Number (Optional)</label>
-        <input type="text" id="invoice" placeholder="INV-2026-001">
+        <label>Invoice / Order Ref</label>
+        <input type="text" id="invoice" placeholder="Optional">
       </div>
       
       <div class="form-group">
-        <label>Amount (KES)</label>
-        <input type="number" id="amount" placeholder="5000" required>
+        <label>Amount Paid (KES)</label>
+        <input type="number" id="amount" placeholder="Amount" required>
       </div>
       
-      <div class="methods-strip">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/M-PESA_LOGO-01.svg" alt="M-Pesa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-      </div>
-      
-      <button type="submit" class="pay-btn" id="payBtn">Proceed to Pay</button>
+      <button type="submit" class="pay-btn" id="payBtn">
+        Confirm via WhatsApp
+      </button>
     </form>
     
     <div class="secure-note">
-      🔒 Secure SSL Encrypted Payment
+      🔒 Secure Payment Confirmation
     </div>
   </div>
 </div>
@@ -111,41 +116,25 @@
 </footer>
 
 <script>
-  document.getElementById('payForm').addEventListener('submit', async (e) => {
+  document.getElementById('payForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = document.getElementById('payBtn');
-    btn.disabled = true;
-    btn.innerText = 'Processing...';
     
-    const data = {
-      name: document.getElementById('name').value,
-      phone: document.getElementById('phone').value,
-      invoice: document.getElementById('invoice').value,
-      amount: document.getElementById('amount').value
-    };
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const invoice = document.getElementById('invoice').value || 'New Payment';
+    const amount = document.getElementById('amount').value;
     
-    try {
-      // In production, this calls your Flutterwave/Gateway initialization endpoint
-      const response = await fetch('http://localhost:5000/api/payments/init', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      
-      const res = await response.json();
-      if(res.link) {
-        window.location.href = res.link;
-      } else {
-        alert('Could not initialize payment. Please try again.');
-        btn.disabled = false;
-        btn.innerText = 'Proceed to Pay';
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Error connecting to payment server.');
-      btn.disabled = false;
-      btn.innerText = 'Proceed to Pay';
-    }
+    const message = `Hello Nexcom, I've just made a payment.\n\n` +
+                    `👤 Name: ${name}\n` +
+                    `📞 Phone: ${phone}\n` +
+                    `📄 Ref: ${invoice}\n` +
+                    `💰 Amount: KES ${amount}\n\n` +
+                    `Please confirm receipt. Thank you!`;
+    
+    const waUrl = `https://wa.me/254722816001?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp
+    window.location.href = waUrl;
   });
 </script>
 
