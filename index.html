@@ -3,200 +3,187 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Nexcom Ventures | Global IT Solutions & Enterprise Hardware</title>
-<meta name="description" content="Global IT managed services, remote support, and enterprise-grade hardware export. Computing with confidence, globally."/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<title>Nexcom Ventures | Modern Enterprise IT & Logistics</title>
+<meta name="description" content="Premium Managed IT Services, Cloud Infrastructure, and Global Hardware Logistics."/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 :root {
-    --primary: #4F46E5;
-    --primary-dark: #3730A3;
-    --secondary: #0F172A;
-    --accent: #10B981;
-    --text-main: #1E293B;
-    --text-muted: #64748B;
-    --bg-light: #F8FAFC;
-    --white: #FFFFFF;
-    --border: #E2E8F0;
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --accent: #FF3D00; /* Vibrant Orange/Red */
+    --accent-glow: rgba(255, 61, 0, 0.4);
+    --bg: #050505;
+    --card-bg: #111111;
+    --text: #FFFFFF;
+    --text-dim: #A0A0A0;
+    --border: #222222;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-light); color: var(--text-main); line-height: 1.5; overflow-x: hidden; }
-a { text-decoration: none; color: inherit; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background: var(--bg); 
+    color: var(--text); 
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-/* Navigation */
+/* Glassmorphism Navigation */
 nav {
-    position: sticky; top: 0; z-index: 1000;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 20px 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
-    height: 72px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5%;
 }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
-.logo span { color: var(--primary); }
-.nav-links { display: flex; gap: 2rem; align-items: center; }
-.nav-links a { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); transition: color 0.2s; }
-.nav-links a:hover { color: var(--primary); }
-.nav-cta { 
-    background: var(--primary); color: white; 
-    padding: 10px 20px; border-radius: 8px; 
-    font-weight: 700; font-size: 0.9rem;
-    transition: transform 0.2s, background 0.2s;
-}
-.nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: -1px; }
+.logo span { color: var(--accent); }
 
-/* Hero Section */
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-dim); transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+
+/* Cyberpunk Hero */
 .hero {
-    padding: 100px 5% 60px;
-    background: radial-gradient(circle at top right, #EEF2FF, transparent), 
-                radial-gradient(circle at bottom left, #F5F3FF, transparent);
-    text-align: center;
+    height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 0 5%;
+    background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%);
+    position: relative;
 }
-.hero-badge {
-    display: inline-block; padding: 6px 16px; 
-    background: #E0E7FF; color: var(--primary); 
-    border-radius: 100px; font-size: 0.75rem; font-weight: 700;
-    text-transform: uppercase; margin-bottom: 24px;
+.hero::before {
+    content: ''; position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);
+    width: 300px; height: 300px; background: var(--accent); filter: blur(150px); opacity: 0.15;
 }
-.hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px; }
-.hero h1 span { color: var(--primary); }
-.hero p { max-width: 700px; margin: 0 auto 40px; font-size: 1.15rem; color: var(--text-muted); }
-.hero-btns { display: flex; gap: 16px; justify-content: center; }
-.btn-primary { background: var(--primary); color: white; padding: 16px 32px; border-radius: 12px; font-weight: 700; }
-.btn-secondary { background: white; color: var(--secondary); border: 1px solid var(--border); padding: 16px 32px; border-radius: 12px; font-weight: 700; box-shadow: var(--shadow); }
-
-/* Services */
-.section-title { text-align: center; margin-bottom: 60px; }
-.section-title h2 { font-size: 2.25rem; font-weight: 800; margin-bottom: 12px; }
-.section-title p { color: var(--text-muted); }
-
-.services { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-.service-card { 
-    background: white; padding: 40px; border-radius: 24px; 
-    border: 1px solid var(--border); transition: all 0.3s;
+.hero h1 { 
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem); 
+    line-height: 0.9; margin-bottom: 20px; 
+    font-weight: 700; letter-spacing: -3px;
 }
-.service-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-.service-icon { 
-    width: 56px; height: 56px; background: #EEF2FF; 
-    color: var(--primary); display: flex; align-items: center; 
-    justify-content: center; border-radius: 16px; margin-bottom: 24px; font-size: 1.5rem;
+.hero p { color: var(--text-dim); max-width: 600px; font-size: 1.2rem; margin-bottom: 40px; }
+
+.btn-cyber {
+    padding: 18px 40px; border: 1px solid var(--accent); 
+    color: var(--accent); text-transform: uppercase; font-weight: 700;
+    letter-spacing: 2px; position: relative; transition: 0.3s; overflow: hidden;
+    background: transparent;
 }
-.service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
-.service-card p { font-size: 0.95rem; color: var(--text-muted); }
-
-/* Products Section */
-.products-section { padding: 80px 5%; background: white; border-top: 1px solid var(--border); }
-.filter-bar { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 20px; margin-bottom: 40px; scrollbar-width: none; }
-.filter-btn { 
-    white-space: nowrap; padding: 10px 20px; border-radius: 100px; 
-    border: 1px solid var(--border); background: var(--bg-light); 
-    font-weight: 600; cursor: pointer; transition: 0.2s;
+.btn-cyber:hover {
+    background: var(--accent); color: #000;
+    box-shadow: 0 0 30px var(--accent-glow);
 }
-.filter-btn.active { background: var(--secondary); color: white; border-color: var(--secondary); }
 
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+/* Services Grid - Dark Mode */
+.section { padding: 100px 5%; }
+.section-header { margin-bottom: 60px; }
+.section-header h2 { font-size: 2.5rem; font-family: 'Space Grotesk', sans-serif; }
+.section-header p { color: var(--text-dim); }
 
-/* Product Card Styling Overrides */
-.pcard { background: var(--bg-light); border-radius: 20px; padding: 16px; border: 1px solid transparent; transition: 0.2s; }
-.pcard:hover { border-color: var(--primary); background: white; box-shadow: var(--shadow); }
-.pcard-img { width: 100%; height: 180px; border-radius: 14px; overflow: hidden; margin-bottom: 16px; background: #e2e8f0; position: relative; }
-.pcard-img img { width: 100%; height: 100%; object-fit: cover; }
-.badge { position: absolute; top: 12px; left: 12px; background: white; padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; box-shadow: var(--shadow); }
-.badge-warranty { left: auto; right: 12px; background: var(--secondary); color: white; }
-.pcard-body { padding: 4px; }
-.pcard-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; color: var(--secondary); }
-.pcard-spec { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; height: 40px; overflow: hidden; }
-.pcard-price { font-size: 1.25rem; font-weight: 800; color: var(--primary); display: flex; align-items: baseline; gap: 4px; }
-.excl-vat { font-size: 0.65rem; color: var(--text-muted); font-weight: 500; }
+.services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+}
+.s-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    padding: 40px; transition: 0.4s;
+}
+.s-card:hover { border-color: var(--accent); transform: translateY(-10px); }
+.s-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+.s-card p { color: var(--text-dim); font-size: 0.95rem; }
+
+/* Product Display */
+.hardware-section { background: #080808; }
+.filter-tabs { display: flex; gap: 15px; margin-bottom: 40px; overflow-x: auto; scrollbar-width: none; }
+.tab { 
+    padding: 8px 24px; border: 1px solid var(--border); color: var(--text-dim); 
+    cursor: pointer; white-space: nowrap; transition: 0.3s;
+}
+.tab.active { border-color: var(--accent); color: var(--accent); }
+
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+/* Product Card - Minimalist Dark */
+.pcard { background: var(--card-bg); border: 1px solid var(--border); padding: 10px; transition: 0.3s; position: relative; }
+.pcard:hover { border-color: #333; }
+.pcard-img { height: 200px; background: #1a1a1a; margin-bottom: 15px; position: relative; }
+.pcard-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+.badge { position: absolute; top: 10px; left: 10px; font-size: 0.6rem; background: #000; padding: 4px 8px; border: 1px solid #333; text-transform: uppercase; }
+.pcard-name { font-weight: 600; margin-bottom: 5px; font-size: 1rem; color: #eee; }
+.pcard-spec { font-size: 0.75rem; color: #666; height: 35px; overflow: hidden; margin-bottom: 15px; }
+.pcard-price { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
 .order-btn { 
-    width: 100%; margin-top: 16px; padding: 12px; 
-    background: var(--secondary); color: white; border: none; 
-    border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.2s;
+    width: 100%; background: transparent; border: 1px solid #333; color: #fff;
+    padding: 10px; margin-top: 15px; cursor: pointer; transition: 0.3s; font-family: inherit; font-weight: 600;
 }
-.order-btn:hover { background: var(--primary); }
+.order-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-footer { background: var(--secondary); color: white; padding: 80px 5% 40px; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
-.footer-logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; }
-.footer-logo span { color: var(--primary); }
-.footer-links h4 { margin-bottom: 20px; font-size: 1.1rem; }
-.footer-links a { display: block; margin-bottom: 12px; color: #94A3B8; font-size: 0.95rem; }
-.footer-links a:hover { color: white; }
+/* Footer */
+footer { padding: 80px 5%; border-top: 1px solid var(--border); }
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+.f-col h4 { margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: var(--accent); }
+.f-col a { display: block; color: var(--text-dim); margin-bottom: 10px; font-size: 0.9rem; }
 
 /* Modal */
-#modalOverlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+#modalOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; display: none; align-items: center; justify-content: center; }
 #modalOverlay.open { display: flex; }
-.modal { background: white; width: 90%; max-width: 500px; padding: 40px; border-radius: 32px; position: relative; }
-.close-modal { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); }
-.modal h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
-.modal input { width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; font-family: inherit; }
-.modal button { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; }
+.modal { background: var(--card-bg); border: 1px solid var(--border); width: 90%; max-width: 450px; padding: 40px; text-align: center; }
+.modal input { width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 15px; margin-bottom: 15px; font-family: inherit; }
+.modal button { width: 100%; background: var(--accent); color: #000; border: none; padding: 15px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .hero { padding-top: 60px; }
-    .hero h1 { font-size: 2.5rem; }
+    .hero h1 { font-size: 4rem; }
 }
 </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">Nex<span>com</span></div>
+    <div class="logo">NEX<span>COM</span></div>
     <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#hardware">Hardware</a>
-        <a href="https://wa.me/254722816001">Support</a>
+        <a href="#services">SERVICES</a>
+        <a href="#hardware">HARDWARE</a>
+        <a href="#contact">CONTACT</a>
     </div>
-    <a href="https://wa.me/254722816001" class="nav-cta">Consult an Expert</a>
 </nav>
 
 <section class="hero">
-    <div class="hero-badge">Global IT Partner</div>
-    <h1>Compute with Confidence, <span>Globally</span></h1>
-    <p>Nexcom Ventures delivers robust Managed IT Services, 24/7 Remote Support, and High-Performance Hardware Solutions to businesses worldwide.</p>
-    <div class="hero-btns">
-        <a href="#hardware" class="btn-primary">Explore Hardware</a>
-        <a href="#services" class="btn-secondary">Our Services</a>
+    <h1>INFRA<span>STRUCTURE</span></h1>
+    <p>Premium IT Managed Services, Global Supply Chain Logistics, and Enterprise Computing Solutions for the Digital Frontier.</p>
+    <a href="#hardware" class="btn-cyber">Access Inventory</a>
+</section>
+
+<section class="section" id="services">
+    <div class="section-header">
+        <h2>CORE OPERATIONS</h2>
+        <p>Strategic IT solutions for a boundaryless world.</p>
+    </div>
+    <div class="services-grid">
+        <div class="s-card">
+            <h3>GLOBAL LOGISTICS</h3>
+            <p>Seamless procurement and export of tier-one enterprise hardware across EU and African markets.</p>
+        </div>
+        <div class="s-card">
+            <h3>MANAGED CLOUD</h3>
+            <p>24/7 server orchestration, security compliance (GDPR), and remote infrastructure stability.</p>
+        </div>
+        <div class="s-card">
+            <h3>EXPERT SUPPORT</h3>
+            <p>L1-L3 technical helpdesk tailored for distributed teams and global SMEs.</p>
+        </div>
     </div>
 </section>
 
-<section class="services" id="services">
-    <div class="service-card">
-        <div class="service-icon">🌐</div>
-        <h3>Remote Managed IT</h3>
-        <p>24/7 server monitoring, cloud management, and infrastructure maintenance tailored for EU SMEs.</p>
+<section class="section hardware-section" id="hardware">
+    <div class="section-header">
+        <h2>ENTERPRISE HARDWARE</h2>
+        <p>Verified systems. Zero failure tolerance.</p>
     </div>
-    <div class="service-card">
-        <div class="service-icon">🎧</div>
-        <h3>Technical Helpdesk</h3>
-        <p>Responsive L1/L2 remote support for software troubleshooting and system configuration.</p>
-    </div>
-    <div class="service-card">
-        <div class="service-icon">🏗️</div>
-        <h3>IT Consulting</h3>
-        <p>Strategic advice on digital transformation, hardware procurement, and GDPR compliance.</p>
-    </div>
-    <div class="service-card">
-        <div class="service-icon">📦</div>
-        <h3>Hardware Export</h3>
-        <p>Direct sourcing and deployment of high-tier corporate devices from EU distributors.</p>
-    </div>
-</section>
 
-<section class="products-section" id="hardware">
-    <div class="section-title">
-        <h2>Enterprise-Grade Hardware</h2>
-        <p>Verified, high-performance laptops and servers for professionals.</p>
-    </div>
-    
-    <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterS('all', this)">All Hardware</button>
-        <button class="filter-btn" onclick="filterS('new', this)">Brand New</button>
-        <button class="filter-btn" onclick="filterS('exuk', this)">Ex-UK / Corporate</button>
-        <button class="filter-btn" onclick="filterS('srv', this)">Servers</button>
+    <div class="filter-tabs">
+        <div class="tab active" onclick="filterS('all', this)">ALL SYSTEMS</div>
+        <div class="tab" onclick="filterS('new', this)">BRAND NEW</div>
+        <div class="tab" onclick="filterS('exuk', this)">EX-CORPORATE</div>
+        <div class="tab" onclick="filterS('srv', this)">SERVERS</div>
     </div>
 
     <div class="product-grid" id="productGrid">
@@ -2091,81 +2078,62 @@ footer { background: var(--secondary); color: white; padding: 80px 5% 40px; }
     </div>
 </section>
 
-<footer>
-    <div class="footer-grid">
-        <div class="footer-links">
-            <div class="footer-logo">Nex<span>com</span></div>
-            <p>Compute with Confidence, Globally.</p>
+<footer id="contact">
+    <div class="footer-content">
+        <div class="f-col" style="flex: 2;">
+            <div class="logo">NEX<span>COM</span></div>
+            <p style="color:var(--text-dim); margin-top:20px;">Computing with confidence, globally.</p>
         </div>
-        <div class="footer-links">
-            <h4>Quick Links</h4>
-            <a href="#services">Services</a>
-            <a href="#hardware">Hardware Catalog</a>
-            <a href="https://wa.me/254722816001">WhatsApp Support</a>
+        <div class="f-col">
+            <h4>DIRECTIVES</h4>
+            <a href="#services">SERVICES</a>
+            <a href="#hardware">INVENTORY</a>
+            <a href="https://wa.me/254722816001">SUPPORT</a>
         </div>
-        <div class="footer-links">
-            <h4>Global Presence</h4>
-            <a href="#">Nairobi, Kenya (HQ)</a>
-            <a href="#">EU Focus: DE, NL, FR</a>
-        </div>
-        <div class="footer-links">
-            <h4>Contact</h4>
-            <a href="mailto:nexcomventures@gmail.com">nexcomventures@gmail.com</a>
+        <div class="f-col">
+            <h4>COMMUNICATIONS</h4>
+            <a href="mailto:nexcomventures@gmail.com">NEXCOMVENTURES@GMAIL.COM</a>
             <a href="tel:+254722816001">+254 722 816 001</a>
+            <a href="#">NAIROBI, KENYA</a>
         </div>
-    </div>
-    <div style="text-align:center; padding-top:40px; border-top:1px solid #1E293B; color:#64748B; font-size:0.8rem;">
-        &copy; 2026 Nexcom Ventures Limited. All rights reserved.
     </div>
 </footer>
 
 <div id="modalOverlay">
     <div class="modal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <h3 id="modalProductName">Product Name</h3>
-        <p id="modalProductPrice" style="color:var(--primary); font-weight:800; margin-bottom:20px;">Price</p>
-        <form onsubmit="submitOrder(event)">
-            <input type="text" placeholder="Your Name" id="userName" required>
-            <input type="tel" placeholder="Phone Number" id="userPhone" required>
-            <button type="submit">Confirm Interest via WhatsApp</button>
+        <h3 id="mName" style="margin-bottom:10px;">PRODUCT</h3>
+        <p id="mPrice" style="color:var(--accent); font-weight:700; margin-bottom:30px;">PRICE</p>
+        <form onsubmit="subO(event)">
+            <input type="text" placeholder="OPERATOR NAME" id="uN" required>
+            <input type="tel" placeholder="CONTACT SECURE" id="uP" required>
+            <button type="submit">TRANSMIT REQUEST</button>
         </form>
+        <p onclick="closeM()" style="margin-top:20px; font-size:0.8rem; color:#444; cursor:pointer;">ABORT TRANSACTION</p>
     </div>
 </div>
 
 <script>
-let currentS = 'all';
 function filterS(section, btn) {
-    currentS = section;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    
-    const cards = document.querySelectorAll('.pcard');
-    cards.forEach(c => {
-        if (section === 'all' || c.dataset.section === section) {
-            c.style.display = 'block';
-        } else {
-            c.style.display = 'none';
-        }
+    document.querySelectorAll('.pcard').forEach(c => {
+        c.style.display = (section === 'all' || c.dataset.section === section) ? 'block' : 'none';
     });
 }
 
-let _pn='', _pp='';
-function openOrder(name, specs, price) {
-    _pn = name; _pp = price;
-    document.getElementById('modalProductName').textContent = name;
-    document.getElementById('modalProductPrice').textContent = price;
+let _n='', _p='';
+function openOrder(n, s, p) {
+    _n=n; _p=p;
+    document.getElementById('mName').textContent = n;
+    document.getElementById('mPrice').textContent = p;
     document.getElementById('modalOverlay').classList.add('open');
 }
 
-function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-}
+function closeM() { document.getElementById('modalOverlay').classList.remove('open'); }
 
-function submitOrder(e) {
+function subO(e) {
     e.preventDefault();
-    const n = document.getElementById('userName').value;
-    const p = document.getElementById('userPhone').value;
-    const msg = encodeURIComponent("Hi Nexcom! I'm interested in: " + _pn + " (" + _pp + ")\n\nName: " + n + "\nPhone: " + p);
+    const msg = encodeURIComponent("SECURE REQUEST: " + _n + " [" + _p + "]\n\nID: " + document.getElementById('uN').value + "\nCOMMS: " + document.getElementById('uP').value);
     window.open("https://wa.me/254722816001?text=" + msg, "_blank");
 }
 </script>
